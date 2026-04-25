@@ -5,6 +5,11 @@ navLabel: "Aussenanlagen"
 description: "Vorbereiteter Bereich fuer Aussenflaechen, Wege, Anschlusszonen und objektnahe Arbeiten."
 seoTitle: "Aussenanlagen"
 seoDescription: "Aussenanlagen als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
+heroImage:
+  src: "/images/services/aussenanlagen-plattenweg.webp"
+  alt: "Neu angelegter Plattenweg an einem Wohnhaus"
+  width: 1200
+  height: 1200
 tags:
   - "Aussenbereich"
   - "Garten"

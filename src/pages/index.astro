@@ -7,6 +7,7 @@ import TrustSection from '@/components/sections/TrustSection.astro';
 import ProcessSection from '@/components/sections/ProcessSection.astro';
 import FAQSection from '@/components/sections/FAQSection.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
+import { homeHeroImage } from '@/data/assets';
 import { SITE } from '@/data/site';
 import { serviceNavigation } from '@/data/navigation';
 import { localBusinessSchema, organizationSchema, webPageSchema } from '@/utils/structuredData';
@@ -30,7 +31,7 @@ const sortedServices = serviceNavigation
     webPageSchema({ title, description, path: '/' }),
   ]}
 >
-  <HeroHome />
+  <HeroHome image={homeHeroImage} />
   <ServicesOverview
     services={sortedServices}
     limit={6}

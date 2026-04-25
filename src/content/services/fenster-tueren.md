@@ -5,6 +5,11 @@ navLabel: "Fenster & Tueren"
 description: "Austausch und Einbau von Fenstern und Tueren mit Blick auf Anschluesse und Sanierung."
 seoTitle: "Fenster und Tueren"
 seoDescription: "Fenster und Tueren als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing."
+heroImage:
+  src: "/images/services/fenster-tueren-haustuer.webp"
+  alt: "Neue Haustuer an einer Fassade"
+  width: 1200
+  height: 1200
 tags:
   - "Fenster"
   - "Tueren"

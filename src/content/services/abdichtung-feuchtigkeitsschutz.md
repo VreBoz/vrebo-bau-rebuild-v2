@@ -5,6 +5,11 @@ navLabel: "Abdichtung"
 description: "Baulicher Schutz vor Feuchtigkeit mit Fokus auf kritische Anschluesse und Sanierungsbereiche."
 seoTitle: "Abdichtung und Feuchtigkeitsschutz"
 seoDescription: "Abdichtung und Feuchtigkeitsschutz als vorbereiteter Leistungsbereich fuer Vrebo Bau."
+heroImage:
+  src: "/images/services/abdichtung-feuchtigkeitsschutz-terrasse.webp"
+  alt: "Terrassenbereich mit Stelzlagern und vorbereiteter Flaeche"
+  width: 1200
+  height: 1200
 tags:
   - "Abdichtung"
   - "Feuchtigkeitsschutz"

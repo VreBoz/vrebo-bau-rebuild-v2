@@ -1,15 +1,18 @@
 ---
 import Button from '@/components/ui/Button.astro';
 import Tag from '@/components/ui/Tag.astro';
+import type { ImageAsset } from '@/data/assets';
 
 interface Props {
   title?: string;
   description?: string;
+  image?: ImageAsset;
 }
 
 const {
   title = 'Bauunternehmen fuer Renovierung, Sanierung und Ausbau in Freilassing',
   description = 'Arbeitsversion fuer den ersten Eindruck: regional, strukturiert und klar auf Anfrage ausgerichtet.',
+  image,
 } = Astro.props;
 ---
 
@@ -30,8 +33,20 @@ const {
       </ul>
     </div>
 
-    <div class="hero-home__media" aria-label="Geplante Projektbildflaeche">
-      <span>Projektmotiv</span>
+    <div class:list={['hero-home__media', { 'hero-home__media--empty': !image }]}>
+      {image ? (
+        <img
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      ) : (
+        <span>Projektmotiv</span>
+      )}
     </div>
   </div>
 </section>
@@ -111,16 +126,43 @@ const {
   }
 
   .hero-home__media {
-    display: grid;
+    position: relative;
+    display: block;
+    height: 100%;
     min-height: 100%;
-    place-items: end start;
-    padding: 1.3rem;
+    overflow: hidden;
     background:
       linear-gradient(180deg, rgb(21 17 15 / 0.05), rgb(21 17 15 / 0.78)),
       linear-gradient(145deg, #d6c6b4, #ab3743 62%, #651113);
   }
 
-  .hero-home__media span {
+  .hero-home__media::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(180deg, rgb(21 17 15 / 0.02), rgb(21 17 15 / 0.34));
+  }
+
+  .hero-home__media img {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: 52% 50%;
+  }
+
+  .hero-home__media--empty {
+    display: grid;
+    place-items: end start;
+    padding: 1.3rem;
+  }
+
+  .hero-home__media--empty::after {
+    display: none;
+  }
+
+  .hero-home__media--empty span {
     border: 1px solid rgb(255 250 244 / 0.18);
     border-radius: 999px;
     padding: 0.5rem 0.75rem;
@@ -153,6 +195,10 @@ const {
     }
 
     .hero-home__media {
+      min-height: 13rem;
+    }
+
+    .hero-home__media img {
       min-height: 13rem;
     }
   }

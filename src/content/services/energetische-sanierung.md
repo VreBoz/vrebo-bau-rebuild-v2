@@ -5,6 +5,11 @@ navLabel: "Energetische Sanierung"
 description: "Vorbereiteter Leistungsbereich fuer Massnahmen an Gebaeudehuelle, Anschluessen und Modernisierung."
 seoTitle: "Energetische Sanierung"
 seoDescription: "Energetische Sanierung als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
+heroImage:
+  src: "/images/services/energetische-sanierung-fenster.webp"
+  alt: "Fensterbereich mit Rollladen in einem sanierten Raum"
+  width: 1200
+  height: 1200
 tags:
   - "Sanierung"
   - "Energie"

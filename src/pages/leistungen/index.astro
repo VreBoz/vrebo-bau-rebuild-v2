@@ -5,6 +5,7 @@ import PageHero from '@/components/sections/PageHero.astro';
 import ServicesOverview from '@/components/sections/ServicesOverview.astro';
 import ProcessSection from '@/components/sections/ProcessSection.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
+import { servicesOverviewImage } from '@/data/assets';
 import { serviceNavigation } from '@/data/navigation';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
@@ -40,6 +41,7 @@ const pageActions = [
     tags={['Freilassing', 'Berchtesgadener Land', 'Strukturierte Services']}
     actions={pageActions}
     mediaLabel="Service-Struktur"
+    image={servicesOverviewImage}
   />
 
   <ServicesOverview

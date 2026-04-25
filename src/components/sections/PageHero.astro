@@ -1,6 +1,7 @@
 ---
 import Button from '@/components/ui/Button.astro';
 import Tag from '@/components/ui/Tag.astro';
+import type { ImageAsset } from '@/data/assets';
 
 type HeroAction = {
   label: string;
@@ -16,6 +17,7 @@ interface Props {
   actions?: ReadonlyArray<HeroAction>;
   tone?: 'light' | 'dark';
   mediaLabel?: string;
+  image?: ImageAsset;
 }
 
 const {
@@ -26,6 +28,7 @@ const {
   actions = [],
   tone = 'light',
   mediaLabel = 'Bild- oder Projektflaeche',
+  image,
 } = Astro.props;
 const hasMedia = Astro.slots.has('media');
 ---
@@ -52,8 +55,25 @@ const hasMedia = Astro.slots.has('media');
       )}
     </div>
 
-    <div class="page-hero__media" aria-label={mediaLabel}>
-      {hasMedia ? <slot name="media" /> : <span>{mediaLabel}</span>}
+    <div
+      class:list={['page-hero__media', { 'page-hero__media--empty': !image && !hasMedia }]}
+      aria-label={!image && !hasMedia ? mediaLabel : undefined}
+    >
+      {image ? (
+        <img
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      ) : hasMedia ? (
+        <slot name="media" />
+      ) : (
+        <span>{mediaLabel}</span>
+      )}
     </div>
   </div>
 </section>
@@ -118,9 +138,9 @@ const hasMedia = Astro.slots.has('media');
   }
 
   .page-hero__media {
-    display: grid;
+    display: block;
+    aspect-ratio: 4 / 3;
     min-height: 18rem;
-    place-items: center;
     overflow: hidden;
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-xl);
@@ -130,6 +150,19 @@ const hasMedia = Astro.slots.has('media');
     color: #6b625c;
     font-weight: 780;
     text-align: center;
+  }
+
+  .page-hero__media img {
+    width: 100%;
+    height: 100%;
+    min-height: 18rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .page-hero__media--empty {
+    display: grid;
+    place-items: center;
   }
 
   .page-hero--dark .page-hero__media {
@@ -162,6 +195,11 @@ const hasMedia = Astro.slots.has('media');
     }
 
     .page-hero__media {
+      aspect-ratio: 16 / 10;
+      min-height: 13rem;
+    }
+
+    .page-hero__media img {
       min-height: 13rem;
     }
   }

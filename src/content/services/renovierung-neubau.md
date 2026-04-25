@@ -5,6 +5,11 @@ navLabel: "Renovierung & Neubau"
 description: "Umbau, Modernisierung und bauliche Anpassungen als zentraler Einstieg fuer Wohn- und Objektprojekte."
 seoTitle: "Renovierung und Neubau"
 seoDescription: "Renovierung und Neubau als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
+heroImage:
+  src: "/images/services/renovierung-neubau-flur.webp"
+  alt: "Renovierter Flur mit neuen Bodenflaechen"
+  width: 1200
+  height: 1600
 tags:
   - "Renovierung"
   - "Neubau"

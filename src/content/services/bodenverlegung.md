@@ -5,6 +5,11 @@ navLabel: "Bodenverlegung"
 description: "Bodenarbeiten fuer Renovierung und Ausbau, vom Untergrund bis zum sichtbaren Abschluss."
 seoTitle: "Bodenverlegung"
 seoDescription: "Bodenverlegung als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
+heroImage:
+  src: "/images/services/bodenverlegung-holzoptikboden.webp"
+  alt: "Renovierter Raum mit Holzoptikboden"
+  width: 1200
+  height: 1200
 tags:
   - "Boden"
   - "Innenausbau"

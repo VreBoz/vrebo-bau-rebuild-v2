@@ -6,9 +6,15 @@ import { legalNavigation, mainNavigation, serviceNavigation } from '@/data/navig
 <footer class="site-footer">
   <div class="site-container footer-grid">
     <div class="footer-brand">
-      <a class="footer-logo" href="/">
-        <span aria-hidden="true">VB</span>
-        <strong>{SITE.name}</strong>
+      <a class="footer-logo" href="/" aria-label={`${SITE.name} Startseite`}>
+        <img
+          src="/images/brand/vrebo-wordmark.png"
+          alt=""
+          width="720"
+          height="214"
+          loading="lazy"
+          decoding="async"
+        />
       </a>
       <p>Regionaler Bauauftritt fuer Freilassing und Umgebung, aktuell als saubere V2-Basis aufgebaut.</p>
     </div>
@@ -56,19 +62,15 @@ import { legalNavigation, mainNavigation, serviceNavigation } from '@/data/navig
   .footer-logo {
     display: inline-flex;
     align-items: center;
-    gap: 0.7rem;
-    font-size: 1.1rem;
+    border-radius: var(--radius-sm);
+    background: #fffaf4;
+    padding: 0.55rem 0.7rem;
   }
 
-  .footer-logo span {
-    display: grid;
-    width: 2.4rem;
-    height: 2.4rem;
-    place-items: center;
-    border-radius: 0.68rem;
-    background: #ab3743;
-    font-size: 0.82rem;
-    font-weight: 840;
+  .footer-logo img {
+    display: block;
+    width: 7.6rem;
+    height: auto;
   }
 
   .footer-brand p,

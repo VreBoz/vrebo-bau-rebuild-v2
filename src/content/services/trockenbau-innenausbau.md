@@ -5,6 +5,11 @@ navLabel: "Trockenbau"
 description: "Innenausbau, Trockenbau und raumbildende Arbeiten als flexible Basis fuer Modernisierung."
 seoTitle: "Trockenbau und Innenausbau"
 seoDescription: "Trockenbau und Innenausbau als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing."
+heroImage:
+  src: "/images/services/trockenbau-innenraum.webp"
+  alt: "Trockenbauwand in einem Innenraum im Ausbau"
+  width: 1200
+  height: 1200
 tags:
   - "Trockenbau"
   - "Innenausbau"

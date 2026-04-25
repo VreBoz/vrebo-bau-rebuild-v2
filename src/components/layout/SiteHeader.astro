@@ -20,10 +20,16 @@ const isActive = (href: string) => {
 <header class="site-header">
   <div class="site-container header-inner">
     <a class="brand-link" href="/" aria-label={`${SITE.name} Startseite`}>
-      <span class="brand-mark" aria-hidden="true">VB</span>
+      <img
+        class="brand-logo"
+        src="/images/brand/vrebo-wordmark.png"
+        alt=""
+        width="720"
+        height="214"
+        decoding="async"
+      />
       <span class="brand-copy">
-        <span>{SITE.name}</span>
-        <small>Freilassing</small>
+        <small>Bau Freilassing</small>
       </span>
     </a>
 
@@ -102,16 +108,10 @@ const isActive = (href: string) => {
     font-weight: 820;
   }
 
-  .brand-mark {
-    display: grid;
-    width: 2.4rem;
-    height: 2.4rem;
-    place-items: center;
-    border-radius: 0.68rem;
-    background: #651113;
-    color: #fffaf4;
-    font-size: 0.82rem;
-    font-weight: 840;
+  .brand-logo {
+    display: block;
+    width: clamp(6.2rem, 12vw, 8.2rem);
+    height: auto;
   }
 
   .brand-copy {

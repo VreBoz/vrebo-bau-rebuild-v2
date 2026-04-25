@@ -22,6 +22,7 @@ const number = String(index + 1).padStart(2, '0');
         src={service.data.heroImage.src}
         alt={service.data.heroImage.alt}
         loading="lazy"
+        decoding="async"
         width={service.data.heroImage.width}
         height={service.data.heroImage.height}
       />

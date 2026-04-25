@@ -5,6 +5,11 @@ navLabel: "Badsanierung"
 description: "Badmodernisierung mit Fokus auf Vorbereitung, Abdichtung, Ausbau und sauberer Ausfuehrung."
 seoTitle: "Badsanierung"
 seoDescription: "Badsanierung als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
+heroImage:
+  src: "/images/services/badsanierung-badbereich.webp"
+  alt: "Fertiggestellter Badbereich mit Dusche und Fliesen"
+  width: 1200
+  height: 1600
 tags:
   - "Bad"
   - "Sanierung"
