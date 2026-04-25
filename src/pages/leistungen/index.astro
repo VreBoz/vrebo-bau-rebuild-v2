@@ -1,16 +1,25 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/sections/PageHero.astro';
+import ServicesOverview from '@/components/sections/ServicesOverview.astro';
+import ProcessSection from '@/components/sections/ProcessSection.astro';
+import FinalCTA from '@/components/sections/FinalCTA.astro';
 import { serviceNavigation } from '@/data/navigation';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
 const title = 'Leistungen';
-const description = 'Technische Leistungsuebersicht fuer die neue Vrebo Bau Website.';
+const description = 'Arbeitsversion der Leistungsuebersicht fuer die neue Vrebo Bau Website.';
 const services = await getCollection('services');
 const servicesBySlug = new Map(services.map((service) => [service.data.slug, service]));
 const sortedServices = serviceNavigation
+  .filter((item) => !item.optional)
   .map((item) => servicesBySlug.get(item.slug))
   .filter((service): service is (typeof services)[number] => Boolean(service));
+const pageActions = [
+  { label: 'Projekt anfragen', href: '/kontakt', variant: 'primary' },
+  { label: 'Zur Startseite', href: '/', variant: 'secondary' },
+] as const;
 ---
 
 <BaseLayout
@@ -24,67 +33,25 @@ const sortedServices = serviceNavigation
     ]),
   ]}
 >
-  <section class="section-shell">
-    <div class="site-container">
-      <p class="eyebrow">Phase 2 Skeleton</p>
-      <h1 class="page-title">Leistungsuebersicht</h1>
-      <p class="lede">
-        Die Datenstruktur fuer alle Leistungen ist vorbereitet. Redaktion, Bilder, Cluster
-        und Detailausarbeitung folgen in Phase 3.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Leistungen"
+    title="Leistungsuebersicht fuer Renovierung, Sanierung und Bau"
+    description="Diese Seite nutzt die zentrale Service-Collection und bleibt in Phase 3 bewusst kurz."
+    tags={['Freilassing', 'Berchtesgadener Land', 'Strukturierte Services']}
+    actions={pageActions}
+    mediaLabel="Service-Struktur"
+  />
 
-  <section class="section-shell service-band">
-    <div class="site-container service-list">
-      {sortedServices.map((service) => (
-        <a class="surface service-row" href={`/leistungen/${service.data.slug}`}>
-          <span>{service.data.navLabel}</span>
-          <p>{service.data.description}</p>
-        </a>
-      ))}
-    </div>
-  </section>
+  <ServicesOverview
+    services={sortedServices}
+    eyebrow="Alle Bereiche"
+    title="Services aus zentralen Daten"
+    description="Die Karten bilden die geplante Leistungsstruktur ab und fuehren bereits auf dynamische Detailseiten."
+    compact
+    showAllLink={false}
+    band
+  />
+
+  <ProcessSection />
+  <FinalCTA />
 </BaseLayout>
-
-<style>
-  .service-band {
-    padding-top: 0;
-  }
-
-  .service-list {
-    display: grid;
-    gap: 0.8rem;
-  }
-
-  .service-row {
-    display: grid;
-    grid-template-columns: minmax(12rem, 0.42fr) minmax(0, 1fr);
-    gap: 1rem;
-    padding: 1.1rem 1.25rem;
-    transition:
-      border-color var(--motion-duration) var(--ease-vrebo),
-      transform var(--motion-duration) var(--ease-vrebo);
-  }
-
-  .service-row:hover {
-    border-color: rgb(101 17 19 / 0.32);
-    transform: translateY(-1px);
-  }
-
-  .service-row span {
-    color: #2b090b;
-    font-weight: 820;
-  }
-
-  .service-row p {
-    margin: 0;
-    color: #6b625c;
-  }
-
-  @media (max-width: 700px) {
-    .service-row {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

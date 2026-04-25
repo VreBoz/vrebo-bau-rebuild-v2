@@ -1,0 +1,64 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'light' | 'warm' | 'strong' | 'dark';
+  class?: string;
+}
+
+const { href, variant = 'light', class: className = '' } = Astro.props;
+const classes = ['tag', `tag--${variant}`, className];
+---
+
+{href ? (
+  <a class:list={classes} href={href}><slot /></a>
+) : (
+  <span class:list={classes}><slot /></span>
+)}
+
+<style>
+  .tag {
+    display: inline-flex;
+    min-height: 1.8rem;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 0.34rem 0.68rem;
+    font-size: 0.82rem;
+    font-weight: 760;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .tag--light {
+    border-color: rgb(101 17 19 / 0.14);
+    background: rgb(255 250 244 / 0.82);
+    color: #651113;
+  }
+
+  .tag--warm {
+    border-color: rgb(48 43 40 / 0.1);
+    background: #e9dfd2;
+    color: #302b28;
+  }
+
+  .tag--strong {
+    background: #651113;
+    color: #fffaf4;
+  }
+
+  .tag--dark {
+    border-color: rgb(255 250 244 / 0.16);
+    background: rgb(255 250 244 / 0.08);
+    color: #fffaf4;
+  }
+
+  a.tag {
+    transition:
+      border-color var(--motion-duration) var(--ease-vrebo),
+      color var(--motion-duration) var(--ease-vrebo);
+  }
+
+  a.tag:hover {
+    border-color: rgb(101 17 19 / 0.4);
+  }
+</style>

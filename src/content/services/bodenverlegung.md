@@ -2,24 +2,24 @@
 title: "Bodenverlegung"
 slug: "bodenverlegung"
 navLabel: "Bodenverlegung"
-description: "Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Bodenarbeiten fuer Renovierung und Ausbau, vom Untergrund bis zum sichtbaren Abschluss."
 seoTitle: "Bodenverlegung"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Bodenverlegung als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
 tags:
   - "Boden"
   - "Innenausbau"
   - "Sanierung"
-intro: "Redaktioneller Introtext folgt in Phase 3."
+intro: "Bodenverlegung wird als eigener Bereich fuer Untergrund, Material und saubere Anschluesse vorbereitet."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Materialien, Untergrund und Abschluesse werden spaeter konkretisiert."
+  - "Pruefung und Vorbereitung des Untergrunds."
+  - "Abstimmung von Material, Abschluss und angrenzenden Flaechen."
 processSteps:
   - title: "Untergrund pruefen"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Der vorhandene Bodenaufbau wird fuer die weitere Planung betrachtet."
   - title: "Verlegung"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Material und Ausfuehrung werden entlang der abgestimmten Flaechen umgesetzt."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Saubere Uebergaenge und nachvollziehbare Vorbereitung."
 relatedServices:
   - "renovierung-neubau"
   - "trockenbau-innenausbau"
@@ -32,9 +32,9 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Welche Bodenarten werden spaeter beschrieben?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+    answer: "Materialarten und konkrete Ausfuehrungsdetails werden redaktionell noch geschaerft."
 schemaServiceType: "Bodenverlegung"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.

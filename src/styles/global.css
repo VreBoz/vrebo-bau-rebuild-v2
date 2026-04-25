@@ -6,13 +6,17 @@
   --color-brand-700: #ab3743;
   --color-stone-950: #15110f;
   --color-stone-800: #302b28;
+  --color-stone-700: #47413d;
   --color-stone-600: #6b625c;
+  --color-stone-300: #b9aea5;
   --color-sand-100: #f4efe8;
   --color-sand-200: #e9dfd2;
+  --color-sand-300: #d6c6b4;
   --color-paper: #fffaf4;
   --font-sans: "Instrument Sans", "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --shadow-soft: 0 18px 50px rgb(21 17 15 / 0.08);
   --shadow-lift: 0 22px 60px rgb(43 9 11 / 0.16);
+  --shadow-dark: 0 28px 70px rgb(0 0 0 / 0.22);
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
@@ -22,12 +26,17 @@
 
 :root {
   color-scheme: light;
-  --site-max: 76rem;
+  --site-max: 78rem;
+  --site-wide: 88rem;
   --site-narrow: 52rem;
   --section-y: clamp(4rem, 8vw, 7.5rem);
+  --section-y-compact: clamp(3rem, 6vw, 5.25rem);
   --header-height: 5rem;
+  --border-soft: rgb(48 43 40 / 0.12);
+  --border-strong: rgb(48 43 40 / 0.2);
   --focus-ring: 0 0 0 0.2rem rgb(171 55 67 / 0.34);
   --motion-duration: 220ms;
+  --motion-duration-long: 420ms;
 }
 
 * {
@@ -47,7 +56,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    linear-gradient(180deg, rgb(255 250 244 / 0.92), rgb(244 239 232 / 0.7) 46%, #fffaf4 100%);
+    linear-gradient(180deg, #fffaf4 0, #fffaf4 28rem, #f4efe8 28rem, #fffaf4 58rem);
 }
 
 a {
@@ -69,6 +78,10 @@ select {
   font: inherit;
 }
 
+button {
+  border: 0;
+}
+
 :focus-visible {
   outline: none;
   box-shadow: var(--focus-ring);
@@ -79,25 +92,54 @@ select {
   color: #2b090b;
 }
 
-.site-container {
+.site-container,
+.site-container--wide,
+.site-container--narrow {
   width: min(calc(100% - 2rem), var(--site-max));
   margin-inline: auto;
 }
 
+.site-container--wide {
+  width: min(calc(100% - 2rem), var(--site-wide));
+}
+
 .site-container--narrow {
   width: min(calc(100% - 2rem), var(--site-narrow));
-  margin-inline: auto;
 }
 
 .section-shell {
   padding-block: var(--section-y);
 }
 
+.section-shell--compact {
+  padding-block: var(--section-y-compact);
+}
+
+.section-band {
+  background: #f4efe8;
+}
+
+.section-band--dark {
+  background: #15110f;
+  color: #fffaf4;
+}
+
 .surface {
-  border: 1px solid rgb(48 43 40 / 0.12);
+  border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg);
-  background: rgb(255 250 244 / 0.78);
+  background: rgb(255 250 244 / 0.86);
   box-shadow: var(--shadow-soft);
+}
+
+.surface--warm {
+  background: #f4efe8;
+}
+
+.surface--dark {
+  border-color: rgb(255 250 244 / 0.14);
+  background: #211b18;
+  color: #fffaf4;
+  box-shadow: var(--shadow-dark);
 }
 
 .eyebrow {
@@ -109,16 +151,47 @@ select {
   text-transform: uppercase;
 }
 
+.section-band--dark .eyebrow,
+.surface--dark .eyebrow {
+  color: #e8b4b8;
+}
+
 .lede {
   max-width: 44rem;
   margin: 0;
   color: #6b625c;
-  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  font-size: 1.08rem;
+}
+
+.section-band--dark .lede,
+.surface--dark .lede {
+  color: rgb(255 250 244 / 0.74);
+}
+
+.page-title {
+  max-width: 58rem;
+  margin: 0;
+  color: #15110f;
+  font-size: 2.45rem;
+  font-weight: 820;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.section-band--dark .page-title,
+.surface--dark .page-title {
+  color: #fffaf4;
+}
+
+.page-kicker {
+  margin: 0;
+  color: #6b625c;
 }
 
 .button {
   display: inline-flex;
   min-height: 2.9rem;
+  max-width: 100%;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -127,6 +200,7 @@ select {
   padding: 0.72rem 1.12rem;
   font-weight: 760;
   line-height: 1;
+  white-space: nowrap;
   transition:
     background-color var(--motion-duration) var(--ease-vrebo),
     border-color var(--motion-duration) var(--ease-vrebo),
@@ -149,7 +223,7 @@ select {
 
 .button--secondary {
   border-color: rgb(101 17 19 / 0.24);
-  background: rgb(255 250 244 / 0.78);
+  background: rgb(255 250 244 / 0.84);
   color: #2b090b;
 }
 
@@ -169,29 +243,32 @@ select {
   padding: clamp(1.25rem, 3vw, 2rem);
 }
 
-.page-title {
-  max-width: 58rem;
-  margin: 0;
-  color: #15110f;
-  font-size: clamp(2.25rem, 7vw, 5.2rem);
-  font-weight: 820;
-  letter-spacing: 0;
-  line-height: 0.98;
+@media (min-width: 760px) {
+  .page-title {
+    font-size: 3.45rem;
+  }
+
+  .lede {
+    font-size: 1.14rem;
+  }
 }
 
-.page-kicker {
-  margin: 0;
-  color: #6b625c;
+@media (min-width: 1180px) {
+  .page-title {
+    font-size: 4.65rem;
+  }
 }
 
 @media (max-width: 760px) {
   :root {
     --section-y: clamp(3rem, 14vw, 4.5rem);
+    --section-y-compact: clamp(2.5rem, 10vw, 3.75rem);
     --header-height: 4.25rem;
   }
 
   .button {
     width: 100%;
+    white-space: normal;
   }
 
   .skeleton-grid {

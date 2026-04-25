@@ -2,24 +2,24 @@
 title: "Fenster und Tueren"
 slug: "fenster-tueren"
 navLabel: "Fenster & Tueren"
-description: "Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Austausch und Einbau von Fenstern und Tueren mit Blick auf Anschluesse und Sanierung."
 seoTitle: "Fenster und Tueren"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Fenster und Tueren als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing."
 tags:
   - "Fenster"
   - "Tueren"
   - "Montage"
-intro: "Redaktioneller Introtext folgt in Phase 3."
+intro: "Fenster und Tueren werden als eigener Bereich fuer Montage, Austausch und Anschlussdetails gefuehrt."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Einbau, Austausch und Anschluesse werden spaeter konkretisiert."
+  - "Abstimmung von Aufmass, Bestand und Einbausituation."
+  - "Vorbereitung von Austausch, Montage und Anschlussarbeiten."
 processSteps:
   - title: "Aufmass"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Masse, Bestand und Anforderungen werden sauber aufgenommen."
   - title: "Einbau"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Der Einbau wird mit Blick auf Anschluesse und angrenzende Flaechen umgesetzt."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Sorgfalt bei sichtbaren Bauteilen und angrenzenden Flaechen."
 relatedServices:
   - "energetische-sanierung"
   - "abdichtung-feuchtigkeitsschutz"
@@ -32,9 +32,9 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Was wird fuer ein Aufmass benoetigt?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+    answer: "Hilfreich sind Fotos, vorhandene Masse und Hinweise zu Bestand oder gewuenschtem Bauteil."
 schemaServiceType: "Fenster- und Tuermontage"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.

@@ -2,24 +2,24 @@
 title: "Energetische Sanierung"
 slug: "energetische-sanierung"
 navLabel: "Energetische Sanierung"
-description: "Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Vorbereiteter Leistungsbereich fuer Massnahmen an Gebaeudehuelle, Anschluessen und Modernisierung."
 seoTitle: "Energetische Sanierung"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Energetische Sanierung als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
 tags:
   - "Sanierung"
   - "Energie"
   - "Gebaeudehuelle"
-intro: "Redaktioneller Introtext folgt in Phase 3."
+intro: "Energetische Sanierung wird als eigener Bereich fuer Modernisierung, Huelle und Anschlussdetails gefuehrt."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Abgrenzung zu Foerder- und Energieberatung wird geprueft."
+  - "Pruefung der baulichen Ausgangssituation."
+  - "Abstimmung sinnvoller Anschluss- und Modernisierungsschritte."
 processSteps:
   - title: "Bestandsaufnahme"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Bauteile, Zustand und Ziel der Sanierung werden erfasst."
   - title: "Umsetzung"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Die vereinbarten baulichen Arbeiten werden koordiniert umgesetzt."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Sinnvolle Abgrenzung zwischen Bauleistung und externer Fachberatung."
 relatedServices:
   - "fenster-tueren"
   - "abdichtung-feuchtigkeitsschutz"
@@ -32,9 +32,9 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Wann lohnt sich eine energetische Sanierung?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+    answer: "Wenn Bauteile erneuert, Anschluesse verbessert oder Modernisierungsschritte gebuendelt werden sollen."
 schemaServiceType: "Energetische Sanierung"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.

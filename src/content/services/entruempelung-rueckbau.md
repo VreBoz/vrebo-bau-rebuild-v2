@@ -2,24 +2,24 @@
 title: "Entruempelung und Rueckbau"
 slug: "entruempelung-rueckbau"
 navLabel: "Entruempelung & Rueckbau"
-description: "Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Entruempelung, Rueckbau und vorbereitende Arbeiten fuer Sanierung oder Neuordnung."
 seoTitle: "Entruempelung und Rueckbau"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Entruempelung und Rueckbau als vorbereiteter Leistungsbereich fuer Vrebo Bau."
 tags:
   - "Entruempelung"
   - "Rueckbau"
   - "Entsorgung"
-intro: "Redaktioneller Introtext folgt in Phase 3."
+intro: "Entruempelung und Rueckbau schaffen Raum fuer Renovierung, Sanierung oder eine geordnete Uebergabe."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Rueckbau, Sortierung und Entsorgung werden spaeter konkretisiert."
+  - "Einordnung von Umfang, Material und Zugangsituation."
+  - "Vorbereitung von Rueckbau, Sortierung und Uebergabe."
 processSteps:
   - title: "Umfang klaeren"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Der Umfang wird anhand von Objekt, Menge und Zielzustand geklaert."
   - title: "Uebergabe"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Nach den Arbeiten wird der vereinbarte Zustand nachvollziehbar uebergeben."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Strukturierte Vorbereitung fuer nachfolgende Bau- oder Sanierungsarbeiten."
 relatedServices:
   - "renovierung-neubau"
   - "aussenanlagen"
@@ -32,9 +32,9 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Wie wird die Entsorgung spaeter beschrieben?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+    answer: "Entsorgung und Sortierung werden in der finalen Inhaltsphase fachlich konkretisiert."
 schemaServiceType: "Entruempelung und Rueckbau"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.

@@ -1,0 +1,106 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+  level?: 1 | 2 | 3;
+  tone?: 'default' | 'dark';
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  align = 'left',
+  level = 2,
+  tone = 'default',
+  class: className = '',
+} = Astro.props;
+const HeadingTag = `h${level}`;
+---
+
+<div class:list={['section-heading', `section-heading--${align}`, `section-heading--${tone}`, className]}>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <HeadingTag>{title}</HeadingTag>
+  {description && <p class="section-heading__description">{description}</p>}
+</div>
+
+<style>
+  .section-heading {
+    max-width: 48rem;
+  }
+
+  .section-heading--center {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    color: #15110f;
+    font-weight: 820;
+    letter-spacing: 0;
+    line-height: 1.04;
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  h2 {
+    font-size: 2.05rem;
+  }
+
+  h3 {
+    font-size: 1.45rem;
+  }
+
+  .section-heading__description {
+    max-width: 42rem;
+    margin: 1rem 0 0;
+    color: #6b625c;
+    font-size: 1.06rem;
+  }
+
+  .section-heading--center .section-heading__description {
+    margin-inline: auto;
+  }
+
+  .section-heading--dark h1,
+  .section-heading--dark h2,
+  .section-heading--dark h3 {
+    color: #fffaf4;
+  }
+
+  .section-heading--dark .section-heading__description {
+    color: rgb(255 250 244 / 0.74);
+  }
+
+  @media (min-width: 760px) {
+    h1 {
+      font-size: 3.45rem;
+    }
+
+    h2 {
+      font-size: 2.75rem;
+    }
+
+    h3 {
+      font-size: 1.65rem;
+    }
+  }
+
+  @media (min-width: 1180px) {
+    h1 {
+      font-size: 4.65rem;
+    }
+
+    h2 {
+      font-size: 3.35rem;
+    }
+  }
+</style>

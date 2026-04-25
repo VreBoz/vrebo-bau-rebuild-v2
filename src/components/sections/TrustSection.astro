@@ -1,0 +1,62 @@
+---
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import SurfaceCard from '@/components/ui/SurfaceCard.astro';
+import { trustItems, type TrustItem } from '@/data/sections';
+
+interface Props {
+  items?: TrustItem[];
+}
+
+const { items = trustItems } = Astro.props;
+---
+
+<section class="trust-section section-shell section-band">
+  <div class="site-container trust-section__grid">
+    <SectionHeading
+      eyebrow="Warum Vrebo"
+      title="Vertrauen entsteht durch klare Arbeitsschritte"
+      description="Diese Sektion bleibt bewusst knapp und dient als Basis fuer spaetere konkrete Belege."
+    />
+    <div class="trust-section__items">
+      {items.map((item) => (
+        <SurfaceCard variant="paper">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </SurfaceCard>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-section__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .trust-section__items {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  h3 {
+    margin: 0;
+    color: #2b090b;
+    font-size: 1.12rem;
+    font-weight: 820;
+    letter-spacing: 0;
+  }
+
+  p {
+    margin: 0.45rem 0 0;
+    color: #6b625c;
+  }
+
+  @media (max-width: 820px) {
+    .trust-section__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

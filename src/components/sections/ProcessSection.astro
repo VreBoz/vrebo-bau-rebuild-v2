@@ -1,0 +1,79 @@
+---
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import { processSteps, type ProcessStep } from '@/data/sections';
+
+interface Props {
+  steps?: ProcessStep[];
+  band?: boolean;
+}
+
+const { steps = processSteps, band = false } = Astro.props;
+---
+
+<section class:list={['process-section', 'section-shell', { 'section-band': band }]}>
+  <div class="site-container">
+    <SectionHeading
+      eyebrow="Arbeitsweise"
+      title="Ein einfacher Ablauf fuer die erste Anfrage"
+      description="Die Prozesslogik bleibt bewusst kurz und laesst sich spaeter mit echten Projektdetails schaerfen."
+    />
+    <ol class="process-section__list">
+      {steps.map((step, index) => (
+        <li>
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .process-section__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    min-width: 0;
+    border-top: 2px solid #651113;
+    padding-top: 1rem;
+  }
+
+  span {
+    display: block;
+    color: #ab3743;
+    font-size: 0.86rem;
+    font-weight: 820;
+  }
+
+  h3 {
+    margin: 0.75rem 0 0;
+    color: #2b090b;
+    font-size: 1.15rem;
+    font-weight: 820;
+    letter-spacing: 0;
+  }
+
+  p {
+    margin: 0.45rem 0 0;
+    color: #6b625c;
+  }
+
+  @media (max-width: 980px) {
+    .process-section__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 580px) {
+    .process-section__list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,83 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import ServiceCard from '@/components/ui/ServiceCard.astro';
+import Button from '@/components/ui/Button.astro';
+
+interface Props {
+  services: CollectionEntry<'services'>[];
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  limit?: number;
+  compact?: boolean;
+  band?: boolean;
+  showAllLink?: boolean;
+}
+
+const {
+  services,
+  eyebrow = 'Leistungen',
+  title = 'Strukturierte Leistungsbereiche',
+  description = 'Die Collection liefert bereits Titel, Tags, Routen und kurze Arbeitsbeschreibungen.',
+  limit,
+  compact = false,
+  band = false,
+  showAllLink = true,
+} = Astro.props;
+const visibleServices = typeof limit === 'number' ? services.slice(0, limit) : services;
+---
+
+<section class:list={['services-overview', 'section-shell', { 'section-band': band }]}>
+  <div class="site-container">
+    <div class="services-overview__head">
+      <SectionHeading eyebrow={eyebrow} title={title} description={description} />
+      {showAllLink && <Button href="/leistungen" variant="secondary">Alle Leistungen</Button>}
+    </div>
+
+    <div class:list={['services-overview__grid', { 'services-overview__grid--compact': compact }]}>
+      {visibleServices.map((service, index) => (
+        <ServiceCard service={service} index={index} compact={compact} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-overview__head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .services-overview__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .services-overview__grid--compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 980px) {
+    .services-overview__grid,
+    .services-overview__grid--compact {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 680px) {
+    .services-overview__head {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .services-overview__grid,
+    .services-overview__grid--compact {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

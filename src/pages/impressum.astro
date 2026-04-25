@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
 const title = 'Impressum';
-const description = 'Technischer Seiten-Skeleton fuer das Impressum von Vrebo Bau.';
+const description = 'Arbeitsversion des Impressums fuer die neue Vrebo Bau Website.';
 ---
 
 <BaseLayout
@@ -19,9 +19,9 @@ const description = 'Technischer Seiten-Skeleton fuer das Impressum von Vrebo Ba
 >
   <section class="section-shell">
     <article class="site-container--narrow legal-shell">
-      <p class="eyebrow">Legal Skeleton</p>
+      <p class="eyebrow">Rechtliches</p>
       <h1>Impressum</h1>
-      <p>Die finale Anbieterkennzeichnung wird in einer spaeteren Phase geprueft und eingesetzt.</p>
+      <p>Die Anbieterkennzeichnung wird vor dem Launch geprueft und eingesetzt.</p>
     </article>
   </section>
 </BaseLayout>
@@ -35,8 +35,14 @@ const description = 'Technischer Seiten-Skeleton fuer das Impressum von Vrebo Ba
   h1 {
     margin: 0 0 1rem;
     color: #15110f;
-    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    font-size: 2.4rem;
     letter-spacing: 0;
     line-height: 1;
+  }
+
+  @media (min-width: 760px) {
+    h1 {
+      font-size: 4rem;
+    }
   }
 </style>

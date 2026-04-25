@@ -1,0 +1,85 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'paper' | 'warm' | 'dark' | 'outline';
+  padding?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'paper',
+  padding = 'md',
+  class: className = '',
+} = Astro.props;
+const classes = ['surface-card', `surface-card--${variant}`, `surface-card--${padding}`, className];
+---
+
+{href ? (
+  <a class:list={classes} href={href}><slot /></a>
+) : (
+  <article class:list={classes}><slot /></article>
+)}
+
+<style>
+  .surface-card {
+    display: block;
+    min-width: 0;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .surface-card--sm {
+    padding: 1rem;
+  }
+
+  .surface-card--md {
+    padding: 1.35rem;
+  }
+
+  .surface-card--lg {
+    padding: 1.75rem;
+  }
+
+  .surface-card--paper {
+    background: rgb(255 250 244 / 0.9);
+    color: #15110f;
+  }
+
+  .surface-card--warm {
+    background: #f4efe8;
+    color: #15110f;
+  }
+
+  .surface-card--outline {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .surface-card--dark {
+    border-color: rgb(255 250 244 / 0.14);
+    background: #211b18;
+    color: #fffaf4;
+    box-shadow: var(--shadow-dark);
+  }
+
+  a.surface-card {
+    transition:
+      border-color var(--motion-duration) var(--ease-vrebo),
+      box-shadow var(--motion-duration) var(--ease-vrebo),
+      transform var(--motion-duration) var(--ease-vrebo);
+  }
+
+  a.surface-card:hover {
+    border-color: rgb(101 17 19 / 0.32);
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 520px) {
+    .surface-card--lg {
+      padding: 1.35rem;
+    }
+  }
+</style>

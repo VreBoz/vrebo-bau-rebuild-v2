@@ -2,24 +2,24 @@
 title: "Hausmeisterservice und Objektpflege"
 slug: "hausmeisterservice-objektpflege"
 navLabel: "Objektpflege"
-description: "Optionale Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Optionaler Leistungsbereich fuer Objektpflege und regelmaessige Betreuung."
 seoTitle: "Hausmeisterservice und Objektpflege"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Hausmeisterservice und Objektpflege als optionaler Leistungsbereich fuer Vrebo Bau."
 tags:
   - "Objektpflege"
   - "Hausmeisterservice"
   - "Optional"
-intro: "Redaktioneller Introtext folgt in Phase 3, falls diese Leistung strategisch sichtbar bleiben soll."
+intro: "Hausmeisterservice und Objektpflege bleiben als optionaler Bereich vorbereitet, falls diese Leistung sichtbar bleiben soll."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Sichtbarkeit im MVP wird spaeter entschieden."
+  - "Abstimmung wiederkehrender Objektaufgaben."
+  - "Entscheidung zur Sichtbarkeit im MVP."
 processSteps:
   - title: "Bedarf klaeren"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Aufgaben, Frequenz und Objektart werden eingeordnet."
   - title: "Betreuung"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Die Betreuung wird nach klar definiertem Umfang geplant."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Klare Aufgabenabgrenzung fuer laufende Objektbetreuung."
 relatedServices:
   - "aussenanlagen"
   - "entruempelung-rueckbau"
@@ -30,10 +30,10 @@ areasServed:
   - "Salzburg Umgebung"
   - "Bayern"
 faq:
-  - question: "Bleibt Objektpflege Teil der finalen Navigation?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+  - question: "Bleibt Objektpflege Teil der Navigation?"
+    answer: "Die Leistung ist vorbereitet, wird aber erst nach strategischer Entscheidung prominent sichtbar."
 schemaServiceType: "Hausmeisterservice und Objektpflege"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.

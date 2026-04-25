@@ -1,0 +1,142 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  target?: '_blank' | '_self' | '_parent' | '_top';
+  rel?: string;
+  disabled?: boolean;
+  ariaLabel?: string;
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  fullWidth = false,
+  type = 'button',
+  target,
+  rel,
+  disabled = false,
+  ariaLabel,
+  class: className = '',
+} = Astro.props;
+
+const relValue = rel ?? (target === '_blank' ? 'noreferrer' : undefined);
+const classes = ['ui-button', `ui-button--${variant}`, `ui-button--${size}`, { 'ui-button--full': fullWidth }, className];
+---
+
+{href ? (
+  <a class:list={classes} href={href} target={target} rel={relValue} aria-label={ariaLabel}>
+    <slot />
+  </a>
+) : (
+  <button class:list={classes} type={type} disabled={disabled} aria-label={ariaLabel}>
+    <slot />
+  </button>
+)}
+
+<style>
+  .ui-button {
+    display: inline-flex;
+    min-height: 2.9rem;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.52rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-weight: 780;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    transition:
+      background-color var(--motion-duration) var(--ease-vrebo),
+      border-color var(--motion-duration) var(--ease-vrebo),
+      color var(--motion-duration) var(--ease-vrebo),
+      transform var(--motion-duration) var(--ease-vrebo);
+  }
+
+  .ui-button:hover {
+    transform: translateY(-1px);
+  }
+
+  .ui-button--sm {
+    min-height: 2.5rem;
+    padding: 0.58rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .ui-button--md {
+    padding: 0.78rem 1.15rem;
+    font-size: 0.96rem;
+  }
+
+  .ui-button--lg {
+    min-height: 3.25rem;
+    padding: 0.92rem 1.35rem;
+    font-size: 1rem;
+  }
+
+  .ui-button--primary {
+    background: #651113;
+    color: #fffaf4;
+    box-shadow: 0 14px 32px rgb(101 17 19 / 0.18);
+  }
+
+  .ui-button--primary:hover {
+    background: #2b090b;
+  }
+
+  .ui-button--secondary {
+    border-color: rgb(101 17 19 / 0.24);
+    background: rgb(255 250 244 / 0.9);
+    color: #2b090b;
+  }
+
+  .ui-button--secondary:hover {
+    border-color: rgb(101 17 19 / 0.42);
+    background: #ffffff;
+  }
+
+  .ui-button--ghost {
+    border-color: transparent;
+    background: transparent;
+    color: #651113;
+  }
+
+  .ui-button--ghost:hover {
+    background: rgb(101 17 19 / 0.08);
+  }
+
+  .ui-button--dark {
+    border-color: rgb(255 250 244 / 0.18);
+    background: #fffaf4;
+    color: #2b090b;
+  }
+
+  .ui-button--dark:hover {
+    border-color: #fffaf4;
+    background: #ffffff;
+  }
+
+  .ui-button--full {
+    width: 100%;
+  }
+
+  .ui-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.64;
+    transform: none;
+  }
+
+  @media (max-width: 520px) {
+    .ui-button {
+      width: 100%;
+      white-space: normal;
+    }
+  }
+</style>

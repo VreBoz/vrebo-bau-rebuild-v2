@@ -2,24 +2,24 @@
 title: "Abdichtung und Feuchtigkeitsschutz"
 slug: "abdichtung-feuchtigkeitsschutz"
 navLabel: "Abdichtung"
-description: "Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Baulicher Schutz vor Feuchtigkeit mit Fokus auf kritische Anschluesse und Sanierungsbereiche."
 seoTitle: "Abdichtung und Feuchtigkeitsschutz"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Abdichtung und Feuchtigkeitsschutz als vorbereiteter Leistungsbereich fuer Vrebo Bau."
 tags:
   - "Abdichtung"
   - "Feuchtigkeitsschutz"
   - "Sanierung"
-intro: "Redaktioneller Introtext folgt in Phase 3."
+intro: "Abdichtung und Feuchtigkeitsschutz sind als eigener Bereich fuer sensible Bau- und Sanierungsdetails angelegt."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Keller, Bad, Fassade und Anschlussdetails werden spaeter geprueft."
+  - "Einordnung von Schadensbild, Bauteil und Feuchtebereich."
+  - "Abstimmung geeigneter Abdichtungs- und Schutzmassnahmen."
 processSteps:
   - title: "Schadensbild klaeren"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Zunaechst wird geklaert, wo Feuchtigkeit sichtbar oder zu erwarten ist."
   - title: "Massnahmen planen"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Die Massnahmen werden passend zum Bauteil und zur Nutzung abgestimmt."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Sorgfaeltige Betrachtung sensibler Anschluss- und Feuchtraumbereiche."
 relatedServices:
   - "badsanierung"
   - "energetische-sanierung"
@@ -32,9 +32,9 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Wann sollte Feuchtigkeit vor Ort geprueft werden?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+    answer: "Wenn Feuchte sichtbar ist oder Abdichtungsdetails vor Ausbau- oder Sanierungsarbeiten relevant werden."
 schemaServiceType: "Abdichtung und Feuchtigkeitsschutz"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.

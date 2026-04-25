@@ -2,24 +2,24 @@
 title: "Aussenanlagen"
 slug: "aussenanlagen"
 navLabel: "Aussenanlagen"
-description: "Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Vorbereiteter Bereich fuer Aussenflaechen, Wege, Anschlusszonen und objektnahe Arbeiten."
 seoTitle: "Aussenanlagen"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Aussenanlagen als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
 tags:
   - "Aussenbereich"
   - "Garten"
   - "Objekt"
-intro: "Redaktioneller Introtext folgt in Phase 3."
+intro: "Aussenanlagen bilden den strukturierten Einstieg fuer Flaechen, Wege und Arbeiten am Objektumfeld."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Wege, Flaechen und Anschlussbereiche werden spaeter konkretisiert."
+  - "Abstimmung von Flaechen, Nutzung und angrenzenden Bauteilen."
+  - "Vorbereitung objekt- und aussenbereichsnaher Arbeiten."
 processSteps:
   - title: "Ortstermin"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Die Situation vor Ort wird mit Blick auf Nutzung und Bestand erfasst."
   - title: "Ausfuehrung"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Die Arbeiten werden nach abgestimmtem Umfang umgesetzt."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Robuste Planung fuer sichtbare und beanspruchte Aussenbereiche."
 relatedServices:
   - "abdichtung-feuchtigkeitsschutz"
   - "entruempelung-rueckbau"
@@ -32,9 +32,9 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Welche Aussenarbeiten werden spaeter aufgenommen?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+    answer: "Die Website-Struktur bereitet Wege, Flaechen und objektnahe Arbeiten als Themen vor."
 schemaServiceType: "Aussenanlagen"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.

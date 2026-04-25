@@ -2,24 +2,24 @@
 title: "Renovierung und Neubau"
 slug: "renovierung-neubau"
 navLabel: "Renovierung & Neubau"
-description: "Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Umbau, Modernisierung und bauliche Anpassungen als zentraler Einstieg fuer Wohn- und Objektprojekte."
 seoTitle: "Renovierung und Neubau"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Renovierung und Neubau als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
 tags:
   - "Renovierung"
   - "Neubau"
   - "Freilassing"
-intro: "Redaktioneller Introtext folgt in Phase 3."
+intro: "Renovierung und Neubau buendeln die Arbeiten, die ein Objekt sichtbar erneuern oder baulich weiterentwickeln."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Schnittstellen zu verwandten Gewerken werden geprueft."
+  - "Bestandsaufnahme und Abstimmung der geplanten Arbeiten."
+  - "Vorbereitung von Ausbau-, Sanierungs- und Anschlussarbeiten."
 processSteps:
   - title: "Anfrage"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Der Umfang wird anhand der ersten Angaben eingeordnet."
   - title: "Besichtigung"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Vor Ort werden Zustand, Ablauf und naechste Schritte abgestimmt."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Klare Abstimmung von Umfang, Reihenfolge und Schnittstellen."
 relatedServices:
   - "trockenbau-innenausbau"
   - "bodenverlegung"
@@ -32,9 +32,9 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Welche Angaben helfen fuer die erste Einschaetzung?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+    answer: "Ort, Zustand, grober Umfang, Wunschzeitraum und vorhandene Fotos helfen beim Einstieg."
 schemaServiceType: "Renovierung und Bau"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.

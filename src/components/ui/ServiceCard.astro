@@ -1,0 +1,145 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import LinkArrow from '@/components/ui/LinkArrow.astro';
+import Tag from '@/components/ui/Tag.astro';
+
+interface Props {
+  service: CollectionEntry<'services'>;
+  index?: number;
+  compact?: boolean;
+}
+
+const { service, index = 0, compact = false } = Astro.props;
+const href = `/leistungen/${service.data.slug}`;
+const tags = service.data.tags.slice(0, compact ? 2 : 3);
+const number = String(index + 1).padStart(2, '0');
+---
+
+<article class:list={['service-card', { 'service-card--compact': compact }]}>
+  <a class="service-card__media" href={href} aria-label={`${service.data.title} oeffnen`}>
+    {service.data.heroImage ? (
+      <img
+        src={service.data.heroImage.src}
+        alt={service.data.heroImage.alt}
+        loading="lazy"
+        width={service.data.heroImage.width}
+        height={service.data.heroImage.height}
+      />
+    ) : (
+      <div class="service-card__placeholder" aria-hidden="true">
+        <span>{number}</span>
+      </div>
+    )}
+  </a>
+
+  <div class="service-card__body">
+    <div class="service-card__tags" aria-label="Leistungs-Tags">
+      {tags.map((tag) => <Tag variant="light">{tag}</Tag>)}
+    </div>
+    <h3><a href={href}>{service.data.navLabel}</a></h3>
+    <p>{service.data.description}</p>
+    <LinkArrow href={href}>Details vorbereiten</LinkArrow>
+  </div>
+</article>
+
+<style>
+  .service-card {
+    display: grid;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    background: rgb(255 250 244 / 0.9);
+    box-shadow: var(--shadow-soft);
+    transition:
+      border-color var(--motion-duration) var(--ease-vrebo),
+      box-shadow var(--motion-duration) var(--ease-vrebo),
+      transform var(--motion-duration) var(--ease-vrebo);
+  }
+
+  .service-card:hover {
+    border-color: rgb(101 17 19 / 0.3);
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-2px);
+  }
+
+  .service-card__media {
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #e9dfd2;
+  }
+
+  .service-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-card__placeholder {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: end start;
+    padding: 1rem;
+    background:
+      linear-gradient(145deg, rgb(43 9 11 / 0.92), rgb(101 17 19 / 0.72)),
+      #302b28;
+  }
+
+  .service-card__placeholder span {
+    color: rgb(255 250 244 / 0.78);
+    font-size: 2.4rem;
+    font-weight: 840;
+    line-height: 1;
+  }
+
+  .service-card__body {
+    display: grid;
+    gap: 0.9rem;
+    padding: 1.2rem;
+  }
+
+  .service-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  h3 {
+    margin: 0;
+    color: #2b090b;
+    font-size: 1.22rem;
+    font-weight: 820;
+    letter-spacing: 0;
+    line-height: 1.15;
+  }
+
+  p {
+    margin: 0;
+    color: #6b625c;
+  }
+
+  .service-card--compact {
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+  }
+
+  .service-card--compact .service-card__media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .service-card--compact .service-card__placeholder span {
+    font-size: 1.7rem;
+  }
+
+  @media (max-width: 640px) {
+    .service-card--compact {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card--compact .service-card__media {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

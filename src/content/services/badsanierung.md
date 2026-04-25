@@ -2,24 +2,24 @@
 title: "Badsanierung"
 slug: "badsanierung"
 navLabel: "Badsanierung"
-description: "Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Badmodernisierung mit Fokus auf Vorbereitung, Abdichtung, Ausbau und sauberer Ausfuehrung."
 seoTitle: "Badsanierung"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Badsanierung als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
 tags:
   - "Bad"
   - "Sanierung"
   - "Innenausbau"
-intro: "Redaktioneller Introtext folgt in Phase 3."
+intro: "Badsanierung verbindet Ausbau, Abdichtung und Oberflaechen zu einem klar gefuehrten Leistungsbereich."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Abdichtung, Ausbau und Oberflaechen werden spaeter konkretisiert."
+  - "Abstimmung von Zustand, Nutzung und gewuenschtem Ergebnis."
+  - "Vorbereitung von Abdichtung, Ausbau und Oberflaechen."
 processSteps:
   - title: "Beratung"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Anforderungen, Bestand und Schnittstellen werden gemeinsam geklaert."
   - title: "Ausfuehrung"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Die Arbeiten werden abgestimmt, sauber vorbereitet und umgesetzt."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Saubere Koordination sensibler Bad- und Feuchtraumdetails."
 relatedServices:
   - "abdichtung-feuchtigkeitsschutz"
   - "trockenbau-innenausbau"
@@ -32,9 +32,9 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Welche Angaben helfen fuer die Badplanung?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+    answer: "Fotos, Raumgroesse, Bestand, Wunschumfang und ein grobes Zeitfenster sind hilfreich."
 schemaServiceType: "Badsanierung"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.

@@ -2,24 +2,24 @@
 title: "Trockenbau und Innenausbau"
 slug: "trockenbau-innenausbau"
 navLabel: "Trockenbau"
-description: "Arbeitsfassung fuer die spaetere Leistungsbeschreibung."
+description: "Innenausbau, Trockenbau und raumbildende Arbeiten als flexible Basis fuer Modernisierung."
 seoTitle: "Trockenbau und Innenausbau"
-seoDescription: "Arbeitsfassung fuer die spaetere SEO-Beschreibung."
+seoDescription: "Trockenbau und Innenausbau als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing."
 tags:
   - "Trockenbau"
   - "Innenausbau"
   - "Renovierung"
-intro: "Redaktioneller Introtext folgt in Phase 3."
+intro: "Trockenbau und Innenausbau schaffen die Grundlage fuer neue Raumaufteilungen und saubere Innenflaechen."
 servicesIncluded:
-  - "Leistungsumfang wird redaktionell ausgearbeitet."
-  - "Wand-, Decken- und Ausbauleistungen werden spaeter konkretisiert."
+  - "Abstimmung von Raumstruktur, Flaechen und Anschlussdetails."
+  - "Vorbereitung von Wand-, Decken- und Ausbauarbeiten."
 processSteps:
   - title: "Planung"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Raumziel, Bestand und technische Anforderungen werden sortiert."
   - title: "Montage"
-    description: "Prozessdetail folgt in Phase 3."
+    description: "Die vereinbarten Ausbauarbeiten werden fachlich vorbereitet und montiert."
 benefits:
-  - "Vertrauensargument folgt in Phase 3."
+  - "Ordentliche Ausfuehrung bei sichtbaren Innenausbau-Details."
 relatedServices:
   - "renovierung-neubau"
   - "badsanierung"
@@ -32,9 +32,9 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Sind kleine Innenausbau-Projekte moeglich?"
-    answer: "FAQ-Antwort folgt in Phase 3."
+    answer: "Die Struktur ist fuer kleinere Anpassungen und groessere Innenausbauprojekte vorbereitet."
 schemaServiceType: "Trockenbau und Innenausbau"
 draft: true
 ---
 
-Redaktionelle Ausarbeitung folgt in Phase 3.
+Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.
