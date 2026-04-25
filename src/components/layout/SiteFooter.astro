@@ -1,0 +1,137 @@
+---
+import { SITE } from '@/data/site';
+import { legalNavigation, mainNavigation, serviceNavigation } from '@/data/navigation';
+---
+
+<footer class="site-footer">
+  <div class="site-container footer-grid">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/">
+        <span aria-hidden="true">VB</span>
+        <strong>{SITE.name}</strong>
+      </a>
+      <p>Basis fuer den neuen regionalen Bauauftritt. Finale Inhalte folgen in der naechsten Phase.</p>
+    </div>
+
+    <nav aria-label="Footer Navigation">
+      <h2>Seiten</h2>
+      {mainNavigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+
+    <nav aria-label="Leistungen im Footer">
+      <h2>Leistungen</h2>
+      {serviceNavigation.filter((item) => !item.optional).slice(0, 7).map((item) => (
+        <a href={item.href}>{item.navLabel}</a>
+      ))}
+    </nav>
+
+    <div>
+      <h2>Region</h2>
+      <p>{SITE.areaServed.join(' · ')}</p>
+      <a class="footer-contact" href="/kontakt">Kontaktseite oeffnen</a>
+    </div>
+  </div>
+
+  <div class="site-container footer-bottom">
+    <span>{new Date().getFullYear()} {SITE.name}</span>
+    <nav aria-label="Rechtliche Links">
+      {legalNavigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #15110f;
+    color: #fffaf4;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+    gap: clamp(2rem, 5vw, 4rem);
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.1rem;
+  }
+
+  .footer-logo span {
+    display: grid;
+    width: 2.4rem;
+    height: 2.4rem;
+    place-items: center;
+    border-radius: 0.68rem;
+    background: #ab3743;
+    font-size: 0.82rem;
+    font-weight: 840;
+  }
+
+  .footer-brand p,
+  .site-footer p {
+    max-width: 24rem;
+    margin: 1rem 0 0;
+    color: rgb(255 250 244 / 0.72);
+  }
+
+  .site-footer h2 {
+    margin: 0 0 0.9rem;
+    color: rgb(255 250 244 / 0.9);
+    font-size: 0.82rem;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .site-footer nav {
+    display: grid;
+    align-content: start;
+    gap: 0.55rem;
+  }
+
+  .site-footer a {
+    color: rgb(255 250 244 / 0.78);
+  }
+
+  .site-footer a:hover {
+    color: #ffffff;
+  }
+
+  .footer-contact {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-weight: 760;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid rgb(255 250 244 / 0.14);
+    padding-block: 1.2rem;
+    color: rgb(255 250 244 / 0.64);
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  @media (max-width: 840px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

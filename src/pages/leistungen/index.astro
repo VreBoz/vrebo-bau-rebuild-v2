@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { serviceNavigation } from '@/data/navigation';
+import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
+
+const title = 'Leistungen';
+const description = 'Technische Leistungsuebersicht fuer die neue Vrebo Bau Website.';
+const services = await getCollection('services');
+const servicesBySlug = new Map(services.map((service) => [service.data.slug, service]));
+const sortedServices = serviceNavigation
+  .map((item) => servicesBySlug.get(item.slug))
+  .filter((service): service is (typeof services)[number] => Boolean(service));
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={[
+    webPageSchema({ title, description, path: '/leistungen' }),
+    breadcrumbSchema([
+      { name: 'Startseite', path: '/' },
+      { name: 'Leistungen', path: '/leistungen' },
+    ]),
+  ]}
+>
+  <section class="section-shell">
+    <div class="site-container">
+      <p class="eyebrow">Phase 2 Skeleton</p>
+      <h1 class="page-title">Leistungsuebersicht</h1>
+      <p class="lede">
+        Die Datenstruktur fuer alle Leistungen ist vorbereitet. Redaktion, Bilder, Cluster
+        und Detailausarbeitung folgen in Phase 3.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-shell service-band">
+    <div class="site-container service-list">
+      {sortedServices.map((service) => (
+        <a class="surface service-row" href={`/leistungen/${service.data.slug}`}>
+          <span>{service.data.navLabel}</span>
+          <p>{service.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .service-band {
+    padding-top: 0;
+  }
+
+  .service-list {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.42fr) minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    transition:
+      border-color var(--motion-duration) var(--ease-vrebo),
+      transform var(--motion-duration) var(--ease-vrebo);
+  }
+
+  .service-row:hover {
+    border-color: rgb(101 17 19 / 0.32);
+    transform: translateY(-1px);
+  }
+
+  .service-row span {
+    color: #2b090b;
+    font-weight: 820;
+  }
+
+  .service-row p {
+    margin: 0;
+    color: #6b625c;
+  }
+
+  @media (max-width: 700px) {
+    .service-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

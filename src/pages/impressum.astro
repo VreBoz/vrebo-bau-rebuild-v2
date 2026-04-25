@@ -1,0 +1,42 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
+
+const title = 'Impressum';
+const description = 'Technischer Seiten-Skeleton fuer das Impressum von Vrebo Bau.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={[
+    webPageSchema({ title, description, path: '/impressum' }),
+    breadcrumbSchema([
+      { name: 'Startseite', path: '/' },
+      { name: 'Impressum', path: '/impressum' },
+    ]),
+  ]}
+>
+  <section class="section-shell">
+    <article class="site-container--narrow legal-shell">
+      <p class="eyebrow">Legal Skeleton</p>
+      <h1>Impressum</h1>
+      <p>Die finale Anbieterkennzeichnung wird in einer spaeteren Phase geprueft und eingesetzt.</p>
+    </article>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-shell {
+    color: #6b625c;
+    font-size: 1.05rem;
+  }
+
+  h1 {
+    margin: 0 0 1rem;
+    color: #15110f;
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    letter-spacing: 0;
+    line-height: 1;
+  }
+</style>

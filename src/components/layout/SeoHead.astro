@@ -1,0 +1,49 @@
+---
+import { SITE } from '@/data/site';
+
+type JsonLd = Record<string, unknown>;
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noindex?: boolean;
+  type?: 'website' | 'article';
+  jsonLd?: JsonLd | JsonLd[];
+}
+
+const {
+  title,
+  description,
+  canonical = new URL(Astro.url.pathname, SITE.url).toString(),
+  noindex = !SITE.isIndexable,
+  type = 'website',
+  jsonLd,
+} = Astro.props;
+
+const resolvedTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+const robotsContent = noindex ? 'noindex,nofollow' : 'index,follow';
+const jsonLdItems = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<title>{resolvedTitle}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={robotsContent} />
+<link rel="canonical" href={canonical} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:locale" content={SITE.locale} />
+<meta property="og:type" content={type} />
+<meta property="og:title" content={resolvedTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={resolvedTitle} />
+<meta name="twitter:description" content={description} />
+
+{jsonLdItems.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}

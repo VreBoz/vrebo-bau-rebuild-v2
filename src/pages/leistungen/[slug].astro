@@ -1,0 +1,160 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbSchema, serviceSchema, webPageSchema } from '@/utils/structuredData';
+
+type Props = {
+  service: CollectionEntry<'services'>;
+};
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+
+  return services.map((service) => ({
+    params: { slug: service.data.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+const servicePath = `/leistungen/${service.data.slug}`;
+---
+
+<BaseLayout
+  title={service.data.seoTitle}
+  description={service.data.seoDescription}
+  jsonLd={[
+    webPageSchema({
+      title: service.data.title,
+      description: service.data.seoDescription,
+      path: servicePath,
+    }),
+    serviceSchema(service.data),
+    breadcrumbSchema([
+      { name: 'Startseite', path: '/' },
+      { name: 'Leistungen', path: '/leistungen' },
+      { name: service.data.title, path: servicePath },
+    ]),
+  ]}
+>
+  <section class="section-shell">
+    <div class="site-container service-hero">
+      <div>
+        <p class="eyebrow">Leistungsdetail Skeleton</p>
+        <h1 class="page-title">{service.data.title}</h1>
+        <p class="lede">{service.data.intro}</p>
+        <div class="tag-row" aria-label="Leistungs-Tags">
+          {service.data.tags.map((tag) => <span>{tag}</span>)}
+        </div>
+      </div>
+      <div class="surface skeleton-panel service-media" aria-label="Geplantes Leistungsbild">
+        <span>Service-Bild</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell detail-band">
+    <div class="site-container detail-grid">
+      <article class="surface skeleton-panel">
+        <p class="eyebrow">Leistungsumfang</p>
+        <ul>
+          {service.data.servicesIncluded.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+      <article class="surface skeleton-panel">
+        <p class="eyebrow">Ablauf</p>
+        <ol>
+          {service.data.processSteps.map((step) => (
+            <li>
+              <strong>{step.title}</strong>
+              <span>{step.description}</span>
+            </li>
+          ))}
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="site-container--narrow prose-shell">
+      <p class="eyebrow">Redaktion</p>
+      <Content />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .service-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.72fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .service-media {
+    display: grid;
+    min-height: 24rem;
+    place-items: center;
+    background: #e9dfd2;
+    color: #6b625c;
+    font-weight: 780;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tag-row span {
+    border: 1px solid rgb(101 17 19 / 0.16);
+    border-radius: 999px;
+    padding: 0.4rem 0.7rem;
+    background: rgb(255 250 244 / 0.72);
+    color: #651113;
+    font-size: 0.86rem;
+    font-weight: 760;
+  }
+
+  .detail-band {
+    background: #f4efe8;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  ul,
+  ol {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+    color: #6b625c;
+  }
+
+  ol li span {
+    display: block;
+    margin-top: 0.15rem;
+  }
+
+  .prose-shell {
+    color: #6b625c;
+    font-size: 1.06rem;
+  }
+
+  @media (max-width: 820px) {
+    .service-hero,
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-media {
+      min-height: 16rem;
+    }
+  }
+</style>

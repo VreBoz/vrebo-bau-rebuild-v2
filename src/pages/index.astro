@@ -1,0 +1,171 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE } from '@/data/site';
+import { serviceNavigation } from '@/data/navigation';
+import { localBusinessSchema, organizationSchema, webPageSchema } from '@/utils/structuredData';
+
+const title = 'Startseite';
+const description = SITE.defaultDescription;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={[
+    organizationSchema(),
+    localBusinessSchema(),
+    webPageSchema({ title, description, path: '/' }),
+  ]}
+>
+  <section class="section-shell home-hero">
+    <div class="site-container skeleton-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Phase 2 Skeleton</p>
+        <h1 class="page-title">Vrebo Bau Website-Fundament</h1>
+        <p class="lede">
+          Diese Startseite markiert nur Struktur, Layout-Basis und spaetere Content-Zonen.
+          Finale Texte, Bilder und Conversion-Details folgen in Phase 3.
+        </p>
+        <div class="hero-actions" aria-label="Primaere Aktionen">
+          <a class="button button--primary" href="/kontakt">Projekt anfragen</a>
+          <a class="button button--secondary" href="/leistungen">Leistungen ansehen</a>
+        </div>
+      </div>
+      <div class="surface skeleton-panel hero-media" aria-label="Geplante Hero-Mediaflaeche">
+        <span>Hero-Bild / Projektmotiv</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="site-container">
+      <p class="eyebrow">Leistungsstruktur</p>
+      <h2>Service-Zonen fuer die naechste Phase</h2>
+      <div class="service-grid" aria-label="Leistungs-Skeleton">
+        {serviceNavigation.filter((service) => !service.optional).slice(0, 6).map((service) => (
+          <a class="surface service-card" href={service.href}>
+            <span>{service.navLabel}</span>
+            <small>Detailseite vorbereitet</small>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell band">
+    <div class="site-container skeleton-grid">
+      <div class="surface skeleton-panel wide-panel">
+        <p class="eyebrow">Vertrauen</p>
+        <h2>Warum-Vrebo-Sektion</h2>
+        <p>Struktur fuer regionale Vertrauenssignale, Arbeitsweise und Projektqualitaet.</p>
+      </div>
+      <div class="surface skeleton-panel">
+        <p class="eyebrow">Prozess</p>
+        <h2>Ablauf-Sektion</h2>
+        <p>Platzhalter fuer Anfrage, Besichtigung, Angebot, Ausfuehrung und Uebergabe.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-hero {
+    padding-top: clamp(3rem, 7vw, 6rem);
+  }
+
+  .hero-copy {
+    grid-column: span 7;
+    align-self: center;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-media {
+    display: grid;
+    min-height: clamp(20rem, 42vw, 34rem);
+    grid-column: span 5;
+    place-items: center;
+    background:
+      linear-gradient(135deg, rgb(101 17 19 / 0.12), rgb(233 223 210 / 0.74)),
+      #e9dfd2;
+    color: #6b625c;
+    font-weight: 780;
+  }
+
+  h2 {
+    max-width: 44rem;
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    letter-spacing: 0;
+    line-height: 1.04;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .service-card {
+    display: grid;
+    min-height: 8.5rem;
+    align-content: end;
+    gap: 0.45rem;
+    padding: 1.2rem;
+    transition:
+      border-color var(--motion-duration) var(--ease-vrebo),
+      transform var(--motion-duration) var(--ease-vrebo);
+  }
+
+  .service-card:hover {
+    border-color: rgb(101 17 19 / 0.32);
+    transform: translateY(-2px);
+  }
+
+  .service-card span {
+    color: #2b090b;
+    font-size: 1.08rem;
+    font-weight: 820;
+  }
+
+  .service-card small,
+  .skeleton-panel p {
+    color: #6b625c;
+  }
+
+  .band {
+    background: #f4efe8;
+  }
+
+  .wide-panel {
+    grid-column: span 7;
+  }
+
+  .band .skeleton-panel:not(.wide-panel) {
+    grid-column: span 5;
+  }
+
+  @media (max-width: 860px) {
+    .hero-copy,
+    .hero-media,
+    .wide-panel,
+    .band .skeleton-panel:not(.wide-panel) {
+      grid-column: 1;
+    }
+
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+  }
+</style>
