@@ -154,7 +154,10 @@ const isActive = (href: string) => {
   }
 
   .site-header--home .brand-link {
-    gap: clamp(0.38rem, 0.8vw, 0.58rem);
+    gap: clamp(0.08rem, 0.35vw, 0.22rem);
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
   }
 
   .brand-logo {
@@ -164,15 +167,16 @@ const isActive = (href: string) => {
   }
 
   .site-header--home .brand-logo {
-    width: clamp(6.7rem, 10.4vw, 8.45rem);
+    width: clamp(7.2rem, 11.2vw, 9.35rem);
     filter: drop-shadow(0 5px 12px rgb(0 0 0 / 0.24));
   }
 
   .brand-sublogo {
     display: block;
-    width: clamp(4.8rem, 7vw, 6rem);
+    width: clamp(7.2rem, 11vw, 9.8rem);
     height: auto;
-    margin-top: 0.08rem;
+    margin-top: 0.36rem;
+    margin-left: -0.08rem;
     opacity: 0.96;
     filter: drop-shadow(0 5px 12px rgb(0 0 0 / 0.2));
   }
