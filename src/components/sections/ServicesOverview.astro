@@ -30,53 +30,69 @@ const {
   home = false,
 } = Astro.props;
 const visibleServices = typeof limit === 'number' ? services.slice(0, limit) : services;
-const featuredService = home ? visibleServices[0] : undefined;
-const supportingServices = home ? visibleServices.slice(1) : visibleServices;
+
+const getHomeTitle = (service: CollectionEntry<'services'>) => {
+  if (service.data.slug === 'hausmeisterservice-objektpflege') {
+    return 'Hausmeisterservice & Objektpflege';
+  }
+
+  if (service.data.slug === 'abdichtung-feuchtigkeitsschutz') {
+    return 'Abdichtung & Feuchtigkeitsschutz';
+  }
+
+  return service.data.navLabel;
+};
+
+const fallbackImages: Record<string, NonNullable<CollectionEntry<'services'>['data']['heroImage']>> = {
+  'hausmeisterservice-objektpflege': {
+    src: '/images/services/aussenanlagen-plattenweg.webp',
+    alt: 'Gepflegter Außenbereich mit Plattenweg am Haus',
+    width: 1200,
+    height: 1200,
+  },
+};
+
+const homeServices = visibleServices.map((service) => ({
+  service,
+  title: getHomeTitle(service),
+  image: service.data.heroImage ?? fallbackImages[service.data.slug],
+}));
 ---
 
 <section class:list={['services-overview', 'section-shell', { 'section-band': band, 'services-overview--home': home }]}>
   <div class="site-container">
     <div class="services-overview__head">
       <SectionHeading eyebrow={eyebrow} title={title} description={description} />
-      {showAllLink && <Button href="/leistungen" variant="secondary">Alle Leistungen</Button>}
+      {showAllLink && <Button href="/leistungen" variant="secondary">{home ? 'Alle Leistungen ansehen' : 'Alle Leistungen'}</Button>}
     </div>
 
-    {home && featuredService ? (
+    {home ? (
       <div class="services-overview__home-grid">
-        <article class="services-overview__feature">
-          <a class="services-overview__feature-media" href={`/leistungen/${featuredService.data.slug}`} aria-label={`${featuredService.data.title} öffnen`}>
-            {featuredService.data.heroImage && (
-              <img
-                src={featuredService.data.heroImage.src}
-                alt={featuredService.data.heroImage.alt}
-                loading="lazy"
-                decoding="async"
-                width={featuredService.data.heroImage.width}
-                height={featuredService.data.heroImage.height}
-              />
-            )}
-          </a>
-          <div class="services-overview__feature-body">
-            <div class="services-overview__feature-tags">
-              {featuredService.data.tags.slice(0, 3).map((tag) => <Tag variant="dark">{tag}</Tag>)}
-            </div>
-            <h3><a href={`/leistungen/${featuredService.data.slug}`}>{featuredService.data.navLabel}</a></h3>
-            <p>{featuredService.data.description}</p>
-            <LinkArrow href={`/leistungen/${featuredService.data.slug}`} tone="light">Leistung ansehen</LinkArrow>
-          </div>
-        </article>
-
-        <div class="services-overview__service-list">
-          {supportingServices.map((service, index) => (
-            <a class="services-overview__service-row" href={`/leistungen/${service.data.slug}`}>
-              <span>{String(index + 2).padStart(2, '0')}</span>
-              <div>
-                <strong>{service.data.navLabel}</strong>
-                <p>{service.data.description}</p>
-              </div>
+        {homeServices.map(({ service, title, image }, index) => (
+          <article class="services-overview__home-card">
+            <a class="services-overview__home-media" href={`/leistungen/${service.data.slug}`} aria-label={`${service.data.title} öffnen`}>
+              {image && (
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority={index < 4 ? 'high' : 'auto'}
+                  width={image.width}
+                  height={image.height}
+                />
+              )}
             </a>
-          ))}
-        </div>
+            <div class="services-overview__home-body">
+              <div class="services-overview__home-tags">
+                {service.data.tags.slice(0, 2).map((tag) => <Tag variant="warm">{tag}</Tag>)}
+              </div>
+              <h3><a href={`/leistungen/${service.data.slug}`}>{title}</a></h3>
+              <p>{service.data.description}</p>
+              <LinkArrow href={`/leistungen/${service.data.slug}`}>Leistung ansehen</LinkArrow>
+            </div>
+          </article>
+        ))}
       </div>
     ) : (
       <div class:list={['services-overview__grid', { 'services-overview__grid--compact': compact }]}>
@@ -90,7 +106,7 @@ const supportingServices = home ? visibleServices.slice(1) : visibleServices;
 
 <style>
   .services-overview--home {
-    padding-top: clamp(4rem, 9vw, 8rem);
+    padding-top: clamp(4.25rem, 8vw, 7.25rem);
   }
 
   .services-overview__head {
@@ -115,145 +131,99 @@ const supportingServices = home ? visibleServices.slice(1) : visibleServices;
 
   .services-overview__home-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
-    gap: clamp(1rem, 3vw, 1.7rem);
-    margin-top: clamp(1.6rem, 3vw, 2.4rem);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.35rem);
+    margin-top: clamp(1.6rem, 3vw, 2.35rem);
   }
 
-  .services-overview__feature {
-    position: relative;
+  .services-overview__home-card {
     display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    min-width: 0;
     min-height: 100%;
     overflow: hidden;
     border: 1px solid rgb(48 43 40 / 0.1);
-    border-radius: var(--radius-xl);
-    background: #15110f;
-    color: #fffaf4;
-    box-shadow: var(--shadow-card);
-  }
-
-  .services-overview__feature::after {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-      linear-gradient(180deg, transparent 30%, rgb(21 17 15 / 0.92)),
-      linear-gradient(90deg, rgb(21 17 15 / 0.16), transparent 46%);
-    content: "";
-  }
-
-  .services-overview__feature-media {
-    display: block;
-    min-height: clamp(24rem, 42vw, 34rem);
-    overflow: hidden;
-  }
-
-  .services-overview__feature-media img {
-    width: 100%;
-    height: 100%;
-    min-height: clamp(24rem, 42vw, 34rem);
-    object-fit: cover;
-    object-position: 52% 46%;
-    filter: saturate(0.94) contrast(1.04);
-    transition: transform var(--motion-duration-long) var(--ease-vrebo);
-  }
-
-  .services-overview__feature:hover .services-overview__feature-media img {
-    transform: scale(1.025);
-  }
-
-  .services-overview__feature-body {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    padding: clamp(1.25rem, 3vw, 2rem);
-  }
-
-  .services-overview__feature-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-bottom: 1rem;
-  }
-
-  .services-overview__feature h3 {
-    max-width: 31rem;
-    margin: 0;
-    color: #fffaf4;
-    font-size: clamp(1.55rem, 3vw, 2.45rem);
-    font-weight: 840;
-    line-height: 1.02;
-  }
-
-  .services-overview__feature p {
-    max-width: 34rem;
-    margin: 0.85rem 0 1rem;
-    color: rgb(255 250 244 / 0.76);
-    line-height: 1.62;
-  }
-
-  .services-overview__feature :global(.link-arrow) {
-    color: #fffaf4;
-  }
-
-  .services-overview__service-list {
-    display: grid;
-    gap: 0.72rem;
-  }
-
-  .services-overview__service-row {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 1rem;
-    min-width: 0;
-    border: 1px solid rgb(48 43 40 / 0.1);
     border-radius: var(--radius-lg);
-    background:
-      linear-gradient(135deg, rgb(255 255 255 / 0.46), transparent 42%),
-      var(--surface-paper);
-    padding: clamp(1rem, 2vw, 1.2rem);
+    background: var(--surface-paper);
     box-shadow: var(--shadow-soft);
     transition:
       border-color var(--motion-duration) var(--ease-vrebo),
-      background-color var(--motion-duration) var(--ease-vrebo),
-      box-shadow var(--motion-duration) var(--ease-vrebo);
+      box-shadow var(--motion-duration) var(--ease-vrebo),
+      transform var(--motion-duration) var(--ease-vrebo);
   }
 
-  .services-overview__service-row:hover {
-    border-color: rgb(101 17 19 / 0.26);
-    background-color: #fffaf4;
+  .services-overview__home-card:hover {
+    border-color: rgb(101 17 19 / 0.22);
     box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
   }
 
-  .services-overview__service-row > span {
-    display: inline-grid;
-    width: 2.6rem;
-    height: 2.6rem;
-    place-items: center;
-    border: 1px solid rgb(101 17 19 / 0.14);
-    border-radius: 999px;
-    color: #ab3743;
-    font-size: 0.82rem;
-    font-weight: 840;
-  }
-
-  .services-overview__service-row strong {
+  .services-overview__home-media {
     display: block;
-    color: #2b090b;
-    font-size: 1.05rem;
-    line-height: 1.18;
+    overflow: hidden;
+    background:
+      linear-gradient(135deg, rgb(233 223 210 / 0.8), rgb(255 250 244 / 0.7)),
+      #e9dfd2;
   }
 
-  .services-overview__service-row p {
+  .services-overview__home-media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.94) contrast(1.03);
+    transition: transform var(--motion-duration-long) var(--ease-vrebo);
+  }
+
+  .services-overview__home-card:hover .services-overview__home-media img {
+    transform: scale(1.035);
+  }
+
+  .services-overview__home-body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: clamp(1.05rem, 2vw, 1.28rem);
+  }
+
+  .services-overview__home-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    min-height: 1.8rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .services-overview__home-tags :global(.tag) {
+    min-height: 1.55rem;
+    padding: 0.28rem 0.56rem;
+    font-size: 0.74rem;
+  }
+
+  .services-overview__home-card h3 {
+    margin: 0;
+    color: #2b090b;
+    font-size: clamp(1.08rem, 1.5vw, 1.2rem);
+    font-weight: 840;
+    line-height: 1.14;
+    overflow-wrap: break-word;
+  }
+
+  .services-overview__home-card p {
     display: -webkit-box;
+    flex: 1 1 auto;
     overflow: hidden;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    margin: 0.42rem 0 0;
+    -webkit-line-clamp: 3;
+    margin: 0.65rem 0 1.05rem;
     color: #6b625c;
-    line-height: 1.55;
+    font-size: 0.98rem;
+    line-height: 1.58;
+  }
+
+  .services-overview__home-card :global(.link-arrow) {
+    margin-top: auto;
+    color: #651113;
   }
 
   .services-overview__grid {
@@ -268,11 +238,14 @@ const supportingServices = home ? visibleServices.slice(1) : visibleServices;
     gap: clamp(1rem, 2vw, 1.25rem);
   }
 
-  @media (max-width: 980px) {
+  @media (max-width: 1120px) {
     .services-overview__home-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+  }
 
+  @media (max-width: 980px) {
+    .services-overview__home-grid,
     .services-overview__grid,
     .services-overview__grid--compact {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -285,9 +258,17 @@ const supportingServices = home ? visibleServices.slice(1) : visibleServices;
       flex-direction: column;
     }
 
+    .services-overview__home-grid,
     .services-overview__grid,
     .services-overview__grid--compact {
       grid-template-columns: 1fr;
+    }
+
+    .services-overview__head :global(.section-heading h2) {
+      max-width: 100%;
+      font-size: 1.45rem;
+      line-height: 1.08;
+      overflow-wrap: anywhere;
     }
   }
 </style>

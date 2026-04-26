@@ -9,16 +9,24 @@ import FAQSection from '@/components/sections/FAQSection.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
 import { homeHeroImage } from '@/data/assets';
 import { SITE } from '@/data/site';
-import { serviceNavigation } from '@/data/navigation';
 import { localBusinessSchema, organizationSchema, webPageSchema, websiteSchema } from '@/utils/structuredData';
 
 const title = 'Bauunternehmen in Freilassing für Renovierung & Sanierung';
 const description = SITE.defaultDescription;
 const services = await getCollection('services');
 const servicesBySlug = new Map(services.map((service) => [service.data.slug, service]));
-const sortedServices = serviceNavigation
-  .filter((item) => !item.optional)
-  .map((item) => servicesBySlug.get(item.slug))
+const homeServiceSlugs = [
+  'renovierung-neubau',
+  'energetische-sanierung',
+  'badsanierung',
+  'trockenbau-innenausbau',
+  'bodenverlegung',
+  'fenster-tueren',
+  'hausmeisterservice-objektpflege',
+  'abdichtung-feuchtigkeitsschutz',
+] as const;
+const sortedServices = homeServiceSlugs
+  .map((slug) => servicesBySlug.get(slug))
   .filter((service): service is (typeof services)[number] => Boolean(service));
 ---
 
@@ -37,7 +45,7 @@ const sortedServices = serviceNavigation
   <HeroHome image={homeHeroImage} />
   <ServicesOverview
     services={sortedServices}
-    limit={6}
+    limit={8}
     title="Leistungen, die Bestand und Alltag zusammenbringen"
     description="Die Startseite zeigt bewusst die Bereiche, die bei Renovierung, Sanierung und Ausbau am häufigsten zusammen gedacht werden: vom Bad über den Innenausbau bis zu sauberen Anschlüssen."
     home
