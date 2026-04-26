@@ -104,6 +104,12 @@ Bewertung: `256x256-fav.png` wurde optimiert als Touch-/Brand-Favicon uebernomme
 | Dezentes Regional-/Brandmotiv | `new-figma-assets/visitenkarte-design/visitenkarte-mountain.png` | `public/images/regional/watzmann-brand-silhouette.webp` |
 | Dediziertes OG-Brandbild | `visitenkarte-mountain.png` + `public/images/brand/vrebo-wordmark.png` | `public/images/brand/vrebo-og-card.webp` |
 
+## In der Homepage-Design-Revision ergaenzt
+
+| Ziel | Quelle | Ausgabe |
+| --- | --- | --- |
+| Subtiles Gebaeude-/Markenmotiv fuer Hero und CTA | `vrebo-bau-images/new-figma-assets/vrebo-main-img-v2.png` | `public/images/brand/vrebo-building-mark.webp` |
+
 Bewertung: Das regionale Motiv wird nur als subtile Silhouette eingesetzt. Es ist kein touristisches Leitmotiv und ersetzt keine echten Projektbilder. Das OG-Bild nutzt die Wortmarke bewusst als Brand-Anker und verbindet sie mit der regionalen Silhouette.
 
 ## Optimierung

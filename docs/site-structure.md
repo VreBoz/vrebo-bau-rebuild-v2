@@ -110,6 +110,13 @@ Inhalte:
 - Trust-Signale: direkter Ansprechpartner, saubere Ausfuehrung, regionale Naehe
 - echtes Projekt- oder Standortbild
 
+Aktueller Homepage-Stand:
+
+- Hero als dunkle Bildbuehne mit Standort-/Fahrzeugfoto.
+- Trust-Signale sind als untere Hero-Bar integriert.
+- CTA-Gruppe bleibt direkt im ersten Viewport sichtbar.
+- Subtiles Gebaeude-/Brandmotiv ergaenzt die Markenwirkung, ohne das echte Foto zu ersetzen.
+
 ### 2. Leistungsueberblick
 
 Aufgabe:
@@ -122,6 +129,11 @@ Empfohlen:
 - 6-9 Service-Cards oder Service-Bands
 - nach Bedarf in Cluster teilen: Ausbau/Sanierung, Huell-/Schutzarbeiten, Aussen/Objekt
 - kurze Beschreibungen statt langer SEO-Bloecke
+
+Aktueller Homepage-Stand:
+
+- Startseite nutzt eine Featured-Service-Komposition plus scanbare Service-Zeilen.
+- Die normale Karten-/Listenlogik bleibt fuer `/leistungen` erhalten.
 
 ### 3. Warum Vrebo
 

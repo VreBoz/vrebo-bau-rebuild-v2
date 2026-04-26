@@ -1,21 +1,30 @@
 ---
 import SectionHeading from '@/components/ui/SectionHeading.astro';
+import Button from '@/components/ui/Button.astro';
 import { commonFaq, type FaqItem } from '@/data/sections';
 
 interface Props {
   items?: FaqItem[];
+  home?: boolean;
 }
 
-const { items = commonFaq } = Astro.props;
+const { items = commonFaq, home = false } = Astro.props;
 ---
 
-<section class="faq-section section-shell">
-  <div class="site-container faq-section__grid">
+<section class:list={['faq-section', 'section-shell', { 'faq-section--home': home }]}>
+  <div class:list={['site-container', 'faq-section__grid', { 'faq-section__grid--home': home }]}>
     <SectionHeading
       eyebrow="FAQ"
       title="Häufige Fragen vor der Anfrage"
       description="Kurze Antworten helfen, den ersten Kontakt vorzubereiten und typische Unsicherheiten früh zu klären."
     />
+    {home && (
+      <div class="faq-section__hint">
+        <strong>Direkt starten</strong>
+        <p>Wenn die Frage spezieller ist, reicht eine kurze Projektskizze. Vrebo meldet sich persönlich zurück.</p>
+        <Button href="/kontakt" variant="secondary">Projekt schildern</Button>
+      </div>
+    )}
     <div class="faq-section__items">
       {items.map((item) => (
         <details>
@@ -28,11 +37,43 @@ const { items = commonFaq } = Astro.props;
 </section>
 
 <style>
+  .faq-section--home {
+    background:
+      linear-gradient(180deg, rgb(244 239 232 / 0.78), #fffaf4 100%),
+      #fffaf4;
+  }
+
   .faq-section__grid {
     display: grid;
     grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr);
     gap: clamp(1.5rem, 5vw, 4rem);
     align-items: start;
+  }
+
+  .faq-section__grid--home {
+    grid-template-columns: minmax(0, 0.62fr) minmax(0, 0.38fr) minmax(0, 1fr);
+    gap: clamp(1.2rem, 3vw, 2rem);
+    align-items: stretch;
+  }
+
+  .faq-section__hint {
+    align-self: start;
+    border: 1px solid rgb(48 43 40 / 0.1);
+    border-radius: var(--radius-lg);
+    background: var(--surface-paper);
+    padding: clamp(1.05rem, 2vw, 1.35rem);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .faq-section__hint strong {
+    display: block;
+    color: #2b090b;
+    font-size: 1.05rem;
+  }
+
+  .faq-section__hint p {
+    padding: 0;
+    margin: 0.45rem 0 1rem;
   }
 
   .faq-section__items {
@@ -89,8 +130,14 @@ const { items = commonFaq } = Astro.props;
     line-height: 1.66;
   }
 
+  .faq-section__hint p {
+    margin: 0.45rem 0 1rem;
+    padding: 0;
+  }
+
   @media (max-width: 820px) {
-    .faq-section__grid {
+    .faq-section__grid,
+    .faq-section__grid--home {
       grid-template-columns: 1fr;
     }
   }

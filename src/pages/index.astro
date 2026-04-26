@@ -38,11 +38,12 @@ const sortedServices = serviceNavigation
   <ServicesOverview
     services={sortedServices}
     limit={6}
-    title="Die wichtigsten Leistungen im Überblick"
-    description="Von der Badsanierung bis zum Innenausbau: Die ersten Bereiche geben Orientierung und führen direkt zu den passenden Detailseiten."
+    title="Leistungen, die Bestand und Alltag zusammenbringen"
+    description="Die Startseite zeigt bewusst die Bereiche, die bei Renovierung, Sanierung und Ausbau am häufigsten zusammen gedacht werden: vom Bad über den Innenausbau bis zu sauberen Anschlüssen."
+    home
   />
-  <TrustSection />
-  <ProcessSection />
-  <FAQSection />
-  <FinalCTA />
+  <TrustSection home />
+  <ProcessSection home />
+  <FAQSection home />
+  <FinalCTA home />
 </BaseLayout>

@@ -259,6 +259,19 @@ In Phase 2 sollten globale Tokens angelegt werden fuer:
 
 Vrebo V2 soll ruhig, hochwertig und echt wirken. Die visuelle Qualitaet soll Quantum erreichen, aber die Marke soll klar anders sein: handwerklich, lokal, vertrauenswuerdig und conversion-orientiert.
 
+## Homepage Revision: Premium ohne Fremdaesthetik
+
+Die Startseite darf staerker als die Unterseiten inszenieren. Der neue Startseitenansatz setzt auf:
+
+- eine grosse dunkle Hero-Buehne statt klassischer Split-Card
+- echtes Standort-/Fahrzeugbild als Vertrauensanker
+- subtile Brand-Layer aus Wortmarke, Gebaeudemotiv und regionaler Silhouette
+- weniger gleichfoermige Karten in der ersten Leistungsuebersicht
+- klare Wechsel zwischen heller Leistungsflaeche und dunkler Vertrauenszäsur
+- grosszuegigere Typografie auf Desktop und bewusst ruhigere Groessen auf Mobile
+
+Die Marke bleibt damit regional, handwerklich und serioes. Die Revision soll nicht luxurioes oder verspielt wirken, sondern praeziser, markiger und hochwertiger.
+
 ## Finale Design-Refinement-Phase
 
 Die finale Verfeinerung bleibt innerhalb der bestehenden Rosewood-/Stein-/Paper-Richtung. Es wurde kein neuer Stil eingefuehrt und kein Quantum-Muster kopiert.

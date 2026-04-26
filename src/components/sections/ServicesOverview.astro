@@ -3,6 +3,8 @@ import type { CollectionEntry } from 'astro:content';
 import SectionHeading from '@/components/ui/SectionHeading.astro';
 import ServiceCard from '@/components/ui/ServiceCard.astro';
 import Button from '@/components/ui/Button.astro';
+import LinkArrow from '@/components/ui/LinkArrow.astro';
+import Tag from '@/components/ui/Tag.astro';
 
 interface Props {
   services: CollectionEntry<'services'>[];
@@ -13,6 +15,7 @@ interface Props {
   compact?: boolean;
   band?: boolean;
   showAllLink?: boolean;
+  home?: boolean;
 }
 
 const {
@@ -24,26 +27,72 @@ const {
   compact = false,
   band = false,
   showAllLink = true,
+  home = false,
 } = Astro.props;
 const visibleServices = typeof limit === 'number' ? services.slice(0, limit) : services;
+const featuredService = home ? visibleServices[0] : undefined;
+const supportingServices = home ? visibleServices.slice(1) : visibleServices;
 ---
 
-<section class:list={['services-overview', 'section-shell', { 'section-band': band }]}>
+<section class:list={['services-overview', 'section-shell', { 'section-band': band, 'services-overview--home': home }]}>
   <div class="site-container">
     <div class="services-overview__head">
       <SectionHeading eyebrow={eyebrow} title={title} description={description} />
       {showAllLink && <Button href="/leistungen" variant="secondary">Alle Leistungen</Button>}
     </div>
 
-    <div class:list={['services-overview__grid', { 'services-overview__grid--compact': compact }]}>
-      {visibleServices.map((service, index) => (
-        <ServiceCard service={service} index={index} compact={compact} />
-      ))}
-    </div>
+    {home && featuredService ? (
+      <div class="services-overview__home-grid">
+        <article class="services-overview__feature">
+          <a class="services-overview__feature-media" href={`/leistungen/${featuredService.data.slug}`} aria-label={`${featuredService.data.title} öffnen`}>
+            {featuredService.data.heroImage && (
+              <img
+                src={featuredService.data.heroImage.src}
+                alt={featuredService.data.heroImage.alt}
+                loading="lazy"
+                decoding="async"
+                width={featuredService.data.heroImage.width}
+                height={featuredService.data.heroImage.height}
+              />
+            )}
+          </a>
+          <div class="services-overview__feature-body">
+            <div class="services-overview__feature-tags">
+              {featuredService.data.tags.slice(0, 3).map((tag) => <Tag variant="dark">{tag}</Tag>)}
+            </div>
+            <h3><a href={`/leistungen/${featuredService.data.slug}`}>{featuredService.data.navLabel}</a></h3>
+            <p>{featuredService.data.description}</p>
+            <LinkArrow href={`/leistungen/${featuredService.data.slug}`} tone="light">Leistung ansehen</LinkArrow>
+          </div>
+        </article>
+
+        <div class="services-overview__service-list">
+          {supportingServices.map((service, index) => (
+            <a class="services-overview__service-row" href={`/leistungen/${service.data.slug}`}>
+              <span>{String(index + 2).padStart(2, '0')}</span>
+              <div>
+                <strong>{service.data.navLabel}</strong>
+                <p>{service.data.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <div class:list={['services-overview__grid', { 'services-overview__grid--compact': compact }]}>
+        {visibleServices.map((service, index) => (
+          <ServiceCard service={service} index={index} compact={compact} />
+        ))}
+      </div>
+    )}
   </div>
 </section>
 
 <style>
+  .services-overview--home {
+    padding-top: clamp(4rem, 9vw, 8rem);
+  }
+
   .services-overview__head {
     position: relative;
     display: flex;
@@ -64,6 +113,149 @@ const visibleServices = typeof limit === 'number' ? services.slice(0, limit) : s
     content: "";
   }
 
+  .services-overview__home-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
+    gap: clamp(1rem, 3vw, 1.7rem);
+    margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  }
+
+  .services-overview__feature {
+    position: relative;
+    display: grid;
+    min-height: 100%;
+    overflow: hidden;
+    border: 1px solid rgb(48 43 40 / 0.1);
+    border-radius: var(--radius-xl);
+    background: #15110f;
+    color: #fffaf4;
+    box-shadow: var(--shadow-card);
+  }
+
+  .services-overview__feature::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, transparent 30%, rgb(21 17 15 / 0.92)),
+      linear-gradient(90deg, rgb(21 17 15 / 0.16), transparent 46%);
+    content: "";
+  }
+
+  .services-overview__feature-media {
+    display: block;
+    min-height: clamp(24rem, 42vw, 34rem);
+    overflow: hidden;
+  }
+
+  .services-overview__feature-media img {
+    width: 100%;
+    height: 100%;
+    min-height: clamp(24rem, 42vw, 34rem);
+    object-fit: cover;
+    object-position: 52% 46%;
+    filter: saturate(0.94) contrast(1.04);
+    transition: transform var(--motion-duration-long) var(--ease-vrebo);
+  }
+
+  .services-overview__feature:hover .services-overview__feature-media img {
+    transform: scale(1.025);
+  }
+
+  .services-overview__feature-body {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .services-overview__feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+  }
+
+  .services-overview__feature h3 {
+    max-width: 31rem;
+    margin: 0;
+    color: #fffaf4;
+    font-size: clamp(1.55rem, 3vw, 2.45rem);
+    font-weight: 840;
+    line-height: 1.02;
+  }
+
+  .services-overview__feature p {
+    max-width: 34rem;
+    margin: 0.85rem 0 1rem;
+    color: rgb(255 250 244 / 0.76);
+    line-height: 1.62;
+  }
+
+  .services-overview__feature :global(.link-arrow) {
+    color: #fffaf4;
+  }
+
+  .services-overview__service-list {
+    display: grid;
+    gap: 0.72rem;
+  }
+
+  .services-overview__service-row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1rem;
+    min-width: 0;
+    border: 1px solid rgb(48 43 40 / 0.1);
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(135deg, rgb(255 255 255 / 0.46), transparent 42%),
+      var(--surface-paper);
+    padding: clamp(1rem, 2vw, 1.2rem);
+    box-shadow: var(--shadow-soft);
+    transition:
+      border-color var(--motion-duration) var(--ease-vrebo),
+      background-color var(--motion-duration) var(--ease-vrebo),
+      box-shadow var(--motion-duration) var(--ease-vrebo);
+  }
+
+  .services-overview__service-row:hover {
+    border-color: rgb(101 17 19 / 0.26);
+    background-color: #fffaf4;
+    box-shadow: var(--shadow-card);
+  }
+
+  .services-overview__service-row > span {
+    display: inline-grid;
+    width: 2.6rem;
+    height: 2.6rem;
+    place-items: center;
+    border: 1px solid rgb(101 17 19 / 0.14);
+    border-radius: 999px;
+    color: #ab3743;
+    font-size: 0.82rem;
+    font-weight: 840;
+  }
+
+  .services-overview__service-row strong {
+    display: block;
+    color: #2b090b;
+    font-size: 1.05rem;
+    line-height: 1.18;
+  }
+
+  .services-overview__service-row p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    margin: 0.42rem 0 0;
+    color: #6b625c;
+    line-height: 1.55;
+  }
+
   .services-overview__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -77,6 +269,10 @@ const visibleServices = typeof limit === 'number' ? services.slice(0, limit) : s
   }
 
   @media (max-width: 980px) {
+    .services-overview__home-grid {
+      grid-template-columns: 1fr;
+    }
+
     .services-overview__grid,
     .services-overview__grid--compact {
       grid-template-columns: repeat(2, minmax(0, 1fr));
