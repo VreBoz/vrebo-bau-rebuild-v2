@@ -10,9 +10,6 @@ const { currentPath = '/' } = Astro.props;
 const normalizePath = (path: string) => path.replace(/\/$/, '') || '/';
 const normalizedCurrent = normalizePath(currentPath);
 const isHome = normalizedCurrent === '/';
-const brandLogo = isHome
-  ? { src: '/images/brand/vrebo-bau-freilassing-combined.png', width: 1350, height: 231 }
-  : { src: '/images/brand/vrebo-wordmark.png', width: 720, height: 214 };
 const isActive = (href: string) => {
   const normalizedHref = normalizePath(href);
   return normalizedHref === '/'
@@ -24,27 +21,32 @@ const isActive = (href: string) => {
 <header class:list={['site-header', { 'site-header--home': isHome }]}>
   <div class="site-container header-inner">
     <a class="brand-link" href="/" aria-label={`${SITE.name} Startseite`}>
-      <img
-        class:list={['brand-logo', { 'brand-logo--home-combined': isHome }]}
-        src={brandLogo.src}
-        alt=""
-        width={brandLogo.width}
-        height={brandLogo.height}
-        decoding="async"
-      />
       {isHome ? (
-        <img
-          class="brand-logo brand-logo--home-single"
-          src="/images/brand/vrebo-einzeln-outline.png"
-          alt=""
-          width="676"
-          height="213"
-          decoding="async"
-        />
+        <picture class="brand-picture">
+          <source media="(max-width: 920px)" srcset="/images/brand/vrebo-einzeln-outline.png" />
+          <img
+            class="brand-logo brand-logo--home"
+            src="/images/brand/vrebo-bau-freilassing-combined.png"
+            alt=""
+            width="1350"
+            height="231"
+            decoding="async"
+          />
+        </picture>
       ) : (
-        <span class="brand-copy">
-          <small>Bau Freilassing</small>
-        </span>
+        <>
+          <img
+            class="brand-logo"
+            src="/images/brand/vrebo-wordmark.png"
+            alt=""
+            width="720"
+            height="214"
+            decoding="async"
+          />
+          <span class="brand-copy">
+            <small>Bau Freilassing</small>
+          </span>
+        </>
       )}
     </a>
 
@@ -165,18 +167,16 @@ const isActive = (href: string) => {
     height: auto;
   }
 
+  .brand-picture {
+    display: block;
+  }
+
   .site-header--home .brand-logo {
     filter: drop-shadow(0 5px 12px rgb(0 0 0 / 0.24));
   }
 
-  .brand-logo--home-combined {
+  .brand-logo--home {
     width: clamp(20rem, 31vw, 31rem);
-    filter: drop-shadow(0 5px 12px rgb(0 0 0 / 0.24));
-  }
-
-  .brand-logo--home-single {
-    display: none;
-    width: clamp(6.8rem, 10.8vw, 9rem);
   }
 
   .brand-copy {
@@ -502,12 +502,7 @@ const isActive = (href: string) => {
       width: clamp(6.55rem, 32vw, 7.5rem);
     }
 
-    .brand-logo--home-combined {
-      display: none;
-    }
-
-    .brand-logo--home-single {
-      display: block;
+    .brand-logo--home {
       width: clamp(6rem, 30vw, 7rem);
     }
 
