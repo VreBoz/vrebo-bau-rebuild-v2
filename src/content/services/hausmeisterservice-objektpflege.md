@@ -2,27 +2,34 @@
 title: "Hausmeisterservice und Objektpflege"
 slug: "hausmeisterservice-objektpflege"
 navLabel: "Objektpflege"
-description: "Optionaler Leistungsbereich für Objektpflege und regelmäßige Betreuung."
-seoTitle: "Objektpflege in Freilassing"
-seoDescription: "Hausmeisterservice und Objektpflege als optionaler Leistungsbereich von Vrebo Bau in Freilassing und Umgebung."
+description: "Objektnahe Betreuung, Pflege und abgestimmte kleinere Arbeiten rund um Immobilien in Freilassing und Umgebung."
+seoTitle: "Hausmeisterservice & Objektpflege in Freilassing"
+seoDescription: "Hausmeisterservice und Objektpflege mit Vrebo Bau: abgestimmte Betreuung, kleinere Arbeiten und Pflege rund um Objekte in Freilassing und Umgebung."
 tags:
   - "Objektpflege"
   - "Hausmeisterservice"
-  - "Optional"
-intro: "Hausmeisterservice und Objektpflege bleiben als optionaler Bereich für Freilassing und Umgebung vorbereitet, falls diese Leistung sichtbar bleiben soll."
+  - "Außenbereiche"
+intro: "Vrebo Bau unterstützt bei abgestimmter Objektpflege und kleineren Arbeiten rund um Immobilien in Freilassing, Bad Reichenhall und dem Berchtesgadener Land."
 servicesIncluded:
-  - "Abstimmung wiederkehrender Objektaufgaben."
-  - "Entscheidung zur Sichtbarkeit im MVP."
+  - "Regelmäßige oder anlassbezogene Objektpflege nach Abstimmung."
+  - "Kleinere Arbeiten rund um Haus, Außenbereich und Bestand."
+  - "Unterstützung bei Ordnung, Pflege und Vorbereitung von Flächen."
+  - "Klare Aufgabenabgrenzung, damit Umfang und Frequenz verständlich bleiben."
 processSteps:
-  - title: "Bedarf klären"
-    description: "Aufgaben, Frequenz und Objektart werden eingeordnet."
-  - title: "Betreuung"
-    description: "Die Betreuung wird nach klar definiertem Umfang geplant."
+  - title: "Objekt und Bedarf klären"
+    description: "Art des Objekts, Aufgaben, Frequenz und besondere Anforderungen werden aufgenommen."
+  - title: "Umfang abstimmen"
+    description: "Vrebo Bau grenzt die passenden Aufgaben sauber ein und bespricht, was regelmäßig oder nach Bedarf sinnvoll ist."
+  - title: "Betreuung umsetzen"
+    description: "Die vereinbarten Arbeiten werden nachvollziehbar und objektbezogen ausgeführt."
 benefits:
-  - "Klare Aufgabenabgrenzung für laufende Objektbetreuung."
+  - "Ein Ansprechpartner für objektnahe Aufgaben und kleinere Arbeiten."
+  - "Klare Abstimmung statt unklarer Pauschalversprechen."
+  - "Sinnvoll kombinierbar mit Außenanlagen, Rückbau oder Renovierung."
 relatedServices:
   - "aussenanlagen"
   - "entruempelung-rueckbau"
+  - "renovierung-neubau"
 areasServed:
   - "Freilassing"
   - "Bad Reichenhall"
@@ -30,12 +37,14 @@ areasServed:
   - "Salzburg Umgebung"
   - "Bayern"
 faq:
-  - question: "Bleibt Objektpflege Teil der Navigation?"
-    answer: "Die Leistung ist vorbereitet, wird aber erst nach strategischer Entscheidung prominent sichtbar."
+  - question: "Welche Aufgaben können bei der Objektpflege angefragt werden?"
+    answer: "Sinnvoll sind klar beschriebene Aufgaben rund um Pflege, Ordnung, kleinere Arbeiten und Außenbereiche. Der genaue Umfang wird vorab abgestimmt."
+  - question: "Ist eine regelmäßige Betreuung möglich?"
+    answer: "Regelmäßige oder anlassbezogene Betreuung kann besprochen werden, wenn Aufgaben, Frequenz und Objektart fachlich passen."
 schemaServiceType: "Hausmeisterservice und Objektpflege"
 draft: true
 ---
 
-Objektpflege ist als optionaler Leistungsbereich vorbereitet. Ob dieser Bereich prominent sichtbar bleibt, sollte vor dem Launch fachlich und strategisch entschieden werden.
+Hausmeisterservice und Objektpflege ist für Eigentümer, Hausverwaltungen und Betriebe interessant, wenn wiederkehrende oder anlassbezogene Aufgaben rund um ein Objekt verlässlich abgestimmt werden sollen. Vrebo Bau formuliert den Umfang bewusst klar, damit keine falschen Erwartungen entstehen und die passende Betreuung geplant werden kann.
 
-Wenn die Leistung genutzt wird, sollten Aufgaben, Frequenz und Objektart klar beschrieben werden, damit keine falschen Erwartungen entstehen.
+Typische Anfragen betreffen Pflege, Ordnung, kleinere Arbeiten, Außenbereiche oder die Vorbereitung von Flächen. Je genauer Objektart, gewünschte Frequenz und Aufgaben beschrieben sind, desto besser lässt sich einschätzen, ob Vrebo Bau der passende Ansprechpartner ist.

@@ -97,7 +97,7 @@ export const serviceNavigation = [
     navLabel: 'Objektpflege',
     slug: 'hausmeisterservice-objektpflege',
     href: '/leistungen/hausmeisterservice-objektpflege',
-    optional: true,
+    optional: false,
   },
 ] as const;
 

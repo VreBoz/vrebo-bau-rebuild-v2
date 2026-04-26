@@ -1,0 +1,381 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { serviceNavigation } from '@/data/navigation';
+
+const fallbackEmail = 'info@vrebo-bau.de';
+const mailtoHref =
+  `mailto:${fallbackEmail}?subject=${encodeURIComponent('Anfrage über vrebo-bau.de')}`;
+---
+
+<div id="anfrage" class="surface contact-form-shell" data-contact-form-shell>
+  <div class="contact-form-shell__intro">
+    <p class="eyebrow">Anfrageformular</p>
+    <h2>Angaben zum Projekt</h2>
+    <p>
+      Beschreiben Sie kurz, worum es geht. Pflichtfelder sind Name, E-Mail und Nachricht.
+      Telefon, Leistung und Objektort helfen bei der Einordnung, bleiben aber niedrigschwellig.
+    </p>
+  </div>
+
+  <div
+    class="contact-status"
+    data-contact-status
+    hidden
+    aria-live="polite"
+    tabindex="-1"
+  >
+    <strong data-contact-status-title></strong>
+    <span data-contact-status-copy></span>
+  </div>
+
+  <form
+    class="contact-form"
+    method="post"
+    action="/contact.php"
+    accept-charset="UTF-8"
+    aria-label="Kontaktformular"
+    data-contact-form
+  >
+    <input type="hidden" name="started_at" value="" data-contact-started-at />
+
+    <div class="contact-form__grid">
+      <label class="contact-field" for="contact-name">
+        <span>Name <em>Pflichtfeld</em></span>
+        <input
+          id="contact-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          maxlength="120"
+          placeholder="Ihr Name"
+          required
+        />
+      </label>
+
+      <label class="contact-field" for="contact-email">
+        <span>E-Mail <em>Pflichtfeld</em></span>
+        <input
+          id="contact-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          maxlength="190"
+          placeholder="name@example.de"
+          required
+        />
+      </label>
+    </div>
+
+    <div class="contact-form__grid">
+      <label class="contact-field" for="contact-phone">
+        <span>Telefon <em>optional</em></span>
+        <input
+          id="contact-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength="80"
+          placeholder="Telefonnummer für Rückfragen"
+        />
+      </label>
+
+      <label class="contact-field" for="contact-service">
+        <span>Leistung / Projektart</span>
+        <select id="contact-service" name="service">
+          <option value="">Allgemeine Anfrage</option>
+          {serviceNavigation.map((service) => (
+            <option value={service.slug}>{service.label}</option>
+          ))}
+        </select>
+      </label>
+    </div>
+
+    <label class="contact-field" for="contact-location">
+      <span>Ort / Objekt <em>optional</em></span>
+      <input
+        id="contact-location"
+        name="location"
+        type="text"
+        maxlength="180"
+        placeholder="Zum Beispiel Freilassing, Bad Reichenhall oder Objektart"
+      />
+      <small>Ein grober Ort oder die Objektart hilft bei Termin- und Anfahrtsplanung.</small>
+    </label>
+
+    <label class="contact-field" for="contact-message">
+      <span>Nachricht <em>Pflichtfeld</em></span>
+      <textarea
+        id="contact-message"
+        name="message"
+        rows="7"
+        minlength="10"
+        maxlength="5000"
+        placeholder="Was soll gemacht werden? Gibt es einen gewünschten Zeitraum, Besonderheiten oder Fotos, die später hilfreich wären?"
+        required
+      ></textarea>
+      <small>Eine kurze Beschreibung reicht für den Start. Details können später abgestimmt werden.</small>
+    </label>
+
+    <div class="contact-form__honeypot" aria-hidden="true">
+      <label for="contact-website">Website</label>
+      <input
+        id="contact-website"
+        name="website"
+        type="text"
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
+
+    <p class="contact-privacy">
+      Die Angaben werden zur Bearbeitung der Anfrage verwendet. Weitere Hinweise stehen in der
+      <a href="/datenschutz">Datenschutzerklärung</a>.
+    </p>
+
+    <div class="contact-form__actions">
+      <Button type="submit" size="lg">Anfrage senden</Button>
+      <Button href={mailtoHref} variant="secondary" size="lg">Direkt per E-Mail</Button>
+    </div>
+
+    <p class="contact-fallback">
+      Falls das Formular auf der Testumgebung noch nicht sendet, kann die Anfrage direkt an
+      <a href={mailtoHref}>{fallbackEmail}</a> geschickt werden.
+    </p>
+  </form>
+</div>
+
+<script is:inline>
+  const shell = document.querySelector('[data-contact-form-shell]');
+
+  if (shell) {
+    const params = new URLSearchParams(window.location.search);
+    const status = params.get('status');
+    const service = params.get('leistung') ?? params.get('service');
+    const form = shell.querySelector('[data-contact-form]');
+    const statusBox = shell.querySelector('[data-contact-status]');
+    const statusTitle = shell.querySelector('[data-contact-status-title]');
+    const statusCopy = shell.querySelector('[data-contact-status-copy]');
+    const startedAt = shell.querySelector('[data-contact-started-at]');
+    const serviceSelect = shell.querySelector('#contact-service');
+
+    const messages = {
+      success: {
+        tone: 'success',
+        title: 'Vielen Dank für Ihre Anfrage.',
+        copy: 'Die Nachricht wurde übermittelt. Vrebo Bau meldet sich persönlich zurück.',
+      },
+      error: {
+        tone: 'error',
+        title: 'Das Formular konnte noch nicht senden.',
+        copy: 'Bitte versuchen Sie es erneut oder nutzen Sie den direkten E-Mail-Link darunter.',
+      },
+      invalid: {
+        tone: 'invalid',
+        title: 'Bitte prüfen Sie die Pflichtfelder.',
+        copy: 'Name, gültige E-Mail-Adresse und eine kurze Nachricht werden für die Anfrage benötigt.',
+      },
+    };
+    const message = status && Object.prototype.hasOwnProperty.call(messages, status)
+      ? messages[status]
+      : null;
+
+    if (startedAt) {
+      startedAt.value = String(Math.floor(Date.now() / 1000));
+    }
+
+    if (serviceSelect && service) {
+      const option = Array.from(serviceSelect.options).find((item) => item.value === service);
+
+      if (option) {
+        serviceSelect.value = service;
+      }
+    }
+
+    if (statusBox && statusTitle && statusCopy && message) {
+      statusBox.hidden = false;
+      statusBox.dataset.tone = message.tone;
+      statusTitle.textContent = message.title;
+      statusCopy.textContent = message.copy;
+
+      if (window.location.hash === '#anfrage') {
+        statusBox.focus({ preventScroll: true });
+      }
+    }
+
+    if (form) {
+      form.addEventListener('submit', () => {
+        if (startedAt && startedAt.value === '') {
+          startedAt.value = String(Math.floor(Date.now() / 1000));
+        }
+      });
+    }
+  }
+</script>
+
+<style>
+  .contact-form-shell {
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .contact-form-shell__intro h2 {
+    margin: 0;
+    color: #2b090b;
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+    line-height: 1.08;
+  }
+
+  .contact-form-shell__intro p {
+    max-width: 42rem;
+    margin: 0.9rem 0 0;
+    color: #6b625c;
+  }
+
+  .contact-status {
+    display: grid;
+    gap: 0.25rem;
+    margin-top: 1.25rem;
+    border: 1px solid rgb(48 43 40 / 0.12);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    background: #fffaf4;
+    color: #302b28;
+  }
+
+  .contact-status[hidden] {
+    display: none;
+  }
+
+  .contact-status[data-tone='success'] {
+    border-color: rgb(23 86 52 / 0.24);
+    background: #edf7f0;
+  }
+
+  .contact-status[data-tone='error'],
+  .contact-status[data-tone='invalid'] {
+    border-color: rgb(101 17 19 / 0.22);
+    background: #fcf3f1;
+  }
+
+  .contact-status strong {
+    color: #2b090b;
+  }
+
+  .contact-status span {
+    color: #6b625c;
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.35rem;
+  }
+
+  .contact-form__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .contact-field {
+    display: grid;
+    gap: 0.45rem;
+    color: #302b28;
+    font-weight: 760;
+  }
+
+  .contact-field span {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .contact-field em {
+    color: #6b625c;
+    font-size: 0.78rem;
+    font-style: normal;
+    font-weight: 680;
+  }
+
+  .contact-field small {
+    color: #6b625c;
+    font-weight: 520;
+  }
+
+  .contact-field input,
+  .contact-field textarea,
+  .contact-field select {
+    width: 100%;
+    border: 1px solid rgb(48 43 40 / 0.16);
+    border-radius: var(--radius-sm);
+    background: #fffaf4;
+    padding: 0.78rem 0.85rem;
+    color: #302b28;
+    transition:
+      border-color var(--motion-duration) var(--ease-vrebo),
+      box-shadow var(--motion-duration) var(--ease-vrebo);
+  }
+
+  .contact-field textarea {
+    min-height: 11rem;
+    resize: vertical;
+  }
+
+  .contact-field input:focus,
+  .contact-field textarea:focus,
+  .contact-field select:focus {
+    border-color: rgb(101 17 19 / 0.42);
+  }
+
+  .contact-form__honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .contact-privacy,
+  .contact-fallback {
+    margin: 0;
+    color: #6b625c;
+    font-size: 0.94rem;
+  }
+
+  .contact-privacy {
+    border-radius: var(--radius-md);
+    background: rgb(101 17 19 / 0.06);
+    padding: 0.85rem 1rem;
+  }
+
+  .contact-privacy a,
+  .contact-fallback a {
+    color: #651113;
+    font-weight: 780;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .contact-form__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.35rem;
+  }
+
+  @media (max-width: 720px) {
+    .contact-form__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-field span {
+      display: grid;
+      gap: 0.1rem;
+    }
+
+    .contact-form__actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+  }
+</style>

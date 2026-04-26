@@ -29,7 +29,7 @@ Leistungen bekommt ein Dropdown mit priorisierten Eintraegen:
 - Aussenanlagen
 - Entruempelung und Rueckbau
 
-Optional kann Hausmeisterservice/Objektpflege in der Navigation bleiben, wenn Vrebo diese Leistung strategisch weiter sichtbar anbieten will.
+Hausmeisterservice/Objektpflege bleibt als sichtbare Leistung in der Navigation, weil die Leistung in V2 angelegt und auf der Leistungsuebersicht erreichbar sein soll.
 
 ## Geplante URL-Struktur
 
@@ -64,7 +64,7 @@ Moegliche Zielrouten:
 - `/leistungen/abdichtung-feuchtigkeitsschutz`
 - `/leistungen/aussenanlagen`
 - `/leistungen/entruempelung-rueckbau`
-- optional: `/leistungen/hausmeisterservice-objektpflege`
+- `/leistungen/hausmeisterservice-objektpflege`
 
 ### Redirects / Legacy-Kompatibilitaet
 
@@ -73,7 +73,7 @@ Die alten Routen sollten spaeter per Redirect erhalten bleiben:
 - `/service/innenausbau` -> `/leistungen/trockenbau-innenausbau`
 - `/service/tueren-und-fenster` -> `/leistungen/fenster-tueren`
 - `/service/entruempelung` -> `/leistungen/entruempelung-rueckbau`
-- `/service/hausmeisterservice` -> optional `/leistungen/hausmeisterservice-objektpflege`
+- `/service/hausmeisterservice` -> `/leistungen/hausmeisterservice-objektpflege`
 - `/service/boden-verlegen` -> `/leistungen/bodenverlegung`
 - `/service/badsanierung` -> `/leistungen/badsanierung`
 
@@ -220,7 +220,7 @@ Die Seite soll alle Leistungen strukturiert zeigen und Nutzer zur passenden Deta
   - Ausbau und Renovierung
   - Energie, Abdichtung und Schutz
   - Aussen und Rueckbau
-  - Objektpflege optional
+  - Objektpflege
 - kurze Trust-Section: sauber, direkt, lokal
 - Prozess-Teaser
 - CTA zur Anfrage

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHero from '@/components/sections/PageHero.astro';
+import ContactForm from '@/components/sections/ContactForm.astro';
 import { homeHeroImage } from '@/data/assets';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
@@ -28,7 +29,7 @@ const pageActions = [
   <PageHero
     eyebrow="Kontakt"
     title="Projekt kurz schildern"
-    description="Ob Bad, Boden, Innenausbau oder Renovierung: Für den ersten Kontakt reichen wenige Eckdaten. Je klarer Ort, Umfang und gewünschter Zeitraum beschrieben sind, desto besser lässt sich der nächste Schritt einordnen."
+    description="Ob Bad, Boden, Innenausbau, Objektpflege oder Renovierung: Für den ersten Kontakt reichen wenige Eckdaten. Je klarer Ort, Umfang und gewünschter Zeitraum beschrieben sind, desto besser lässt sich der nächste Schritt einordnen."
     tags={['Freilassing', 'Bad Reichenhall', 'Berchtesgadener Land']}
     actions={pageActions}
     mediaLabel="Kontakt und Anfrage"
@@ -37,56 +38,33 @@ const pageActions = [
 
   <section class="section-shell contact-section">
     <div class="site-container contact-grid">
-      <aside class="surface contact-panel">
-        <p class="eyebrow">Hilfreich für die Anfrage</p>
-        <h2>Was direkt weiterhilft</h2>
-        <p>
-          Eine kurze Beschreibung reicht für den Start. Fotos vom Bestand, Maße oder Hinweise zur
-          Nutzung helfen, den Umfang besser einzuschätzen.
-        </p>
-        <ul>
-          <li>Ort des Projekts oder Objekts</li>
-          <li>Leistungsbereich, zum Beispiel Bad, Boden oder Trockenbau</li>
-          <li>Grobe Größe, Zustand und gewünschter Zeitraum</li>
-          <li>Fotos oder Skizzen, falls vorhanden</li>
-        </ul>
-      </aside>
-
-      <form id="anfrage" class="surface contact-form" aria-label="Kontaktformular">
-        <div>
-          <p class="eyebrow">Anfrageformular</p>
-          <h2>Angaben zum Projekt</h2>
-          <p class="form-note">
-            Die Formularoberfläche ist vorbereitet. Der technische Versand wird separat
-            angebunden; bis dahin dient die Fläche als klare Vorlage für die benötigten Angaben.
+      <aside class="contact-aside" aria-label="Hinweise zur Kontaktaufnahme">
+        <div class="surface contact-panel">
+          <p class="eyebrow">Hilfreich für die Anfrage</p>
+          <h2>Was direkt weiterhilft</h2>
+          <p>
+            Eine kurze Beschreibung reicht für den Start. Fotos vom Bestand, Maße oder Hinweise zur
+            Nutzung helfen, den Umfang besser einzuschätzen.
           </p>
+          <ul>
+            <li>Ort des Projekts oder Objekts</li>
+            <li>Leistungsbereich, zum Beispiel Bad, Boden, Trockenbau oder Objektpflege</li>
+            <li>Grobe Größe, Zustand und gewünschter Zeitraum</li>
+            <li>Fotos oder Skizzen, falls vorhanden</li>
+          </ul>
         </div>
 
-        <label>
-          Name
-          <input type="text" name="name" autocomplete="name" placeholder="Ihr Name" />
-        </label>
-        <label>
-          E-Mail
-          <input type="email" name="email" autocomplete="email" placeholder="name@example.de" />
-        </label>
-        <label>
-          Projektart
-          <select name="service">
-            <option>Badsanierung</option>
-            <option>Renovierung und Neubau</option>
-            <option>Trockenbau und Innenausbau</option>
-            <option>Bodenverlegung</option>
-            <option>Fenster und Türen</option>
-            <option>Andere Leistung</option>
-          </select>
-        </label>
-        <label>
-          Nachricht
-          <textarea name="message" rows="5" placeholder="Worum geht es? Wo befindet sich das Objekt?"></textarea>
-        </label>
-        <button class="button button--primary" type="button" disabled>Anfrage senden</button>
-      </form>
+        <div class="surface contact-panel contact-panel--quiet">
+          <p class="eyebrow">Nächster Schritt</p>
+          <h2>Persönliche Einordnung statt langem Formular</h2>
+          <p>
+            Nach der ersten Nachricht kann geklärt werden, ob ein kurzer Rückruf, eine Besichtigung
+            oder zunächst weitere Unterlagen sinnvoll sind.
+          </p>
+        </div>
+      </aside>
+
+      <ContactForm />
     </div>
   </section>
 </BaseLayout>
@@ -103,21 +81,28 @@ const pageActions = [
     align-items: start;
   }
 
-  .contact-panel,
-  .contact-form {
+  .contact-aside {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-panel {
     padding: clamp(1.25rem, 3vw, 2rem);
   }
 
-  .contact-panel h2,
-  .contact-form h2 {
+  .contact-panel--quiet {
+    background: rgb(255 250 244 / 0.7);
+    box-shadow: none;
+  }
+
+  .contact-panel h2 {
     margin: 0;
     color: #2b090b;
-    font-size: clamp(1.55rem, 3vw, 2.15rem);
+    font-size: clamp(1.45rem, 2.7vw, 1.95rem);
     line-height: 1.08;
   }
 
-  .contact-panel p,
-  .form-note {
+  .contact-panel p {
     margin: 0.9rem 0 0;
     color: #6b625c;
   }
@@ -128,38 +113,6 @@ const pageActions = [
     margin: 1.4rem 0 0;
     padding-left: 1.1rem;
     color: #302b28;
-  }
-
-  .contact-form {
-    display: grid;
-    gap: 1rem;
-  }
-
-  label {
-    display: grid;
-    gap: 0.45rem;
-    color: #302b28;
-    font-weight: 760;
-  }
-
-  input,
-  textarea,
-  select {
-    width: 100%;
-    border: 1px solid rgb(48 43 40 / 0.16);
-    border-radius: var(--radius-sm);
-    background: #fffaf4;
-    padding: 0.78rem 0.85rem;
-    color: #302b28;
-  }
-
-  textarea {
-    resize: vertical;
-  }
-
-  button:disabled {
-    cursor: not-allowed;
-    opacity: 0.72;
   }
 
   @media (max-width: 820px) {

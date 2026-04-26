@@ -21,5 +21,5 @@ Die Datei `public/.htaccess` wird beim Build nach `dist/.htaccess` kopiert und e
 
 - Die Regeln sind bewusst host-neutral und enthalten keine testdomain- oder production-spezifischen Bedingungen.
 - Vor Launch auf IONOS prüfen, ob `.htaccess` im gewählten Hosting-Paket aktiv ist.
-- Falls Objektpflege nicht sichtbar bleiben soll, `/service/hausmeisterservice` vor Launch auf `/leistungen` ändern.
+- Objektpflege ist aktuell sichtbar. Falls diese Leistung vor Launch doch entfernt werden soll, `/service/hausmeisterservice` auf `/leistungen` ändern.
 - Weitere alte Routen aus Webflow wie Blog, Search oder Template-Seiten sollten separat entschieden werden, statt blind weitergeleitet zu werden.

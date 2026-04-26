@@ -29,7 +29,7 @@
 | `/leistungen/abdichtung-feuchtigkeitsschutz` | Abdichtung in Freilassing | Abdichtung und Feuchtigkeitsschutz mit Vrebo Bau für sensible Bauteile, Feuchtraumbereiche und Sanierung in Freilassing. |
 | `/leistungen/aussenanlagen` | Außenanlagen in Freilassing | Außenanlagen mit Vrebo Bau: Wege, Flächen und objektnahe Arbeiten in Freilassing, Bad Reichenhall und Umgebung. |
 | `/leistungen/entruempelung-rueckbau` | Entrümpelung & Rückbau in Freilassing | Entrümpelung und Rückbau mit Vrebo Bau als Vorbereitung für Renovierung, Sanierung oder Übergabe in Freilassing und Umgebung. |
-| `/leistungen/hausmeisterservice-objektpflege` | Objektpflege in Freilassing | Hausmeisterservice und Objektpflege als optionaler Leistungsbereich von Vrebo Bau in Freilassing und Umgebung. |
+| `/leistungen/hausmeisterservice-objektpflege` | Hausmeisterservice & Objektpflege in Freilassing | Hausmeisterservice und Objektpflege mit Vrebo Bau: abgestimmte Betreuung, kleinere Arbeiten und Pflege rund um Objekte in Freilassing und Umgebung. |
 
 ## Canonical-Strategie
 
@@ -88,7 +88,7 @@ Die Apache/IONOS-Hauptlösung liegt in `public/.htaccess`. Details stehen in `do
 - Echte Kontaktangaben, Adresse, Telefonnummer und E-Mail final bestätigen und in `src/data/site.ts` ergänzen.
 - Rechtliche Texte für Datenschutz und Impressum final prüfen lassen.
 - Bildrechte und Nutzungsrechte der verwendeten Assets bestätigen.
-- Entscheiden, ob Hausmeisterservice/Objektpflege öffentlich sichtbar bleiben soll.
+- Hausmeisterservice/Objektpflege ist sichtbar geschaltet; Umfang und Bildauswahl vor Launch fachlich final freigeben.
 - Prüfen, ob `.htaccess` auf dem finalen IONOS-Paket aktiv ist.
 - Dediziertes OG-Bild im Format 1200x630 px kann später ergänzt werden; aktuell wird das kuratierte Hero-Bild genutzt.
 - Nach finalem Build robots, Canonicals und Sitemap auf `https://vrebo-bau.de` live prüfen.
