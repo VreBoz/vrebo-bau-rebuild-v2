@@ -2,29 +2,37 @@
 title: "Renovierung und Neubau"
 slug: "renovierung-neubau"
 navLabel: "Renovierung & Neubau"
-description: "Umbau, Modernisierung und bauliche Anpassungen als zentraler Einstieg fuer Wohn- und Objektprojekte."
-seoTitle: "Renovierung und Neubau"
-seoDescription: "Renovierung und Neubau als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
+description: "Renovierung, Modernisierung und bauliche Anpassungen für Wohn- und Objektbereiche."
+seoTitle: "Renovierung und Neubau in Freilassing"
+seoDescription: "Vrebo Bau begleitet Renovierung, Modernisierung und bauliche Anpassungen in Freilassing, Bad Reichenhall und Umgebung."
 heroImage:
   src: "/images/services/renovierung-neubau-flur.webp"
-  alt: "Renovierter Flur mit neuen Bodenflaechen"
+  alt: "Renovierter Flur mit neuen Bodenflächen"
   width: 1200
   height: 1600
 tags:
   - "Renovierung"
-  - "Neubau"
+  - "Modernisierung"
   - "Freilassing"
-intro: "Renovierung und Neubau buendeln die Arbeiten, die ein Objekt sichtbar erneuern oder baulich weiterentwickeln."
+intro: "Renovierung und Neubau-nahe Arbeiten brauchen einen klaren Blick auf Bestand, Nutzung und Reihenfolge. Vrebo Bau hilft, bauliche Maßnahmen geordnet vorzubereiten und umzusetzen."
 servicesIncluded:
-  - "Bestandsaufnahme und Abstimmung der geplanten Arbeiten."
-  - "Vorbereitung von Ausbau-, Sanierungs- und Anschlussarbeiten."
+  - "Bestandsaufnahme für Wohnräume, Flure, Objektbereiche und angrenzende Bauteile."
+  - "Abstimmung von Rückbau, Ausbau, Boden, Trockenbau und Anschlussarbeiten."
+  - "Modernisierung einzelner Räume oder zusammenhängender Bereiche nach vereinbartem Umfang."
+  - "Koordination der Reihenfolge, damit Schnittstellen und Folgearbeiten nachvollziehbar bleiben."
 processSteps:
-  - title: "Anfrage"
-    description: "Der Umfang wird anhand der ersten Angaben eingeordnet."
-  - title: "Besichtigung"
-    description: "Vor Ort werden Zustand, Ablauf und naechste Schritte abgestimmt."
+  - title: "Vorhaben einordnen"
+    description: "Zunächst wird geklärt, ob es um Renovierung, Umbau, Modernisierung oder vorbereitende Bauarbeiten geht."
+  - title: "Bestand prüfen"
+    description: "Vor Ort werden Zustand, Maße, Zugänglichkeit und mögliche Schnittstellen betrachtet."
+  - title: "Ablauf planen"
+    description: "Die Arbeiten werden in eine sinnvolle Reihenfolge gebracht, damit Rückbau, Ausbau und Abschluss zusammenpassen."
+  - title: "Umsetzung begleiten"
+    description: "Während der Ausführung bleiben Abstimmung und sichtbarer Fortschritt nachvollziehbar."
 benefits:
-  - "Klare Abstimmung von Umfang, Reihenfolge und Schnittstellen."
+  - "Strukturierter Einstieg für Projekte mit mehreren Leistungsbereichen."
+  - "Keine pauschalen Versprechen, sondern Abstimmung am konkreten Bestand."
+  - "Gute Verbindung zu Trockenbau, Bodenverlegung, Bad und Rückbau."
 relatedServices:
   - "trockenbau-innenausbau"
   - "bodenverlegung"
@@ -36,10 +44,12 @@ areasServed:
   - "Salzburg Umgebung"
   - "Bayern"
 faq:
-  - question: "Welche Angaben helfen fuer die erste Einschaetzung?"
+  - question: "Welche Angaben helfen für die erste Einschätzung?"
     answer: "Ort, Zustand, grober Umfang, Wunschzeitraum und vorhandene Fotos helfen beim Einstieg."
 schemaServiceType: "Renovierung und Bau"
 draft: true
 ---
 
-Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.
+Renovierungen sind oft mehr als eine einzelne Maßnahme. Ein neuer Boden kann mit Trockenbau, Rückbau, Anschlussdetails oder Maler- und Abschlussarbeiten zusammenhängen.
+
+Vrebo Bau stellt deshalb zuerst den Umfang und die Reihenfolge in den Vordergrund. So entsteht eine realistische Grundlage für die weitere Abstimmung, ohne vorab mehr zu versprechen, als der Bestand zulässt.

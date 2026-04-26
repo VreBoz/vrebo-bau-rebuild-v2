@@ -1,30 +1,30 @@
 ---
-title: "Aussenanlagen"
+title: "Außenanlagen"
 slug: "aussenanlagen"
-navLabel: "Aussenanlagen"
-description: "Vorbereiteter Bereich fuer Aussenflaechen, Wege, Anschlusszonen und objektnahe Arbeiten."
-seoTitle: "Aussenanlagen"
-seoDescription: "Aussenanlagen als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
+navLabel: "Außenanlagen"
+description: "Arbeiten an Außenflächen, Wegen, Anschlusszonen und objektnahem Umfeld."
+seoTitle: "Außenanlagen"
+seoDescription: "Außenanlagen mit Vrebo Bau in Freilassing und Umgebung: Wege, Flächen und objektnahe Arbeiten."
 heroImage:
   src: "/images/services/aussenanlagen-plattenweg.webp"
   alt: "Neu angelegter Plattenweg an einem Wohnhaus"
   width: 1200
   height: 1200
 tags:
-  - "Aussenbereich"
+  - "Außenbereich"
   - "Garten"
   - "Objekt"
-intro: "Aussenanlagen bilden den strukturierten Einstieg fuer Flaechen, Wege und Arbeiten am Objektumfeld."
+intro: "Außenanlagen bilden den Einstieg für Flächen, Wege und Arbeiten am Objektumfeld."
 servicesIncluded:
-  - "Abstimmung von Flaechen, Nutzung und angrenzenden Bauteilen."
-  - "Vorbereitung objekt- und aussenbereichsnaher Arbeiten."
+  - "Abstimmung von Flächen, Nutzung und angrenzenden Bauteilen."
+  - "Vorbereitung objekt- und außenbereichsnaher Arbeiten."
 processSteps:
   - title: "Ortstermin"
     description: "Die Situation vor Ort wird mit Blick auf Nutzung und Bestand erfasst."
-  - title: "Ausfuehrung"
+  - title: "Ausführung"
     description: "Die Arbeiten werden nach abgestimmtem Umfang umgesetzt."
 benefits:
-  - "Robuste Planung fuer sichtbare und beanspruchte Aussenbereiche."
+  - "Robuste Planung für sichtbare und beanspruchte Außenbereiche."
 relatedServices:
   - "abdichtung-feuchtigkeitsschutz"
   - "entruempelung-rueckbau"
@@ -36,10 +36,12 @@ areasServed:
   - "Salzburg Umgebung"
   - "Bayern"
 faq:
-  - question: "Welche Aussenarbeiten werden spaeter aufgenommen?"
-    answer: "Die Website-Struktur bereitet Wege, Flaechen und objektnahe Arbeiten als Themen vor."
-schemaServiceType: "Aussenanlagen"
+  - question: "Welche Außenarbeiten können besprochen werden?"
+    answer: "Sinnvoll sind Angaben zu Fläche, Nutzung, Bestand, Zugang und gewünschtem Ergebnis."
+schemaServiceType: "Außenanlagen"
 draft: true
 ---
 
-Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.
+Außenbereiche müssen zur Nutzung, zum Bestand und zu angrenzenden Bauteilen passen. Wege, Plattenflächen und objektnahe Arbeiten profitieren von einer sauberen Vorbereitung.
+
+Für die Anfrage helfen Fotos, grobe Maße und eine kurze Beschreibung, wie die Fläche später genutzt werden soll.

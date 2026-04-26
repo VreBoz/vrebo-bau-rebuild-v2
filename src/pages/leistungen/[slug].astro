@@ -1,6 +1,8 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import { serviceNavigation } from '@/data/navigation';
 import { breadcrumbSchema, serviceSchema, webPageSchema } from '@/utils/structuredData';
 
 type Props = {
@@ -19,6 +21,9 @@ export async function getStaticPaths() {
 const { service } = Astro.props;
 const { Content } = await render(service);
 const servicePath = `/leistungen/${service.data.slug}`;
+const relatedLinks = service.data.relatedServices
+  .map((slug) => serviceNavigation.find((item) => item.slug === slug))
+  .filter((item): item is (typeof serviceNavigation)[number] => Boolean(item));
 ---
 
 <BaseLayout
@@ -47,6 +52,10 @@ const servicePath = `/leistungen/${service.data.slug}`;
         <div class="tag-row" aria-label="Leistungs-Tags">
           {service.data.tags.map((tag) => <span>{tag}</span>)}
         </div>
+        <div class="service-actions">
+          <Button href={`/kontakt?leistung=${service.data.slug}`} size="lg">Projekt anfragen</Button>
+          <Button href="/leistungen" variant="secondary" size="lg">Alle Leistungen ansehen</Button>
+        </div>
       </div>
       <div class:list={['surface', 'service-media', { 'skeleton-panel service-media--empty': !service.data.heroImage }]}>
         {service.data.heroImage ? (
@@ -60,7 +69,7 @@ const servicePath = `/leistungen/${service.data.slug}`;
             fetchpriority="high"
           />
         ) : (
-          <span>Service-Bild folgt</span>
+          <span>Bild wird nach passender Projektauswahl ergänzt</span>
         )}
       </div>
     </div>
@@ -68,13 +77,13 @@ const servicePath = `/leistungen/${service.data.slug}`;
 
   <section class="section-shell detail-band">
     <div class="site-container detail-grid">
-      <article class="surface skeleton-panel">
+      <article class="surface detail-card">
         <p class="eyebrow">Leistungsumfang</p>
         <ul>
           {service.data.servicesIncluded.map((item) => <li>{item}</li>)}
         </ul>
       </article>
-      <article class="surface skeleton-panel">
+      <article class="surface detail-card">
         <p class="eyebrow">Ablauf</p>
         <ol>
           {service.data.processSteps.map((step) => (
@@ -85,13 +94,43 @@ const servicePath = `/leistungen/${service.data.slug}`;
           ))}
         </ol>
       </article>
+      {service.data.benefits.length > 0 && (
+        <article class="surface detail-card detail-card--accent">
+          <p class="eyebrow">Worauf wir achten</p>
+          <ul>
+            {service.data.benefits.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      )}
     </div>
   </section>
 
   <section class="section-shell">
     <div class="site-container--narrow prose-shell">
-      <p class="eyebrow">Redaktion</p>
+      <p class="eyebrow">Einordnung</p>
       <Content />
+    </div>
+  </section>
+
+  <section class="section-shell--compact service-cta-shell">
+    <div class="site-container service-cta">
+      <div>
+        <p class="eyebrow">Anfrage</p>
+        <h2>{service.data.navLabel} besprechen</h2>
+        <p>
+          Beschreiben Sie kurz den Bestand, den gewünschten Umfang und den Ort. So lässt sich besser
+          einschätzen, welche nächsten Schritte sinnvoll sind.
+        </p>
+      </div>
+      <div class="service-cta__side">
+        <Button href={`/kontakt?leistung=${service.data.slug}`} variant="dark" size="lg">Projekt schildern</Button>
+        {relatedLinks.length > 0 && (
+          <div class="related-links" aria-label="Verwandte Leistungen">
+            <span>Passend dazu</span>
+            {relatedLinks.map((item) => <a href={item.href}>{item.navLabel}</a>)}
+          </div>
+        )}
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -144,14 +183,30 @@ const servicePath = `/leistungen/${service.data.slug}`;
     font-weight: 760;
   }
 
+  .service-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
   .detail-band {
     background: #f4efe8;
   }
 
   .detail-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
+  }
+
+  .detail-card {
+    min-height: 100%;
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .detail-card--accent {
+    background: #fffaf4;
   }
 
   ul,
@@ -173,10 +228,89 @@ const servicePath = `/leistungen/${service.data.slug}`;
     font-size: 1.06rem;
   }
 
+  .prose-shell :global(h2),
+  .prose-shell :global(h3) {
+    margin: 2rem 0 0.7rem;
+    color: #2b090b;
+    line-height: 1.15;
+  }
+
+  .prose-shell :global(p) {
+    margin: 0 0 1rem;
+  }
+
+  .service-cta-shell {
+    background: #fffaf4;
+  }
+
+  .service-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border-radius: var(--radius-xl);
+    background:
+      linear-gradient(135deg, rgb(101 17 19 / 0.9), rgb(21 17 15 / 0.98)),
+      #15110f;
+    padding: clamp(1.5rem, 5vw, 3.2rem);
+    color: #fffaf4;
+    box-shadow: var(--shadow-dark);
+  }
+
+  .service-cta .eyebrow,
+  .service-cta h2 {
+    color: #fffaf4;
+  }
+
+  .service-cta h2 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1;
+  }
+
+  .service-cta p {
+    max-width: 42rem;
+    margin: 1rem 0 0;
+    color: rgb(255 250 244 / 0.74);
+  }
+
+  .service-cta__side {
+    display: grid;
+    flex: 0 0 min(22rem, 100%);
+    gap: 1rem;
+  }
+
+  .related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .related-links span,
+  .related-links a {
+    border: 1px solid rgb(255 250 244 / 0.16);
+    border-radius: 999px;
+    padding: 0.42rem 0.68rem;
+    color: rgb(255 250 244 / 0.78);
+    font-size: 0.86rem;
+    font-weight: 720;
+  }
+
+  .related-links span {
+    border-color: transparent;
+    padding-left: 0;
+  }
+
   @media (max-width: 820px) {
     .service-hero,
     .detail-grid {
       grid-template-columns: 1fr;
+    }
+
+    .service-actions,
+    .service-cta {
+      align-items: stretch;
+      flex-direction: column;
     }
 
     .service-media {

@@ -2,9 +2,9 @@
 title: "Trockenbau und Innenausbau"
 slug: "trockenbau-innenausbau"
 navLabel: "Trockenbau"
-description: "Innenausbau, Trockenbau und raumbildende Arbeiten als flexible Basis fuer Modernisierung."
-seoTitle: "Trockenbau und Innenausbau"
-seoDescription: "Trockenbau und Innenausbau als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing."
+description: "Trockenbau, Innenausbau und raumbildende Arbeiten für Renovierung und Modernisierung."
+seoTitle: "Trockenbau und Innenausbau in Freilassing"
+seoDescription: "Trockenbau und Innenausbau mit Vrebo Bau: Raumaufteilung, Wand- und Deckenarbeiten in Freilassing und Umgebung."
 heroImage:
   src: "/images/services/trockenbau-innenraum.webp"
   alt: "Trockenbauwand in einem Innenraum im Ausbau"
@@ -14,17 +14,25 @@ tags:
   - "Trockenbau"
   - "Innenausbau"
   - "Renovierung"
-intro: "Trockenbau und Innenausbau schaffen die Grundlage fuer neue Raumaufteilungen und saubere Innenflaechen."
+intro: "Trockenbau und Innenausbau schaffen die Grundlage für neue Raumaufteilungen, glatte Flächen und vorbereitete Anschlüsse im Bestand."
 servicesIncluded:
-  - "Abstimmung von Raumstruktur, Flaechen und Anschlussdetails."
-  - "Vorbereitung von Wand-, Decken- und Ausbauarbeiten."
+  - "Abstimmung von Raumziel, Wand- und Deckenflächen sowie angrenzenden Bauteilen."
+  - "Vorbereitung und Montage von Trockenbaukonstruktionen nach vereinbartem Umfang."
+  - "Ausbauarbeiten an Innenflächen, Anschlüssen und Übergängen."
+  - "Zusammenspiel mit Boden, Bad, Renovierung oder weiteren Gewerken berücksichtigen."
 processSteps:
-  - title: "Planung"
-    description: "Raumziel, Bestand und technische Anforderungen werden sortiert."
-  - title: "Montage"
-    description: "Die vereinbarten Ausbauarbeiten werden fachlich vorbereitet und montiert."
+  - title: "Raumziel klären"
+    description: "Vor Beginn wird festgelegt, welche Fläche, Teilung oder Vorbereitung erreicht werden soll."
+  - title: "Bestand aufnehmen"
+    description: "Untergründe, Maße, Anschlüsse und mögliche Besonderheiten werden geprüft."
+  - title: "Ausbau umsetzen"
+    description: "Die vereinbarten Wand-, Decken- oder Innenausbauarbeiten werden geordnet ausgeführt."
+  - title: "Anschlüsse prüfen"
+    description: "Übergänge und sichtbare Details werden für die nachfolgenden Arbeiten sauber vorbereitet."
 benefits:
-  - "Ordentliche Ausfuehrung bei sichtbaren Innenausbau-Details."
+  - "Flexible Raumlösungen ohne unnötig schwere Eingriffe."
+  - "Ordentliche Vorbereitung für weitere Ausbau- und Oberflächenarbeiten."
+  - "Gute Abstimmung bei bewohnten oder genutzten Bereichen."
 relatedServices:
   - "renovierung-neubau"
   - "badsanierung"
@@ -36,10 +44,12 @@ areasServed:
   - "Salzburg Umgebung"
   - "Bayern"
 faq:
-  - question: "Sind kleine Innenausbau-Projekte moeglich?"
-    answer: "Die Struktur ist fuer kleinere Anpassungen und groessere Innenausbauprojekte vorbereitet."
+  - question: "Sind kleine Innenausbau-Projekte möglich?"
+    answer: "Ja, auch einzelne Wände, Deckenbereiche oder vorbereitende Ausbauarbeiten können nach Abstimmung sinnvoll sein."
 schemaServiceType: "Trockenbau und Innenausbau"
 draft: true
 ---
 
-Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.
+Innenausbau wirkt später besonders dann ruhig, wenn Unterkonstruktion, Anschlüsse und sichtbare Flächen von Anfang an ordentlich geplant werden.
+
+Für die erste Anfrage helfen Fotos des Raums, eine kurze Beschreibung der gewünschten Veränderung und Hinweise dazu, ob der Bereich während der Arbeiten weiter genutzt wird.

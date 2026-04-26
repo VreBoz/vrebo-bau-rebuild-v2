@@ -16,15 +16,15 @@ export type FaqItem = {
 export const trustItems: TrustItem[] = [
   {
     title: 'Direkte Abstimmung',
-    description: 'Kurze Wege, klare Rueckmeldungen und ein persoenlicher Ansprechpartner.',
+    description: 'Kurze Wege, klare Rückmeldungen und eine persönliche Abstimmung zum nächsten Schritt.',
   },
   {
     title: 'Saubere Baustellen',
-    description: 'Arbeitsbereiche werden strukturiert vorbereitet und ordentlich uebergeben.',
+    description: 'Arbeitsbereiche werden vorbereitet, geschützt und nach vereinbartem Umfang ordentlich übergeben.',
   },
   {
-    title: 'Regionale Naehe',
-    description: 'Der Fokus liegt auf Freilassing und der umliegenden Region.',
+    title: 'Regionale Nähe',
+    description: 'Der Fokus liegt auf Freilassing, Bad Reichenhall und dem Berchtesgadener Land.',
   },
 ];
 
@@ -35,29 +35,29 @@ export const processSteps: ProcessStep[] = [
   },
   {
     title: 'Besichtigung',
-    description: 'Umfang, Zustand und Ablauf werden vor Ort oder nach Abstimmung geklaert.',
+    description: 'Umfang, Zustand und Ablauf werden vor Ort oder nach Abstimmung geklärt.',
   },
   {
-    title: 'Angebot',
-    description: 'Leistung, Zeitfenster und naechste Schritte werden nachvollziehbar festgehalten.',
+    title: 'Abstimmung',
+    description: 'Leistung, Reihenfolge und Zeitfenster werden nachvollziehbar festgehalten.',
   },
   {
-    title: 'Ausfuehrung',
-    description: 'Die Arbeiten werden sauber koordiniert und transparent begleitet.',
+    title: 'Ausführung',
+    description: 'Die Arbeiten werden sauber koordiniert, begleitet und geordnet übergeben.',
   },
 ];
 
 export const commonFaq: FaqItem[] = [
   {
-    question: 'Welche Informationen helfen fuer die erste Einschaetzung?',
-    answer: 'Hilfreich sind Ort, Leistungsbereich, grober Umfang, gewuenschtes Zeitfenster und vorhandene Fotos.',
+    question: 'Welche Informationen helfen für die erste Einschätzung?',
+    answer: 'Hilfreich sind Ort, Leistungsbereich, grober Umfang, gewünschtes Zeitfenster und vorhandene Fotos.',
   },
   {
-    question: 'Sind auch kleinere Projekte moeglich?',
-    answer: 'Die Struktur ist fuer kleine und groessere Vorhaben vorbereitet; die fachliche Abgrenzung wird redaktionell konkretisiert.',
+    question: 'Sind auch kleinere Projekte möglich?',
+    answer: 'Ja, wenn Umfang und Ablauf sinnvoll abgestimmt werden können. Eine kurze Beschreibung reicht für den ersten Einstieg.',
   },
   {
     question: 'In welcher Region ist Vrebo sichtbar?',
-    answer: 'Die Website plant Freilassing, Bad Reichenhall, Berchtesgadener Land und die nahe Salzburg Umgebung als regionale Signale.',
+    answer: 'Der Schwerpunkt liegt auf Freilassing, Bad Reichenhall, dem Berchtesgadener Land und der nahen Salzburg Umgebung.',
   },
 ];

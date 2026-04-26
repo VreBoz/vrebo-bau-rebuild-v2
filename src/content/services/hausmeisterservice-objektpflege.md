@@ -2,9 +2,9 @@
 title: "Hausmeisterservice und Objektpflege"
 slug: "hausmeisterservice-objektpflege"
 navLabel: "Objektpflege"
-description: "Optionaler Leistungsbereich fuer Objektpflege und regelmaessige Betreuung."
+description: "Optionaler Leistungsbereich für Objektpflege und regelmäßige Betreuung."
 seoTitle: "Hausmeisterservice und Objektpflege"
-seoDescription: "Hausmeisterservice und Objektpflege als optionaler Leistungsbereich fuer Vrebo Bau."
+seoDescription: "Hausmeisterservice und Objektpflege als optional vorbereiteter Leistungsbereich von Vrebo Bau."
 tags:
   - "Objektpflege"
   - "Hausmeisterservice"
@@ -14,12 +14,12 @@ servicesIncluded:
   - "Abstimmung wiederkehrender Objektaufgaben."
   - "Entscheidung zur Sichtbarkeit im MVP."
 processSteps:
-  - title: "Bedarf klaeren"
+  - title: "Bedarf klären"
     description: "Aufgaben, Frequenz und Objektart werden eingeordnet."
   - title: "Betreuung"
     description: "Die Betreuung wird nach klar definiertem Umfang geplant."
 benefits:
-  - "Klare Aufgabenabgrenzung fuer laufende Objektbetreuung."
+  - "Klare Aufgabenabgrenzung für laufende Objektbetreuung."
 relatedServices:
   - "aussenanlagen"
   - "entruempelung-rueckbau"
@@ -36,4 +36,6 @@ schemaServiceType: "Hausmeisterservice und Objektpflege"
 draft: true
 ---
 
-Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.
+Objektpflege ist als optionaler Leistungsbereich vorbereitet. Ob dieser Bereich prominent sichtbar bleibt, sollte vor dem Launch fachlich und strategisch entschieden werden.
+
+Wenn die Leistung genutzt wird, sollten Aufgaben, Frequenz und Objektart klar beschrieben werden, damit keine falschen Erwartungen entstehen.

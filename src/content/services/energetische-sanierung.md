@@ -2,9 +2,9 @@
 title: "Energetische Sanierung"
 slug: "energetische-sanierung"
 navLabel: "Energetische Sanierung"
-description: "Vorbereiteter Leistungsbereich fuer Massnahmen an Gebaeudehuelle, Anschluessen und Modernisierung."
+description: "Bauliche Modernisierung an Gebäudehülle, Anschlüssen und angrenzenden Bereichen."
 seoTitle: "Energetische Sanierung"
-seoDescription: "Energetische Sanierung als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
+seoDescription: "Energetische Sanierung mit Vrebo Bau in Freilassing und Umgebung: Modernisierung, Anschlüsse und bauliche Vorbereitung."
 heroImage:
   src: "/images/services/energetische-sanierung-fenster.webp"
   alt: "Fensterbereich mit Rollladen in einem sanierten Raum"
@@ -13,10 +13,10 @@ heroImage:
 tags:
   - "Sanierung"
   - "Energie"
-  - "Gebaeudehuelle"
-intro: "Energetische Sanierung wird als eigener Bereich fuer Modernisierung, Huelle und Anschlussdetails gefuehrt."
+  - "Gebäudehülle"
+intro: "Energetische Sanierung wird als eigener Bereich für Modernisierung, Hülle und Anschlussdetails geführt."
 servicesIncluded:
-  - "Pruefung der baulichen Ausgangssituation."
+  - "Prüfung der baulichen Ausgangssituation."
   - "Abstimmung sinnvoller Anschluss- und Modernisierungsschritte."
 processSteps:
   - title: "Bestandsaufnahme"
@@ -37,9 +37,11 @@ areasServed:
   - "Bayern"
 faq:
   - question: "Wann lohnt sich eine energetische Sanierung?"
-    answer: "Wenn Bauteile erneuert, Anschluesse verbessert oder Modernisierungsschritte gebuendelt werden sollen."
+    answer: "Wenn Bauteile erneuert, Anschlüsse verbessert oder Modernisierungsschritte gebündelt werden sollen."
 schemaServiceType: "Energetische Sanierung"
 draft: true
 ---
 
-Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.
+Energetische Sanierung umfasst häufig mehrere bauliche Schnittstellen. Wichtig ist, dass Maßnahmen an Fenstern, Anschlüssen oder der Gebäudehülle passend zum Bestand betrachtet werden.
+
+Vrebo Bau ordnet die baulichen Arbeiten ein und grenzt klar ab, wenn zusätzliche Fachplanung oder weitere Gewerke nötig sind.

@@ -16,7 +16,7 @@ const number = String(index + 1).padStart(2, '0');
 ---
 
 <article class:list={['service-card', { 'service-card--compact': compact }]}>
-  <a class="service-card__media" href={href} aria-label={`${service.data.title} oeffnen`}>
+  <a class="service-card__media" href={href} aria-label={`${service.data.title} öffnen`}>
     {service.data.heroImage ? (
       <img
         src={service.data.heroImage.src}
@@ -39,7 +39,7 @@ const number = String(index + 1).padStart(2, '0');
     </div>
     <h3><a href={href}>{service.data.navLabel}</a></h3>
     <p>{service.data.description}</p>
-    <LinkArrow href={href}>Details vorbereiten</LinkArrow>
+    <LinkArrow href={href}>Leistung ansehen</LinkArrow>
   </div>
 </article>
 

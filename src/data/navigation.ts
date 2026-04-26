@@ -8,7 +8,7 @@ export const mainNavigation = [
     href: '/leistungen',
   },
   {
-    label: 'Ueber uns',
+    label: 'Über uns',
     href: '/ueber-uns',
   },
   {
@@ -65,8 +65,8 @@ export const serviceNavigation = [
     optional: false,
   },
   {
-    label: 'Fenster und Tueren',
-    navLabel: 'Fenster & Tueren',
+    label: 'Fenster und Türen',
+    navLabel: 'Fenster & Türen',
     slug: 'fenster-tueren',
     href: '/leistungen/fenster-tueren',
     optional: false,
@@ -79,15 +79,15 @@ export const serviceNavigation = [
     optional: false,
   },
   {
-    label: 'Aussenanlagen',
-    navLabel: 'Aussenanlagen',
+    label: 'Außenanlagen',
+    navLabel: 'Außenanlagen',
     slug: 'aussenanlagen',
     href: '/leistungen/aussenanlagen',
     optional: false,
   },
   {
-    label: 'Entruempelung und Rueckbau',
-    navLabel: 'Entruempelung & Rueckbau',
+    label: 'Entrümpelung und Rückbau',
+    navLabel: 'Entrümpelung & Rückbau',
     slug: 'entruempelung-rueckbau',
     href: '/leistungen/entruempelung-rueckbau',
     optional: false,

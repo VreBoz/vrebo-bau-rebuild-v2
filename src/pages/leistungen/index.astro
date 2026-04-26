@@ -10,7 +10,7 @@ import { serviceNavigation } from '@/data/navigation';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
 const title = 'Leistungen';
-const description = 'Arbeitsversion der Leistungsuebersicht fuer die neue Vrebo Bau Website.';
+const description = 'Leistungen für Renovierung, Sanierung, Ausbau und objektnahe Arbeiten von Vrebo Bau in Freilassing und Umgebung.';
 const services = await getCollection('services');
 const servicesBySlug = new Map(services.map((service) => [service.data.slug, service]));
 const sortedServices = serviceNavigation
@@ -36,9 +36,9 @@ const pageActions = [
 >
   <PageHero
     eyebrow="Leistungen"
-    title="Leistungsuebersicht fuer Renovierung, Sanierung und Bau"
-    description="Diese Seite nutzt die zentrale Service-Collection und bleibt in Phase 3 bewusst kurz."
-    tags={['Freilassing', 'Berchtesgadener Land', 'Strukturierte Services']}
+    title="Leistungen für Renovierung, Sanierung und Ausbau"
+    description="Hier finden Sie die wichtigsten Bereiche von Vrebo Bau: klar gegliedert, lokal ausgerichtet und mit kurzen Einstiegen in die einzelnen Leistungen."
+    tags={['Freilassing', 'Berchtesgadener Land', 'Renovierung und Ausbau']}
     actions={pageActions}
     mediaLabel="Service-Struktur"
     image={servicesOverviewImage}
@@ -47,8 +47,8 @@ const pageActions = [
   <ServicesOverview
     services={sortedServices}
     eyebrow="Alle Bereiche"
-    title="Services aus zentralen Daten"
-    description="Die Karten bilden die geplante Leistungsstruktur ab und fuehren bereits auf dynamische Detailseiten."
+    title="Den passenden Leistungsbereich finden"
+    description="Jede Karte führt zur Detailseite mit Umfang, Ablauf und erster Einordnung. Wo noch kein passendes Projektbild vorhanden ist, bleibt die Bildfläche bewusst zurückhaltend."
     compact
     showAllLink={false}
     band

@@ -1,25 +1,25 @@
 ---
-title: "Entruempelung und Rueckbau"
+title: "Entrümpelung und Rückbau"
 slug: "entruempelung-rueckbau"
-navLabel: "Entruempelung & Rueckbau"
-description: "Entruempelung, Rueckbau und vorbereitende Arbeiten fuer Sanierung oder Neuordnung."
-seoTitle: "Entruempelung und Rueckbau"
-seoDescription: "Entruempelung und Rueckbau als vorbereiteter Leistungsbereich fuer Vrebo Bau."
+navLabel: "Entrümpelung & Rückbau"
+description: "Entrümpelung, Rückbau und vorbereitende Arbeiten für Sanierung oder Neuordnung."
+seoTitle: "Entrümpelung und Rückbau"
+seoDescription: "Entrümpelung und Rückbau mit Vrebo Bau als Vorbereitung für Renovierung, Sanierung oder Übergabe."
 tags:
-  - "Entruempelung"
-  - "Rueckbau"
+  - "Entrümpelung"
+  - "Rückbau"
   - "Entsorgung"
-intro: "Entruempelung und Rueckbau schaffen Raum fuer Renovierung, Sanierung oder eine geordnete Uebergabe."
+intro: "Entrümpelung und Rückbau schaffen Raum für Renovierung, Sanierung oder eine geordnete Übergabe."
 servicesIncluded:
   - "Einordnung von Umfang, Material und Zugangsituation."
-  - "Vorbereitung von Rueckbau, Sortierung und Uebergabe."
+  - "Vorbereitung von Rückbau, Sortierung und Übergabe."
 processSteps:
-  - title: "Umfang klaeren"
-    description: "Der Umfang wird anhand von Objekt, Menge und Zielzustand geklaert."
-  - title: "Uebergabe"
-    description: "Nach den Arbeiten wird der vereinbarte Zustand nachvollziehbar uebergeben."
+  - title: "Umfang klären"
+    description: "Der Umfang wird anhand von Objekt, Menge und Zielzustand geklärt."
+  - title: "Übergabe"
+    description: "Nach den Arbeiten wird der vereinbarte Zustand nachvollziehbar übergeben."
 benefits:
-  - "Strukturierte Vorbereitung fuer nachfolgende Bau- oder Sanierungsarbeiten."
+  - "Strukturierte Vorbereitung für nachfolgende Bau- oder Sanierungsarbeiten."
 relatedServices:
   - "renovierung-neubau"
   - "aussenanlagen"
@@ -31,10 +31,12 @@ areasServed:
   - "Salzburg Umgebung"
   - "Bayern"
 faq:
-  - question: "Wie wird die Entsorgung spaeter beschrieben?"
-    answer: "Entsorgung und Sortierung werden in der finalen Inhaltsphase fachlich konkretisiert."
-schemaServiceType: "Entruempelung und Rueckbau"
+  - question: "Warum ist hier noch kein Bild gesetzt?"
+    answer: "Für diesen Bereich wird bewusst erst ein echtes, passendes Projektbild ergänzt, statt ein fremdes Template-Motiv zu nutzen."
+schemaServiceType: "Entrümpelung und Rückbau"
 draft: true
 ---
 
-Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.
+Entrümpelung und Rückbau sind oft der erste Schritt vor Renovierung oder Neuordnung. Entscheidend sind Umfang, Zugang, Sortierung und der vereinbarte Zielzustand.
+
+Für diesen Bereich bleibt die Bildlücke bewusst bestehen, bis ein echtes passendes Projektmotiv vorliegt.

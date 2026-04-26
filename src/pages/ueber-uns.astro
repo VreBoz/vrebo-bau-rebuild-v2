@@ -1,9 +1,29 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import { servicesOverviewImage } from '@/data/assets';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
-const title = 'Ueber uns';
-const description = 'Arbeitsversion der Ueber-uns-Seite fuer die neue Vrebo Bau Website.';
+const title = 'Über uns';
+const description = 'Vrebo Bau steht für regionale Nähe, saubere Arbeitsweise und direkte Abstimmung bei Bau- und Sanierungsprojekten.';
+const values = [
+  {
+    title: 'Lokale Nähe',
+    text: 'Der Schwerpunkt liegt auf Freilassing, Bad Reichenhall und dem Berchtesgadener Land.',
+  },
+  {
+    title: 'Saubere Arbeitsweise',
+    text: 'Bestand, Schutzmaßnahmen und Übergaben werden vor Beginn klar mitgedacht.',
+  },
+  {
+    title: 'Direkte Abstimmung',
+    text: 'Kurze Wege helfen, Umfang, Reihenfolge und nächste Schritte verständlich zu halten.',
+  },
+  {
+    title: 'Vertrauen',
+    text: 'Keine erfundenen Kennzahlen, sondern ein ruhiger Auftritt mit nachvollziehbaren Leistungen.',
+  },
+];
 ---
 
 <BaseLayout
@@ -13,7 +33,7 @@ const description = 'Arbeitsversion der Ueber-uns-Seite fuer die neue Vrebo Bau 
     webPageSchema({ title, description, path: '/ueber-uns', type: 'AboutPage' }),
     breadcrumbSchema([
       { name: 'Startseite', path: '/' },
-      { name: 'Ueber uns', path: '/ueber-uns' },
+      { name: 'Über uns', path: '/ueber-uns' },
     ]),
   ]}
 >
@@ -21,10 +41,48 @@ const description = 'Arbeitsversion der Ueber-uns-Seite fuer die neue Vrebo Bau 
     <div class="site-container page-grid">
       <div>
         <p class="eyebrow">Unternehmen</p>
-        <h1 class="page-title">Ueber uns</h1>
-        <p class="lede">Struktur fuer Story, Arbeitsweise, Werte und regionale Verankerung.</p>
+        <h1 class="page-title">Über Vrebo Bau</h1>
+        <p class="lede">
+          Vrebo Bau steht für Bau- und Sanierungsarbeiten mit regionalem Bezug, klarer Abstimmung
+          und einem ordentlichen Umgang mit dem Bestand.
+        </p>
+        <div class="page-actions">
+          <Button href="/kontakt" size="lg">Projekt anfragen</Button>
+          <Button href="/leistungen" variant="secondary" size="lg">Leistungen ansehen</Button>
+        </div>
       </div>
-      <div class="surface skeleton-panel">Bild- oder Arbeitsweise-Modul</div>
+      <figure class="surface about-media">
+        <img
+          src={servicesOverviewImage.src}
+          alt={servicesOverviewImage.alt}
+          width={servicesOverviewImage.width}
+          height={servicesOverviewImage.height}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section-shell about-band">
+    <div class="site-container about-values">
+      <div class="about-intro">
+        <p class="eyebrow">Arbeitsweise</p>
+        <h2>Ruhig planen, sauber arbeiten, direkt abstimmen</h2>
+        <p>
+          Die Über-uns-Seite bleibt bewusst ohne unbestätigte Zahlen oder große Versprechen. Im
+          Mittelpunkt stehen Nähe, Ordnung und eine klare Kommunikation während des Projekts.
+        </p>
+      </div>
+      <div class="value-grid">
+        {values.map((item) => (
+          <article class="surface value-card">
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -37,17 +95,81 @@ const description = 'Arbeitsversion der Ueber-uns-Seite fuer die neue Vrebo Bau 
     align-items: center;
   }
 
-  .skeleton-panel {
+  .page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .about-media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .about-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-band {
+    background: #f4efe8;
+  }
+
+  .about-values {
     display: grid;
-    min-height: 20rem;
-    place-items: center;
+    grid-template-columns: minmax(0, 0.74fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .about-intro h2 {
+    margin: 0;
+    color: #2b090b;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.04;
+  }
+
+  .about-intro p {
+    margin: 1rem 0 0;
     color: #6b625c;
-    font-weight: 780;
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .value-card {
+    padding: clamp(1.1rem, 3vw, 1.6rem);
+  }
+
+  .value-card h3 {
+    margin: 0;
+    color: #2b090b;
+    font-size: 1.12rem;
+  }
+
+  .value-card p {
+    margin: 0.55rem 0 0;
+    color: #6b625c;
   }
 
   @media (max-width: 820px) {
-    .page-grid {
+    .page-grid,
+    .about-values,
+    .value-grid {
       grid-template-columns: 1fr;
+    }
+
+    .about-media {
+      aspect-ratio: 16 / 10;
+    }
+
+    .page-actions {
+      flex-direction: column;
     }
   }
 </style>

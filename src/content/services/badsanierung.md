@@ -2,9 +2,9 @@
 title: "Badsanierung"
 slug: "badsanierung"
 navLabel: "Badsanierung"
-description: "Badmodernisierung mit Fokus auf Vorbereitung, Abdichtung, Ausbau und sauberer Ausfuehrung."
-seoTitle: "Badsanierung"
-seoDescription: "Badsanierung als vorbereiteter Leistungsbereich fuer Vrebo Bau in Freilassing und Umgebung."
+description: "Badmodernisierung mit sauberer Vorbereitung, abgestimmten Anschlüssen und Blick auf Feuchtraumdetails."
+seoTitle: "Badsanierung in Freilassing"
+seoDescription: "Badsanierung mit Vrebo Bau: Badmodernisierung, Vorbereitung, Abdichtung und Innenausbau in Freilassing und Umgebung."
 heroImage:
   src: "/images/services/badsanierung-badbereich.webp"
   alt: "Fertiggestellter Badbereich mit Dusche und Fliesen"
@@ -14,17 +14,25 @@ tags:
   - "Bad"
   - "Sanierung"
   - "Innenausbau"
-intro: "Badsanierung verbindet Ausbau, Abdichtung und Oberflaechen zu einem klar gefuehrten Leistungsbereich."
+intro: "Bei einer Badsanierung müssen Nutzung, Bestand, Abdichtung und Oberflächen gut zusammenspielen. Vrebo Bau unterstützt bei abgestimmten Badarbeiten in Freilassing und Umgebung."
 servicesIncluded:
-  - "Abstimmung von Zustand, Nutzung und gewuenschtem Ergebnis."
-  - "Vorbereitung von Abdichtung, Ausbau und Oberflaechen."
+  - "Besichtigung des Bestands und Abstimmung von gewünschtem Umfang, Nutzung und Zeitfenster."
+  - "Vorbereitung von Wand-, Boden- und Anschlussbereichen für die weitere Ausführung."
+  - "Abdichtungs- und Feuchtraumdetails in Abstimmung mit dem geplanten Aufbau."
+  - "Saubere Umsetzung von Ausbau-, Fliesen- und Abschlussarbeiten nach vereinbartem Umfang."
 processSteps:
-  - title: "Beratung"
-    description: "Anforderungen, Bestand und Schnittstellen werden gemeinsam geklaert."
-  - title: "Ausfuehrung"
-    description: "Die Arbeiten werden abgestimmt, sauber vorbereitet und umgesetzt."
+  - title: "Bestand aufnehmen"
+    description: "Raumgröße, Leitungsbereiche, vorhandene Oberflächen und gewünschte Nutzung werden gemeinsam eingeordnet."
+  - title: "Umfang abstimmen"
+    description: "Es wird festgelegt, welche Arbeiten übernommen werden und welche Schnittstellen zu beachten sind."
+  - title: "Ausführung vorbereiten"
+    description: "Schutz, Rückbau, Abdichtung und Ausbau werden in eine sinnvolle Reihenfolge gebracht."
+  - title: "Bad sauber übergeben"
+    description: "Nach der Umsetzung werden die sichtbaren Flächen und vereinbarten Details gemeinsam geprüft."
 benefits:
-  - "Saubere Koordination sensibler Bad- und Feuchtraumdetails."
+  - "Sorgfalt bei Feuchtraumdetails, Anschlüssen und sichtbaren Oberflächen."
+  - "Klare Abstimmung, bevor Rückbau oder Ausbau beginnen."
+  - "Realistische Einordnung, wenn zusätzliche Gewerke beteiligt werden müssen."
 relatedServices:
   - "abdichtung-feuchtigkeitsschutz"
   - "trockenbau-innenausbau"
@@ -36,10 +44,12 @@ areasServed:
   - "Salzburg Umgebung"
   - "Bayern"
 faq:
-  - question: "Welche Angaben helfen fuer die Badplanung?"
-    answer: "Fotos, Raumgroesse, Bestand, Wunschumfang und ein grobes Zeitfenster sind hilfreich."
+  - question: "Welche Angaben helfen für die Badplanung?"
+    answer: "Fotos, Raumgröße, Bestand, Wunschumfang und ein grobes Zeitfenster helfen bei der ersten Einschätzung."
 schemaServiceType: "Badsanierung"
 draft: true
 ---
 
-Diese Leistungsseite ist als Arbeitsversion angelegt und nutzt bereits die zentrale Datenstruktur.
+Eine Badsanierung beginnt nicht erst bei den neuen Oberflächen. Wichtig sind ein verständlicher Ablauf, die passende Vorbereitung des Untergrunds und eine saubere Abstimmung der Anschlüsse.
+
+Für Eigentümerinnen, Eigentümer und Hausverwaltungen in der Region ist besonders hilfreich, wenn vorhandene Fotos, Maße und erste Wünsche schon bei der Anfrage mitgeschickt werden. So lässt sich früher einschätzen, ob ein Ortstermin sinnvoll ist und welche nächsten Schritte vorbereitet werden sollten.

@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = 'Naechster Schritt: Projekt kurz schildern',
-  description = 'Eine kompakte Abschlussflaeche fuer Kontakt, Telefon und die spaetere Formularfuehrung.',
+  title = 'Nächster Schritt: Projekt kurz schildern',
+  description = 'Beschreiben Sie kurz, worum es geht. Fotos, Ort und gewünschter Zeitraum helfen bei der ersten Einschätzung.',
 } = Astro.props;
 ---
 
@@ -17,7 +17,7 @@ const {
   <div class="site-container final-cta__frame">
     <SectionHeading eyebrow="Kontakt" title={title} description={description} tone="dark" />
     <div class="final-cta__actions">
-      <Button href="/kontakt" variant="dark" size="lg">Kontakt oeffnen</Button>
+      <Button href="/kontakt" variant="dark" size="lg">Kontakt öffnen</Button>
       <Button href="/leistungen" variant="ghost" size="lg">Leistungen ansehen</Button>
     </div>
   </div>

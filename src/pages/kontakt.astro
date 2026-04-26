@@ -1,9 +1,15 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/sections/PageHero.astro';
+import { homeHeroImage } from '@/data/assets';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
 const title = 'Kontakt';
-const description = 'Arbeitsversion der Kontaktseite fuer die neue Vrebo Bau Website.';
+const description = 'Kontakt zu Vrebo Bau für Renovierung, Sanierung und Ausbau in Freilassing und Umgebung.';
+const pageActions = [
+  { label: 'Zum Formular', href: '#anfrage', variant: 'primary' },
+  { label: 'Leistungen ansehen', href: '/leistungen', variant: 'secondary' },
+] as const;
 ---
 
 <BaseLayout
@@ -17,44 +23,114 @@ const description = 'Arbeitsversion der Kontaktseite fuer die neue Vrebo Bau Web
     ]),
   ]}
 >
-  <section class="section-shell">
+  <PageHero
+    eyebrow="Kontakt"
+    title="Projekt kurz schildern"
+    description="Ob Bad, Boden, Innenausbau oder Renovierung: Für den ersten Kontakt reichen wenige Eckdaten. Je klarer Ort, Umfang und gewünschter Zeitraum beschrieben sind, desto besser lässt sich der nächste Schritt einordnen."
+    tags={['Freilassing', 'Bad Reichenhall', 'Berchtesgadener Land']}
+    actions={pageActions}
+    mediaLabel="Kontakt und Anfrage"
+    image={homeHeroImage}
+  />
+
+  <section class="section-shell contact-section">
     <div class="site-container contact-grid">
-      <div>
-        <p class="eyebrow">Kontakt</p>
-        <h1 class="page-title">Kontakt</h1>
-        <p class="lede">Basis fuer Kontaktinformationen, Anfrageformular und Einsatzgebiet.</p>
-      </div>
-      <form class="surface contact-form" aria-label="Kontaktformular Arbeitsversion">
+      <aside class="surface contact-panel">
+        <p class="eyebrow">Hilfreich für die Anfrage</p>
+        <h2>Was direkt weiterhilft</h2>
+        <p>
+          Eine kurze Beschreibung reicht für den Start. Fotos vom Bestand, Maße oder Hinweise zur
+          Nutzung helfen, den Umfang besser einzuschätzen.
+        </p>
+        <ul>
+          <li>Ort des Projekts oder Objekts</li>
+          <li>Leistungsbereich, zum Beispiel Bad, Boden oder Trockenbau</li>
+          <li>Grobe Größe, Zustand und gewünschter Zeitraum</li>
+          <li>Fotos oder Skizzen, falls vorhanden</li>
+        </ul>
+      </aside>
+
+      <form id="anfrage" class="surface contact-form" aria-label="Kontaktformular">
+        <div>
+          <p class="eyebrow">Anfrageformular</p>
+          <h2>Angaben zum Projekt</h2>
+          <p class="form-note">
+            Die Formularoberfläche ist vorbereitet. Der technische Versand wird separat
+            angebunden; bis dahin dient die Fläche als klare Vorlage für die benötigten Angaben.
+          </p>
+        </div>
+
         <label>
           Name
-          <input type="text" name="name" autocomplete="name" disabled />
+          <input type="text" name="name" autocomplete="name" placeholder="Ihr Name" />
         </label>
         <label>
           E-Mail
-          <input type="email" name="email" autocomplete="email" disabled />
+          <input type="email" name="email" autocomplete="email" placeholder="name@example.de" />
+        </label>
+        <label>
+          Projektart
+          <select name="service">
+            <option>Badsanierung</option>
+            <option>Renovierung und Neubau</option>
+            <option>Trockenbau und Innenausbau</option>
+            <option>Bodenverlegung</option>
+            <option>Fenster und Türen</option>
+            <option>Andere Leistung</option>
+          </select>
         </label>
         <label>
           Nachricht
-          <textarea name="message" rows="4" disabled></textarea>
+          <textarea name="message" rows="5" placeholder="Worum geht es? Wo befindet sich das Objekt?"></textarea>
         </label>
-        <button class="button button--primary" type="button" disabled>Anfrage vorbereiten</button>
+        <button class="button button--primary" type="button" disabled>Anfrage senden</button>
       </form>
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  .contact-section {
+    background: #f4efe8;
+  }
+
   .contact-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 0.6fr);
+    grid-template-columns: minmax(0, 0.72fr) minmax(20rem, 0.78fr);
     gap: clamp(1.5rem, 5vw, 4rem);
     align-items: start;
+  }
+
+  .contact-panel,
+  .contact-form {
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .contact-panel h2,
+  .contact-form h2 {
+    margin: 0;
+    color: #2b090b;
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+    line-height: 1.08;
+  }
+
+  .contact-panel p,
+  .form-note {
+    margin: 0.9rem 0 0;
+    color: #6b625c;
+  }
+
+  .contact-panel ul {
+    display: grid;
+    gap: 0.65rem;
+    margin: 1.4rem 0 0;
+    padding-left: 1.1rem;
+    color: #302b28;
   }
 
   .contact-form {
     display: grid;
     gap: 1rem;
-    padding: clamp(1.2rem, 3vw, 2rem);
   }
 
   label {
@@ -65,18 +141,21 @@ const description = 'Arbeitsversion der Kontaktseite fuer die neue Vrebo Bau Web
   }
 
   input,
-  textarea {
+  textarea,
+  select {
     width: 100%;
     border: 1px solid rgb(48 43 40 / 0.16);
     border-radius: var(--radius-sm);
     background: #fffaf4;
     padding: 0.78rem 0.85rem;
-    color: #6b625c;
+    color: #302b28;
   }
 
-  button:disabled,
-  input:disabled,
-  textarea:disabled {
+  textarea {
+    resize: vertical;
+  }
+
+  button:disabled {
     cursor: not-allowed;
     opacity: 0.72;
   }

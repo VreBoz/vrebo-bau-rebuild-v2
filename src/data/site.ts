@@ -5,7 +5,7 @@ export const SITE = {
   language: 'de',
   locale: 'de_DE',
   defaultTitle: 'Vrebo Bau',
-  defaultDescription: 'Technische Basis fuer die neue Vrebo Bau Website.',
+  defaultDescription: 'Vrebo Bau begleitet Renovierung, Sanierung und Ausbau in Freilassing und der umliegenden Region.',
   isIndexable: import.meta.env.PUBLIC_SITE_ENV === 'production',
   navigationCta: {
     label: 'Projekt anfragen',
