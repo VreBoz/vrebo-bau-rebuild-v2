@@ -46,6 +46,26 @@ const pageActions = [
     image={servicesOverviewImage}
   />
 
+  <section class="services-index-strip" aria-label="Einordnung der Leistungen">
+    <div class="site-container services-index-strip__grid">
+      <article>
+        <span>01</span>
+        <strong>Bestand verstehen</strong>
+        <p>Vorhandene Situation, Nutzung und Umfang werden sauber eingeordnet.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <strong>Gewerke abstimmen</strong>
+        <p>Innenausbau, Sanierung und angrenzende Arbeiten werden nachvollziehbar geplant.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <strong>Regional arbeiten</strong>
+        <p>Der Fokus liegt auf Freilassing, Bad Reichenhall und der näheren Umgebung.</p>
+      </article>
+    </div>
+  </section>
+
   <ServicesOverview
     services={sortedServices}
     eyebrow="Alle Bereiche"
@@ -59,3 +79,51 @@ const pageActions = [
   <ProcessSection />
   <FinalCTA />
 </BaseLayout>
+
+<style>
+  .services-index-strip {
+    background: #fffaf4;
+    padding-bottom: var(--section-y-compact);
+  }
+
+  .services-index-strip__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .services-index-strip article {
+    min-width: 0;
+    border: 1px solid rgb(48 43 40 / 0.1);
+    border-radius: var(--radius-lg);
+    background: var(--surface-paper);
+    padding: clamp(1rem, 2.4vw, 1.35rem);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .services-index-strip span {
+    display: block;
+    color: #ab3743;
+    font-size: 0.82rem;
+    font-weight: 820;
+  }
+
+  .services-index-strip strong {
+    display: block;
+    margin-top: 0.55rem;
+    color: #2b090b;
+    font-size: 1.05rem;
+  }
+
+  .services-index-strip p {
+    margin: 0.45rem 0 0;
+    color: #6b625c;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 820px) {
+    .services-index-strip__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

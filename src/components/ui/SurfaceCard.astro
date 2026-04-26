@@ -27,7 +27,7 @@ const classes = ['surface-card', `surface-card--${variant}`, `surface-card--${pa
     min-width: 0;
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-card);
   }
 
   .surface-card--sm {
@@ -43,12 +43,12 @@ const classes = ['surface-card', `surface-card--${variant}`, `surface-card--${pa
   }
 
   .surface-card--paper {
-    background: rgb(255 250 244 / 0.9);
+    background: var(--surface-paper);
     color: #15110f;
   }
 
   .surface-card--warm {
-    background: #f4efe8;
+    background: var(--surface-sand);
     color: #15110f;
   }
 
@@ -59,7 +59,9 @@ const classes = ['surface-card', `surface-card--${variant}`, `surface-card--${pa
 
   .surface-card--dark {
     border-color: rgb(255 250 244 / 0.14);
-    background: #211b18;
+    background:
+      linear-gradient(145deg, rgb(255 250 244 / 0.06), transparent 48%),
+      #211b18;
     color: #fffaf4;
     box-shadow: var(--shadow-dark);
   }

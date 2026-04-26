@@ -22,34 +22,36 @@ const classes = ['tag', `tag--${variant}`, className];
     align-items: center;
     border: 1px solid transparent;
     border-radius: 999px;
-    padding: 0.34rem 0.68rem;
+    padding: 0.36rem 0.68rem;
     font-size: 0.82rem;
     font-weight: 760;
     line-height: 1;
     white-space: nowrap;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.35) inset;
   }
 
   .tag--light {
-    border-color: rgb(101 17 19 / 0.14);
-    background: rgb(255 250 244 / 0.82);
+    border-color: rgb(101 17 19 / 0.13);
+    background: rgb(255 250 244 / 0.86);
     color: #651113;
   }
 
   .tag--warm {
     border-color: rgb(48 43 40 / 0.1);
-    background: #e9dfd2;
+    background: rgb(233 223 210 / 0.74);
     color: #302b28;
   }
 
   .tag--strong {
-    background: #651113;
+    background: linear-gradient(180deg, #7d171b, #651113);
     color: #fffaf4;
   }
 
   .tag--dark {
     border-color: rgb(255 250 244 / 0.16);
-    background: rgb(255 250 244 / 0.08);
+    background: rgb(255 250 244 / 0.09);
     color: #fffaf4;
+    box-shadow: none;
   }
 
   a.tag {

@@ -31,29 +31,42 @@ const { steps = processSteps, band = false } = Astro.props;
 
 <style>
   .process-section__list {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 2rem 0 0;
+    gap: clamp(0.9rem, 2vw, 1.2rem);
+    margin: clamp(1.5rem, 3vw, 2.2rem) 0 0;
     padding: 0;
     list-style: none;
   }
 
   li {
+    position: relative;
     min-width: 0;
-    border-top: 2px solid #651113;
-    padding-top: 1rem;
+    min-height: 100%;
+    border: 1px solid rgb(48 43 40 / 0.1);
+    border-radius: var(--radius-lg);
+    background: var(--surface-paper);
+    padding: clamp(1.15rem, 2.5vw, 1.45rem);
+    box-shadow: var(--shadow-soft);
   }
 
   span {
-    display: block;
+    display: inline-flex;
+    min-width: 2.45rem;
+    min-height: 2.45rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(101 17 19 / 0.16);
+    border-radius: 999px;
+    background: rgb(101 17 19 / 0.06);
     color: #ab3743;
     font-size: 0.86rem;
     font-weight: 820;
   }
 
   h3 {
-    margin: 0.75rem 0 0;
+    margin: 1rem 0 0;
     color: #2b090b;
     font-size: 1.15rem;
     font-weight: 820;
@@ -63,6 +76,7 @@ const { steps = processSteps, band = false } = Astro.props;
   p {
     margin: 0.45rem 0 0;
     color: #6b625c;
+    line-height: 1.62;
   }
 
   @media (max-width: 980px) {

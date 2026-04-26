@@ -44,7 +44,7 @@ const HeadingTag = `h${level}`;
     color: #15110f;
     font-weight: 820;
     letter-spacing: 0;
-    line-height: 1.04;
+    line-height: 1.02;
   }
 
   h1 {
@@ -61,9 +61,10 @@ const HeadingTag = `h${level}`;
 
   .section-heading__description {
     max-width: 42rem;
-    margin: 1rem 0 0;
+    margin: 1.05rem 0 0;
     color: #6b625c;
     font-size: 1.06rem;
+    line-height: 1.68;
   }
 
   .section-heading--center .section-heading__description {
@@ -101,6 +102,16 @@ const HeadingTag = `h${level}`;
 
     h2 {
       font-size: 3.35rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    h1 {
+      font-size: 2.12rem;
+    }
+
+    h2 {
+      font-size: 1.9rem;
     }
   }
 </style>

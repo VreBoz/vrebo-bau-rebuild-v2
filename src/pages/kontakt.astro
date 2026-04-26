@@ -71,7 +71,9 @@ const pageActions = [
 
 <style>
   .contact-section {
-    background: #f4efe8;
+    background:
+      linear-gradient(180deg, rgb(244 239 232 / 0.96), rgb(233 223 210 / 0.72)),
+      #f4efe8;
   }
 
   .contact-grid {
@@ -83,15 +85,25 @@ const pageActions = [
 
   .contact-aside {
     display: grid;
-    gap: 1rem;
+    gap: 1.05rem;
   }
 
   .contact-panel {
+    position: relative;
+    overflow: hidden;
     padding: clamp(1.25rem, 3vw, 2rem);
   }
 
+  .contact-panel::after {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.24rem;
+    background: linear-gradient(180deg, #ab3743, rgb(101 17 19 / 0.16));
+    content: "";
+  }
+
   .contact-panel--quiet {
-    background: rgb(255 250 244 / 0.7);
+    background: rgb(255 250 244 / 0.78);
     box-shadow: none;
   }
 
@@ -105,6 +117,7 @@ const pageActions = [
   .contact-panel p {
     margin: 0.9rem 0 0;
     color: #6b625c;
+    line-height: 1.66;
   }
 
   .contact-panel ul {
@@ -113,6 +126,7 @@ const pageActions = [
     margin: 1.4rem 0 0;
     padding-left: 1.1rem;
     color: #302b28;
+    line-height: 1.58;
   }
 
   @media (max-width: 820px) {

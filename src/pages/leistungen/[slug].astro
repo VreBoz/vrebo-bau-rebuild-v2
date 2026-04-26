@@ -2,6 +2,8 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
+import LinkArrow from '@/components/ui/LinkArrow.astro';
+import Tag from '@/components/ui/Tag.astro';
 import { serviceNavigation } from '@/data/navigation';
 import { breadcrumbSchema, serviceSchema, webPageSchema } from '@/utils/structuredData';
 
@@ -47,13 +49,18 @@ const relatedLinks = service.data.relatedServices
 >
   <section class="section-shell">
     <div class="site-container service-hero">
-      <div>
+      <div class="service-hero__copy">
         <p class="eyebrow">Leistungsdetail</p>
         <h1 class="page-title">{service.data.title}</h1>
         <p class="lede">{service.data.intro}</p>
         <div class="tag-row" aria-label="Leistungs-Tags">
-          {service.data.tags.map((tag) => <span>{tag}</span>)}
+          {service.data.tags.map((tag) => <Tag variant="light">{tag}</Tag>)}
         </div>
+        {service.data.areasServed.length > 0 && (
+          <p class="service-areas">
+            Einsatzgebiet: {service.data.areasServed.slice(0, 4).join(', ')}
+          </p>
+        )}
         <div class="service-actions">
           <Button href={`/kontakt?leistung=${service.data.slug}`} size="lg">Projekt anfragen</Button>
           <Button href="/leistungen" variant="secondary" size="lg">Alle Leistungen ansehen</Button>
@@ -81,15 +88,18 @@ const relatedLinks = service.data.relatedServices
     <div class="site-container detail-grid">
       <article class="surface detail-card">
         <p class="eyebrow">Leistungsumfang</p>
+        <h2>Was enthalten sein kann</h2>
         <ul>
           {service.data.servicesIncluded.map((item) => <li>{item}</li>)}
         </ul>
       </article>
       <article class="surface detail-card">
         <p class="eyebrow">Ablauf</p>
+        <h2>So bleibt der Ablauf geordnet</h2>
         <ol>
-          {service.data.processSteps.map((step) => (
+          {service.data.processSteps.map((step, index) => (
             <li>
+              <em>{String(index + 1).padStart(2, '0')}</em>
               <strong>{step.title}</strong>
               <span>{step.description}</span>
             </li>
@@ -99,6 +109,7 @@ const relatedLinks = service.data.relatedServices
       {service.data.benefits.length > 0 && (
         <article class="surface detail-card detail-card--accent">
           <p class="eyebrow">Worauf wir achten</p>
+          <h2>Qualität im Bestand</h2>
           <ul>
             {service.data.benefits.map((item) => <li>{item}</li>)}
           </ul>
@@ -113,6 +124,25 @@ const relatedLinks = service.data.relatedServices
       <Content />
     </div>
   </section>
+
+  {relatedLinks.length > 0 && (
+    <section class="section-shell--compact related-shell">
+      <div class="site-container related-section">
+        <div>
+          <p class="eyebrow">Verwandte Leistungen</p>
+          <h2>Passende Bereiche rund um {service.data.navLabel}</h2>
+        </div>
+        <div class="related-card-grid" aria-label="Verwandte Leistungen">
+          {relatedLinks.map((item) => (
+            <article class="related-card">
+              <span>{item.navLabel}</span>
+              <LinkArrow href={item.href} label={`${item.navLabel} ansehen`}>Ansehen</LinkArrow>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section-shell--compact service-cta-shell">
     <div class="site-container service-cta">
@@ -140,14 +170,19 @@ const relatedLinks = service.data.relatedServices
 <style>
   .service-hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.72fr);
+    grid-template-columns: minmax(0, 1.04fr) minmax(19rem, 0.78fr);
     gap: clamp(1.5rem, 5vw, 4rem);
     align-items: center;
   }
 
+  .service-hero__copy {
+    min-width: 0;
+  }
+
   .service-media {
+    position: relative;
     display: block;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 3.15;
     min-height: 24rem;
     overflow: hidden;
     background: #e9dfd2;
@@ -155,17 +190,31 @@ const relatedLinks = service.data.relatedServices
     font-weight: 780;
   }
 
+  .service-media::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, transparent 44%, rgb(21 17 15 / 0.16)),
+      linear-gradient(90deg, rgb(21 17 15 / 0.1), transparent 44%);
+    content: "";
+  }
+
   .service-media img {
     width: 100%;
     height: 100%;
     min-height: 24rem;
     object-fit: cover;
-    object-position: center;
+    object-position: center 52%;
   }
 
   .service-media--empty {
     display: grid;
     place-items: center;
+  }
+
+  .service-media--empty::after {
+    display: none;
   }
 
   .tag-row {
@@ -175,14 +224,11 @@ const relatedLinks = service.data.relatedServices
     margin-top: 1.5rem;
   }
 
-  .tag-row span {
-    border: 1px solid rgb(101 17 19 / 0.16);
-    border-radius: 999px;
-    padding: 0.4rem 0.7rem;
-    background: rgb(255 250 244 / 0.72);
-    color: #651113;
-    font-size: 0.86rem;
-    font-weight: 760;
+  .service-areas {
+    margin: 1rem 0 0;
+    color: #6b625c;
+    font-size: 0.95rem;
+    font-weight: 700;
   }
 
   .service-actions {
@@ -193,7 +239,9 @@ const relatedLinks = service.data.relatedServices
   }
 
   .detail-band {
-    background: #f4efe8;
+    background:
+      linear-gradient(180deg, rgb(244 239 232 / 0.96), rgb(233 223 210 / 0.78)),
+      #f4efe8;
   }
 
   .detail-grid {
@@ -208,7 +256,17 @@ const relatedLinks = service.data.relatedServices
   }
 
   .detail-card--accent {
-    background: #fffaf4;
+    background:
+      linear-gradient(145deg, rgb(101 17 19 / 0.075), transparent 46%),
+      #fffaf4;
+  }
+
+  .detail-card h2,
+  .related-section h2 {
+    margin: 0;
+    color: #2b090b;
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    line-height: 1.08;
   }
 
   ul,
@@ -218,6 +276,25 @@ const relatedLinks = service.data.relatedServices
     margin: 1rem 0 0;
     padding-left: 1.2rem;
     color: #6b625c;
+    line-height: 1.6;
+  }
+
+  ol {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  ol li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.2rem 0.7rem;
+  }
+
+  ol li em {
+    grid-row: span 2;
+    color: #ab3743;
+    font-style: normal;
+    font-weight: 820;
   }
 
   ol li span {
@@ -239,6 +316,52 @@ const relatedLinks = service.data.relatedServices
 
   .prose-shell :global(p) {
     margin: 0 0 1rem;
+    line-height: 1.72;
+  }
+
+  .related-shell {
+    background: #fffaf4;
+  }
+
+  .related-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+    gap: clamp(1.25rem, 4vw, 3rem);
+    align-items: start;
+    border-top: 1px solid rgb(48 43 40 / 0.1);
+    padding-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .related-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .related-card {
+    display: grid;
+    gap: 1rem;
+    min-width: 0;
+    border: 1px solid rgb(48 43 40 / 0.1);
+    border-radius: var(--radius-lg);
+    background: var(--surface-paper);
+    padding: 1.1rem;
+    box-shadow: var(--shadow-soft);
+    transition:
+      border-color var(--motion-duration) var(--ease-vrebo),
+      box-shadow var(--motion-duration) var(--ease-vrebo),
+      transform var(--motion-duration) var(--ease-vrebo);
+  }
+
+  .related-card:hover {
+    border-color: rgb(101 17 19 / 0.28);
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-2px);
+  }
+
+  .related-card > span {
+    color: #2b090b;
+    font-weight: 820;
   }
 
   .service-cta-shell {
@@ -305,7 +428,9 @@ const relatedLinks = service.data.relatedServices
 
   @media (max-width: 820px) {
     .service-hero,
-    .detail-grid {
+    .detail-grid,
+    .related-section,
+    .related-card-grid {
       grid-template-columns: 1fr;
     }
 

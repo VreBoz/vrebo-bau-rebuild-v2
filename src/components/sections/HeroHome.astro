@@ -53,44 +53,65 @@ const {
 
 <style>
   .hero-home {
-    padding: clamp(1rem, 2vw, 1.5rem) 0 var(--section-y-compact);
-    background: #fffaf4;
+    padding: clamp(1rem, 2vw, 1.45rem) 0 clamp(2.25rem, 5vw, 4rem);
+    background:
+      linear-gradient(180deg, rgb(255 250 244 / 0.92), rgb(244 239 232 / 0.28) 82%, transparent),
+      #fffaf4;
   }
 
   .hero-home__frame {
+    position: relative;
     display: grid;
-    min-height: 34rem;
-    grid-template-columns: minmax(0, 0.92fr) minmax(18rem, 0.78fr);
-    gap: clamp(1.25rem, 3vw, 2rem);
+    min-height: clamp(31rem, 50vw, 37rem);
+    grid-template-columns: minmax(0, 0.95fr) minmax(19rem, 0.82fr);
+    gap: clamp(1rem, 2.8vw, 2rem);
     overflow: hidden;
     border-radius: var(--radius-xl);
-    background: #15110f;
+    border: 1px solid rgb(255 250 244 / 0.1);
+    background:
+      linear-gradient(135deg, #15110f 0%, #211b18 52%, #2b090b 100%),
+      #15110f;
     color: #fffaf4;
     box-shadow: var(--shadow-dark);
   }
 
+  .hero-home__frame::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgb(255 250 244 / 0.055) 1px, transparent 1px),
+      linear-gradient(180deg, rgb(255 250 244 / 0.04) 1px, transparent 1px);
+    background-size: 5.5rem 5.5rem;
+    content: "";
+    mask-image: linear-gradient(90deg, black, transparent 62%);
+  }
+
   .hero-home__copy {
+    position: relative;
+    z-index: 1;
     display: grid;
     align-content: center;
     min-width: 0;
-    padding: clamp(1.5rem, 5vw, 4.5rem);
+    padding: clamp(1.65rem, 4.6vw, 4rem);
   }
 
   h1 {
     max-width: 48rem;
-    margin: 1.1rem 0 0;
+    margin: 1.18rem 0 0;
     color: #fffaf4;
     font-size: 2.55rem;
-    font-weight: 840;
+    font-weight: 850;
     letter-spacing: 0;
-    line-height: 1;
+    line-height: 0.99;
   }
 
   p {
     max-width: 39rem;
-    margin: 1.25rem 0 0;
-    color: rgb(255 250 244 / 0.76);
+    margin: 1.35rem 0 0;
+    color: rgb(255 250 244 / 0.78);
     font-size: 1.08rem;
+    line-height: 1.68;
   }
 
   .hero-home__actions {
@@ -103,10 +124,10 @@ const {
   .hero-home__trust {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.55rem 1rem;
-    margin: 2rem 0 0;
+    gap: 0.6rem;
+    margin: 2.15rem 0 0;
     padding: 0;
-    color: rgb(255 250 244 / 0.72);
+    color: rgb(255 250 244 / 0.8);
     font-size: 0.94rem;
     list-style: none;
   }
@@ -115,6 +136,10 @@ const {
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
+    border: 1px solid rgb(255 250 244 / 0.13);
+    border-radius: 999px;
+    padding: 0.48rem 0.7rem;
+    background: rgb(255 250 244 / 0.07);
   }
 
   .hero-home__trust li::before {
@@ -132,24 +157,39 @@ const {
     min-height: 100%;
     overflow: hidden;
     background:
-      linear-gradient(180deg, rgb(21 17 15 / 0.05), rgb(21 17 15 / 0.78)),
+      linear-gradient(180deg, rgb(21 17 15 / 0.02), rgb(21 17 15 / 0.72)),
       linear-gradient(145deg, #d6c6b4, #ab3743 62%, #651113);
+  }
+
+  .hero-home__media::before {
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 1;
+    width: 34%;
+    pointer-events: none;
+    background: linear-gradient(90deg, #15110f, rgb(21 17 15 / 0));
+    content: "";
   }
 
   .hero-home__media::after {
     position: absolute;
     inset: 0;
+    z-index: 1;
     pointer-events: none;
     content: "";
-    background: linear-gradient(180deg, rgb(21 17 15 / 0.02), rgb(21 17 15 / 0.34));
+    background:
+      linear-gradient(180deg, rgb(21 17 15 / 0.02), rgb(21 17 15 / 0.28)),
+      linear-gradient(90deg, rgb(21 17 15 / 0.04), transparent 30%);
   }
 
   .hero-home__media img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     min-height: 100%;
     object-fit: cover;
-    object-position: 52% 50%;
+    object-position: 56% 52%;
   }
 
   .hero-home__media--empty {
@@ -158,6 +198,7 @@ const {
     padding: 1.3rem;
   }
 
+  .hero-home__media--empty::before,
   .hero-home__media--empty::after {
     display: none;
   }
@@ -174,7 +215,7 @@ const {
 
   @media (min-width: 760px) {
     h1 {
-      font-size: 3.45rem;
+      font-size: 3.25rem;
     }
 
     p {
@@ -184,7 +225,7 @@ const {
 
   @media (min-width: 1180px) {
     h1 {
-      font-size: 4.45rem;
+      font-size: 4rem;
     }
   }
 
@@ -195,15 +236,24 @@ const {
     }
 
     .hero-home__media {
-      min-height: 13rem;
+      min-height: 16rem;
     }
 
     .hero-home__media img {
-      min-height: 13rem;
+      min-height: 16rem;
+      object-position: 52% 48%;
     }
   }
 
   @media (max-width: 520px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
     .hero-home__actions {
       flex-direction: column;
     }

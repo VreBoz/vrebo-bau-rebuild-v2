@@ -214,7 +214,21 @@ const mailtoHref =
 
 <style>
   .contact-form-shell {
+    position: relative;
+    overflow: hidden;
     padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .contact-form-shell::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 0.28rem;
+    background: linear-gradient(90deg, #651113, #ab3743, rgb(101 17 19 / 0.12));
+    content: "";
+  }
+
+  .contact-form-shell__intro {
+    position: relative;
   }
 
   .contact-form-shell__intro h2 {
@@ -266,8 +280,8 @@ const mailtoHref =
 
   .contact-form {
     display: grid;
-    gap: 1rem;
-    margin-top: 1.35rem;
+    gap: 1.05rem;
+    margin-top: 1.45rem;
   }
 
   .contact-form__grid {
@@ -306,12 +320,14 @@ const mailtoHref =
   .contact-field textarea,
   .contact-field select {
     width: 100%;
-    border: 1px solid rgb(48 43 40 / 0.16);
-    border-radius: var(--radius-sm);
-    background: #fffaf4;
-    padding: 0.78rem 0.85rem;
+    border: 1px solid rgb(48 43 40 / 0.14);
+    border-radius: var(--radius-md);
+    background: rgb(255 250 244 / 0.92);
+    padding: 0.82rem 0.9rem;
     color: #302b28;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.74) inset;
     transition:
+      background-color var(--motion-duration) var(--ease-vrebo),
       border-color var(--motion-duration) var(--ease-vrebo),
       box-shadow var(--motion-duration) var(--ease-vrebo);
   }
@@ -324,7 +340,9 @@ const mailtoHref =
   .contact-field input:focus,
   .contact-field textarea:focus,
   .contact-field select:focus {
+    background: #ffffff;
     border-color: rgb(101 17 19 / 0.42);
+    box-shadow: var(--focus-ring);
   }
 
   .contact-form__honeypot {
@@ -344,7 +362,8 @@ const mailtoHref =
 
   .contact-privacy {
     border-radius: var(--radius-md);
-    background: rgb(101 17 19 / 0.06);
+    border: 1px solid rgb(101 17 19 / 0.1);
+    background: rgb(101 17 19 / 0.055);
     padding: 0.85rem 1rem;
   }
 
