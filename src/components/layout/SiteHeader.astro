@@ -11,7 +11,7 @@ const normalizePath = (path: string) => path.replace(/\/$/, '') || '/';
 const normalizedCurrent = normalizePath(currentPath);
 const isHome = normalizedCurrent === '/';
 const brandLogo = isHome
-  ? { src: '/images/brand/vrebo-wordmark-outline.png', width: 372, height: 120 }
+  ? { src: '/images/brand/vrebo-bau-freilassing-combined.png', width: 1350, height: 231 }
   : { src: '/images/brand/vrebo-wordmark.png', width: 720, height: 214 };
 const isActive = (href: string) => {
   const normalizedHref = normalizePath(href);
@@ -25,7 +25,7 @@ const isActive = (href: string) => {
   <div class="site-container header-inner">
     <a class="brand-link" href="/" aria-label={`${SITE.name} Startseite`}>
       <img
-        class="brand-logo"
+        class:list={['brand-logo', { 'brand-logo--home-combined': isHome }]}
         src={brandLogo.src}
         alt=""
         width={brandLogo.width}
@@ -34,11 +34,11 @@ const isActive = (href: string) => {
       />
       {isHome ? (
         <img
-          class="brand-sublogo"
-          src="/images/brand/vrebo-bau-freilassing-outline.png"
+          class="brand-logo brand-logo--home-single"
+          src="/images/brand/vrebo-einzeln-outline.png"
           alt=""
-          width="330"
-          height="50"
+          width="676"
+          height="213"
           decoding="async"
         />
       ) : (
@@ -154,7 +154,6 @@ const isActive = (href: string) => {
   }
 
   .site-header--home .brand-link {
-    gap: clamp(0.08rem, 0.35vw, 0.22rem);
     background: transparent;
     padding: 0;
     box-shadow: none;
@@ -167,18 +166,17 @@ const isActive = (href: string) => {
   }
 
   .site-header--home .brand-logo {
-    width: clamp(7.2rem, 11.2vw, 9.35rem);
     filter: drop-shadow(0 5px 12px rgb(0 0 0 / 0.24));
   }
 
-  .brand-sublogo {
-    display: block;
-    width: clamp(7.2rem, 11vw, 9.8rem);
-    height: auto;
-    margin-top: 0.36rem;
-    margin-left: -0.08rem;
-    opacity: 0.96;
-    filter: drop-shadow(0 5px 12px rgb(0 0 0 / 0.2));
+  .brand-logo--home-combined {
+    width: clamp(20rem, 31vw, 31rem);
+    filter: drop-shadow(0 5px 12px rgb(0 0 0 / 0.24));
+  }
+
+  .brand-logo--home-single {
+    display: none;
+    width: clamp(6.8rem, 10.8vw, 9rem);
   }
 
   .brand-copy {
@@ -500,15 +498,16 @@ const isActive = (href: string) => {
       display: none;
     }
 
-    .brand-sublogo {
-      display: none;
-    }
-
     .brand-logo {
       width: clamp(6.55rem, 32vw, 7.5rem);
     }
 
-    .site-header--home .brand-logo {
+    .brand-logo--home-combined {
+      display: none;
+    }
+
+    .brand-logo--home-single {
+      display: block;
       width: clamp(6rem, 30vw, 7rem);
     }
 
