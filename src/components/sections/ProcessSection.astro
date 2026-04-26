@@ -63,22 +63,29 @@ const { steps = processSteps, band = false, home = false } = Astro.props;
 <style>
   .process-section--home {
     background:
-      linear-gradient(180deg, #fffaf4 0%, rgb(244 239 232 / 0.78) 100%),
+      linear-gradient(180deg, #fffaf4 0%, rgb(244 239 232 / 0.58) 100%),
       #fffaf4;
   }
 
   .process-section__home-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
-    gap: clamp(1.5rem, 5vw, 4.5rem);
-    align-items: start;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .process-section--home :global(.section-heading h2) {
+    font-size: clamp(2.35rem, 4.5vw, 3.05rem);
+    overflow-wrap: normal;
   }
 
   .process-section__note {
     margin-top: clamp(1.4rem, 3vw, 2.2rem);
     border-left: 0.28rem solid #ab3743;
-    background: rgb(255 250 244 / 0.72);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    background: rgb(255 250 244 / 0.86);
     padding: 1.15rem 1.25rem;
+    box-shadow: 0 18px 44px rgb(21 17 15 / 0.055);
   }
 
   .process-section__note strong {
@@ -94,45 +101,22 @@ const { steps = processSteps, band = false, home = false } = Astro.props;
   .process-section__timeline {
     position: relative;
     display: grid;
-    gap: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
   .process-section__timeline::before {
-    position: absolute;
-    top: 1.35rem;
-    bottom: 1.35rem;
-    left: 1.35rem;
-    width: 1px;
-    background: linear-gradient(180deg, #ab3743, rgb(48 43 40 / 0.12));
-    content: "";
+    content: none;
   }
 
   .process-section__timeline li {
     position: relative;
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
     gap: 1rem;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    padding: 0 0 clamp(1.2rem, 3vw, 1.65rem);
-    box-shadow: none;
-  }
-
-  .process-section__timeline li:last-child {
-    padding-bottom: 0;
-  }
-
-  .process-section__timeline span {
-    position: relative;
-    z-index: 1;
-    background: #fffaf4;
-  }
-
-  .process-section__timeline div {
     border: 1px solid rgb(48 43 40 / 0.1);
     border-radius: var(--radius-lg);
     background:
@@ -140,6 +124,14 @@ const { steps = processSteps, band = false, home = false } = Astro.props;
       var(--surface-paper);
     padding: clamp(1.05rem, 2vw, 1.35rem);
     box-shadow: var(--shadow-soft);
+  }
+
+  .process-section__timeline span {
+    background: #fffaf4;
+  }
+
+  .process-section__timeline h3 {
+    margin-top: 0;
   }
 
   .process-section__list {
@@ -202,6 +194,7 @@ const { steps = processSteps, band = false, home = false } = Astro.props;
   }
 
   @media (max-width: 580px) {
+    .process-section__timeline,
     .process-section__list {
       grid-template-columns: 1fr;
     }

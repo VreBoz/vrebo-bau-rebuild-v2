@@ -39,7 +39,7 @@ const { items = commonFaq, home = false } = Astro.props;
 <style>
   .faq-section--home {
     background:
-      linear-gradient(180deg, rgb(244 239 232 / 0.78), #fffaf4 100%),
+      linear-gradient(180deg, rgb(244 239 232 / 0.58), #fffaf4 100%),
       #fffaf4;
   }
 
@@ -51,8 +51,8 @@ const { items = commonFaq, home = false } = Astro.props;
   }
 
   .faq-section__grid--home {
-    grid-template-columns: minmax(0, 0.62fr) minmax(0, 0.38fr) minmax(0, 1fr);
-    gap: clamp(1.2rem, 3vw, 2rem);
+    grid-template-columns: minmax(0, 0.78fr) minmax(15rem, 0.42fr) minmax(0, 1.1fr);
+    gap: clamp(1rem, 3vw, 1.6rem);
     align-items: stretch;
   }
 
@@ -60,7 +60,9 @@ const { items = commonFaq, home = false } = Astro.props;
     align-self: start;
     border: 1px solid rgb(48 43 40 / 0.1);
     border-radius: var(--radius-lg);
-    background: var(--surface-paper);
+    background:
+      linear-gradient(145deg, rgb(101 17 19 / 0.07), transparent 52%),
+      var(--surface-paper);
     padding: clamp(1.05rem, 2vw, 1.35rem);
     box-shadow: var(--shadow-soft);
   }
@@ -84,9 +86,18 @@ const { items = commonFaq, home = false } = Astro.props;
   details {
     overflow: hidden;
     border: 1px solid rgb(48 43 40 / 0.1);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     background: var(--surface-paper);
     box-shadow: var(--shadow-soft);
+    transition:
+      border-color var(--motion-duration) var(--ease-vrebo),
+      box-shadow var(--motion-duration) var(--ease-vrebo);
+  }
+
+  details[open],
+  details:hover {
+    border-color: rgb(101 17 19 / 0.2);
+    box-shadow: var(--shadow-card);
   }
 
   summary {
@@ -96,6 +107,7 @@ const { items = commonFaq, home = false } = Astro.props;
     padding: 1.05rem 3rem 1.05rem 1.15rem;
     color: #2b090b;
     font-weight: 800;
+    line-height: 1.32;
   }
 
   summary::-webkit-details-marker {
