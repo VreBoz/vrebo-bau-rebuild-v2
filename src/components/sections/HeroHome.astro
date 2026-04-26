@@ -162,8 +162,8 @@ const {
     display: grid;
     align-content: center;
     min-height: clamp(28.5rem, 56vh, 38rem);
-    width: min(calc(100% - 2.25rem), var(--site-wide));
-    max-width: var(--site-wide);
+    width: min(calc(100% - 2.25rem), var(--site-max));
+    max-width: var(--site-max);
     min-width: 0;
     margin-inline: auto;
     padding: clamp(8rem, 12vw, 10rem) 0 clamp(10rem, 14vw, 11.5rem);
@@ -229,7 +229,7 @@ const {
     right: auto;
     bottom: clamp(1rem, 2vw, 1.5rem);
     left: 50%;
-    width: min(calc(100% - 2rem), var(--site-wide));
+    width: min(calc(100% - 2.25rem), var(--site-max));
     margin-inline: auto;
     transform: translateX(-50%);
     z-index: 1;
@@ -319,7 +319,7 @@ const {
 
     .hero-home__content {
       min-height: 35rem;
-      width: min(calc(100% - 1.25rem), var(--site-wide));
+      width: min(calc(100% - 1.25rem), var(--site-max));
       margin-inline: auto;
       padding-top: clamp(7rem, 18vw, 8.6rem);
       padding-bottom: clamp(2rem, 6vw, 3rem);
@@ -337,10 +337,10 @@ const {
     .hero-home__trustbar {
       position: relative;
       inset: auto;
-      width: auto;
+      width: min(calc(100% - 1.25rem), var(--site-max));
       transform: none;
       grid-template-columns: 1fr;
-      margin: 0 clamp(0.8rem, 2vw, 1.25rem) clamp(0.8rem, 2vw, 1.25rem);
+      margin: 0 auto clamp(0.8rem, 2vw, 1.25rem);
     }
 
     .hero-home__trustbar article + article {

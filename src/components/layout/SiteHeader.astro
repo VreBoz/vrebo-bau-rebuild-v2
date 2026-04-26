@@ -10,6 +10,9 @@ const { currentPath = '/' } = Astro.props;
 const normalizePath = (path: string) => path.replace(/\/$/, '') || '/';
 const normalizedCurrent = normalizePath(currentPath);
 const isHome = normalizedCurrent === '/';
+const brandLogo = isHome
+  ? { src: '/images/brand/vrebo-wordmark-outline.png', width: 372, height: 120 }
+  : { src: '/images/brand/vrebo-wordmark.png', width: 720, height: 214 };
 const isActive = (href: string) => {
   const normalizedHref = normalizePath(href);
   return normalizedHref === '/'
@@ -23,15 +26,26 @@ const isActive = (href: string) => {
     <a class="brand-link" href="/" aria-label={`${SITE.name} Startseite`}>
       <img
         class="brand-logo"
-        src="/images/brand/vrebo-wordmark.png"
+        src={brandLogo.src}
         alt=""
-        width="720"
-        height="214"
+        width={brandLogo.width}
+        height={brandLogo.height}
         decoding="async"
       />
-      <span class="brand-copy">
-        <small>Bau Freilassing</small>
-      </span>
+      {isHome ? (
+        <img
+          class="brand-sublogo"
+          src="/images/brand/vrebo-bau-freilassing-outline.png"
+          alt=""
+          width="330"
+          height="50"
+          decoding="async"
+        />
+      ) : (
+        <span class="brand-copy">
+          <small>Bau Freilassing</small>
+        </span>
+      )}
     </a>
 
     <nav class="desktop-nav" aria-label="Hauptnavigation">
@@ -139,21 +153,28 @@ const isActive = (href: string) => {
     font-weight: 820;
   }
 
+  .site-header--home .brand-link {
+    gap: clamp(0.38rem, 0.8vw, 0.58rem);
+  }
+
   .brand-logo {
     display: block;
     width: clamp(7.1rem, 11.5vw, 9.35rem);
     height: auto;
   }
 
-  .site-header--home .brand-link {
-    border: 1px solid rgb(255 250 244 / 0.16);
-    background: rgb(255 250 244 / 0.92);
-    padding: 0.26rem 0.64rem 0.26rem 0.58rem;
-    box-shadow: 0 1px 0 rgb(255 255 255 / 0.72) inset;
+  .site-header--home .brand-logo {
+    width: clamp(6.7rem, 10.4vw, 8.45rem);
+    filter: drop-shadow(0 5px 12px rgb(0 0 0 / 0.24));
   }
 
-  .site-header--home .brand-logo {
-    width: clamp(6.7rem, 10.4vw, 8.55rem);
+  .brand-sublogo {
+    display: block;
+    width: clamp(4.8rem, 7vw, 6rem);
+    height: auto;
+    margin-top: 0.08rem;
+    opacity: 0.96;
+    filter: drop-shadow(0 5px 12px rgb(0 0 0 / 0.2));
   }
 
   .brand-copy {
@@ -168,10 +189,6 @@ const isActive = (href: string) => {
     font-weight: 760;
     letter-spacing: 0.01em;
     text-transform: uppercase;
-  }
-
-  .site-header--home .brand-copy small {
-    color: #651113;
   }
 
   .desktop-nav {
@@ -479,16 +496,16 @@ const isActive = (href: string) => {
       display: none;
     }
 
+    .brand-sublogo {
+      display: none;
+    }
+
     .brand-logo {
       width: clamp(6.55rem, 32vw, 7.5rem);
     }
 
-    .site-header--home .brand-link {
-      padding: 0.18rem 0.48rem;
-    }
-
     .site-header--home .brand-logo {
-      width: clamp(6.2rem, 31vw, 7.1rem);
+      width: clamp(6rem, 30vw, 7rem);
     }
 
     .mobile-panel {
