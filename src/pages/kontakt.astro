@@ -62,6 +62,17 @@ const pageActions = [
             oder zunächst weitere Unterlagen sinnvoll sind.
           </p>
         </div>
+        <div class="contact-brand-card" aria-label="Regionale Einordnung">
+          <img
+            src="/images/brand/vrebo-wordmark.png"
+            alt=""
+            width="720"
+            height="214"
+            loading="lazy"
+            decoding="async"
+          />
+          <p>Freilassing, Bad Reichenhall und Berchtesgadener Land.</p>
+        </div>
       </aside>
 
       <ContactForm />
@@ -71,12 +82,32 @@ const pageActions = [
 
 <style>
   .contact-section {
+    position: relative;
+    overflow: hidden;
     background:
+      linear-gradient(118deg, transparent 0 68%, rgb(101 17 19 / 0.04) 68% 82%, transparent 82%),
       linear-gradient(180deg, rgb(244 239 232 / 0.96), rgb(233 223 210 / 0.72)),
       #f4efe8;
   }
 
+  .contact-section::after {
+    position: absolute;
+    left: -10rem;
+    bottom: -8rem;
+    width: min(42rem, 86vw);
+    height: 20rem;
+    pointer-events: none;
+    background-image: var(--brand-silhouette);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    opacity: 0.07;
+  }
+
   .contact-grid {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: minmax(0, 0.72fr) minmax(20rem, 0.78fr);
     gap: clamp(1.5rem, 5vw, 4rem);
@@ -105,6 +136,50 @@ const pageActions = [
   .contact-panel--quiet {
     background: rgb(255 250 244 / 0.78);
     box-shadow: none;
+  }
+
+  .contact-brand-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgb(48 43 40 / 0.1);
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(135deg, rgb(21 17 15 / 0.98), rgb(43 9 11 / 0.95)),
+      #15110f;
+    padding: 1.15rem;
+    color: #fffaf4;
+    box-shadow: var(--shadow-dark);
+  }
+
+  .contact-brand-card::after {
+    position: absolute;
+    inset: auto -2rem -4rem 18%;
+    height: 11rem;
+    background-image: var(--brand-silhouette);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    opacity: 0.18;
+    mix-blend-mode: screen;
+  }
+
+  .contact-brand-card img {
+    width: 6.9rem;
+    height: auto;
+    border-radius: var(--radius-sm);
+    background: #fffaf4;
+    padding: 0.42rem 0.54rem;
+  }
+
+  .contact-brand-card p {
+    position: relative;
+    z-index: 1;
+    max-width: 18rem;
+    margin: 1rem 0 0;
+    color: rgb(255 250 244 / 0.76);
+    font-weight: 720;
+    line-height: 1.55;
   }
 
   .contact-panel h2 {

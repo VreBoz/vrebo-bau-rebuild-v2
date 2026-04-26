@@ -31,8 +31,8 @@ const sortedServices = serviceNavigation
     websiteSchema(),
     webPageSchema({ title, description, path: '/' }),
   ]}
-  image={homeHeroImage.src}
-  imageAlt={homeHeroImage.alt}
+  image={SITE.ogImage}
+  imageAlt={SITE.ogImageAlt}
 >
   <HeroHome image={homeHeroImage} />
   <ServicesOverview

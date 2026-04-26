@@ -217,6 +217,9 @@ const mailtoHref =
     position: relative;
     overflow: hidden;
     padding: clamp(1.25rem, 3vw, 2rem);
+    background:
+      linear-gradient(135deg, rgb(255 255 255 / 0.46), transparent 42%),
+      var(--surface-paper);
   }
 
   .contact-form-shell::before {
@@ -320,12 +323,12 @@ const mailtoHref =
   .contact-field textarea,
   .contact-field select {
     width: 100%;
-    border: 1px solid rgb(48 43 40 / 0.14);
+    border: 1px solid rgb(48 43 40 / 0.13);
     border-radius: var(--radius-md);
-    background: rgb(255 250 244 / 0.92);
+    background: rgb(255 250 244 / 0.96);
     padding: 0.82rem 0.9rem;
     color: #302b28;
-    box-shadow: 0 1px 0 rgb(255 255 255 / 0.74) inset;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.82) inset, 0 10px 22px rgb(21 17 15 / 0.035);
     transition:
       background-color var(--motion-duration) var(--ease-vrebo),
       border-color var(--motion-duration) var(--ease-vrebo),

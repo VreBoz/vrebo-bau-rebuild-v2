@@ -97,6 +97,15 @@ Bewertung: `256x256-fav.png` wurde optimiert als Touch-/Brand-Favicon uebernomme
 | Abdichtung und Feuchtigkeitsschutz | `Bilder Webseite/komprimiert/bilder/20240605_082729.jpg` | `public/images/services/abdichtung-feuchtigkeitsschutz-terrasse.webp` |
 | Aussenanlagen | `Bilder Webseite/komprimiert/pflastern/20230324_110729.jpg` | `public/images/services/aussenanlagen-plattenweg.webp` |
 
+## In der finalen Design-Refinement-Phase ergaenzt
+
+| Ziel | Quelle | Ausgabe |
+| --- | --- | --- |
+| Dezentes Regional-/Brandmotiv | `new-figma-assets/visitenkarte-design/visitenkarte-mountain.png` | `public/images/regional/watzmann-brand-silhouette.webp` |
+| Dediziertes OG-Brandbild | `visitenkarte-mountain.png` + `public/images/brand/vrebo-wordmark.png` | `public/images/brand/vrebo-og-card.webp` |
+
+Bewertung: Das regionale Motiv wird nur als subtile Silhouette eingesetzt. Es ist kein touristisches Leitmotiv und ersetzt keine echten Projektbilder. Das OG-Bild nutzt die Wortmarke bewusst als Brand-Anker und verbindet sie mit der regionalen Silhouette.
+
 ## Optimierung
 
 - Alle Service- und Hero-Bilder wurden mit `sharp` nach WebP konvertiert und auf 1200-1400 px Breite begrenzt.

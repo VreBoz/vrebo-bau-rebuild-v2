@@ -23,8 +23,8 @@ export const SITE = {
     'Vrebo Bau begleitet Renovierung, Sanierung, Innenausbau und Badsanierung in Freilassing, Bad Reichenhall und dem Berchtesgadener Land.',
   description:
     'Regionales Bauunternehmen für Renovierung, Sanierung und Ausbau in Freilassing und Umgebung.',
-  ogImage: '/images/hero/vrebo-standort-fahrzeug.webp',
-  ogImageAlt: 'Vrebo Fahrzeug vor dem Standort in Freilassing',
+  ogImage: '/images/brand/vrebo-og-card.webp',
+  ogImageAlt: 'Vrebo Bau Markenmotiv für Renovierung, Sanierung und Ausbau in Freilassing',
   logo: '/images/brand/vrebo-wordmark.png',
   navigationCta: {
     label: 'Projekt anfragen',

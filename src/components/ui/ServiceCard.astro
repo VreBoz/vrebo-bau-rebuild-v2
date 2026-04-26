@@ -49,7 +49,7 @@ const number = String(index + 1).padStart(2, '0');
     display: grid;
     min-width: 0;
     overflow: hidden;
-    border: 1px solid rgb(48 43 40 / 0.1);
+    border: 1px solid rgb(48 43 40 / 0.11);
     border-radius: var(--radius-lg);
     background: var(--surface-paper);
     box-shadow: var(--shadow-card);
@@ -62,7 +62,19 @@ const number = String(index + 1).padStart(2, '0');
   .service-card:hover {
     border-color: rgb(101 17 19 / 0.3);
     box-shadow: var(--shadow-lift);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+  }
+
+  .service-card::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 5rem;
+    height: 0.28rem;
+    background: linear-gradient(90deg, transparent, #ab3743);
+    content: "";
+    opacity: 0.82;
   }
 
   .service-card__media {
@@ -109,6 +121,7 @@ const number = String(index + 1).padStart(2, '0');
     padding: 1rem;
     background:
       linear-gradient(145deg, rgb(43 9 11 / 0.92), rgb(101 17 19 / 0.72)),
+      var(--brand-silhouette) center bottom / 118% auto no-repeat,
       #302b28;
   }
 

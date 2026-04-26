@@ -58,12 +58,7 @@ const classes = ['ui-button', `ui-button--${variant}`, `ui-button--${size}`, { '
       background-color var(--motion-duration) var(--ease-vrebo),
       border-color var(--motion-duration) var(--ease-vrebo),
       color var(--motion-duration) var(--ease-vrebo),
-      box-shadow var(--motion-duration) var(--ease-vrebo),
-      transform var(--motion-duration) var(--ease-vrebo);
-  }
-
-  .ui-button:hover {
-    transform: translateY(-1px);
+      box-shadow var(--motion-duration) var(--ease-vrebo);
   }
 
   .ui-button--sm {
@@ -84,13 +79,13 @@ const classes = ['ui-button', `ui-button--${variant}`, `ui-button--${size}`, { '
   }
 
   .ui-button--primary {
-    background: linear-gradient(180deg, #7d171b, #651113);
+    background-color: #651113;
     color: #fffaf4;
     box-shadow: 0 1px 0 rgb(255 255 255 / 0.16) inset, 0 16px 34px rgb(101 17 19 / 0.2);
   }
 
   .ui-button--primary:hover {
-    background: linear-gradient(180deg, #651113, #2b090b);
+    background-color: #2b090b;
     box-shadow: 0 1px 0 rgb(255 255 255 / 0.1) inset, 0 20px 42px rgb(101 17 19 / 0.24);
   }
 
@@ -119,14 +114,15 @@ const classes = ['ui-button', `ui-button--${variant}`, `ui-button--${size}`, { '
 
   .ui-button--dark {
     border-color: rgb(255 250 244 / 0.18);
-    background: linear-gradient(180deg, #fffaf4, #f4efe8);
+    background-color: #fffaf4;
     color: #2b090b;
     box-shadow: 0 1px 0 rgb(255 255 255 / 0.42) inset, 0 16px 34px rgb(0 0 0 / 0.18);
   }
 
   .ui-button--dark:hover {
-    border-color: #fffaf4;
-    background: #ffffff;
+    border-color: rgb(255 250 244 / 0.42);
+    background-color: #ffffff;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.42) inset, 0 18px 38px rgb(0 0 0 / 0.2);
   }
 
   .ui-button--full {
@@ -136,7 +132,6 @@ const classes = ['ui-button', `ui-button--${variant}`, `ui-button--${size}`, { '
   .ui-button:disabled {
     cursor: not-allowed;
     opacity: 0.64;
-    transform: none;
   }
 
   @media (max-width: 520px) {

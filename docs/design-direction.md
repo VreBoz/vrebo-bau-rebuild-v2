@@ -258,3 +258,31 @@ In Phase 2 sollten globale Tokens angelegt werden fuer:
 ## Zusammenfassung
 
 Vrebo V2 soll ruhig, hochwertig und echt wirken. Die visuelle Qualitaet soll Quantum erreichen, aber die Marke soll klar anders sein: handwerklich, lokal, vertrauenswuerdig und conversion-orientiert.
+
+## Finale Design-Refinement-Phase
+
+Die finale Verfeinerung bleibt innerhalb der bestehenden Rosewood-/Stein-/Paper-Richtung. Es wurde kein neuer Stil eingefuehrt und kein Quantum-Muster kopiert.
+
+### Markencharakter
+
+- Die Vrebo-Wortmarke wird weiterhin sparsam genutzt: Header, Footer, ein kleines Hero-Badge, Kontakt-/Ueber-uns-Brandmomente und das OG-Bild.
+- Die Wortmarke bleibt ein Markenanker und wird nicht als Fliesstext- oder UI-Schrift verwendet.
+- Kleine Brandlines wie regionale Orte oder Haltungssaetze ersetzen generische Deko.
+
+### Regionale Motive
+
+- Das Watzmann-/Bergmotiv aus dem Visitenkartenkontext wurde als dezente Silhouette optimiert.
+- Einsatz nur als ruhiger Hintergrundakzent in Footer, CTA, Kontakt/Ueber-uns und Service-Detailbereichen.
+- Keine touristische Bildstrecke und keine grossflaechige Bergdominanz.
+
+### Hero-Entscheidung
+
+- Das echte Standort-/Fahrzeugbild bleibt fuer die Startseite erhalten, weil es authentisch und markennah ist.
+- Die Wirkung wurde ueber Crop, Overlay, Brand-Badge, lokale Signatur und ruhigere Text-/CTA-Balance veredelt.
+- Ein reines Berg- oder Illustrationsmotiv wurde bewusst nicht als Hero-Ersatz genutzt, weil es weniger klar Bauunternehmen und echte Vrebo-Praesenz zeigt.
+
+### Micro-Interactions und Oberflaechen
+
+- Button-Hover wurden stabilisiert: keine Transform-Spruenge, keine Border-/Padding-Aenderungen, reduzierte Transitionen.
+- Karten, Formulare und dunkle Flaechen erhalten mehr Staffelung ueber subtile Schatten, Linien und Akzentkanten.
+- Service-Detailseiten, Kontakt und Ueber uns wurden staerker als bewusst gestaltete Markenflaechen inszeniert, ohne Fake-Zahlen oder neue Trust-Claims.

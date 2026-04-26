@@ -17,6 +17,11 @@ import { legalNavigation, mainNavigation, serviceNavigation } from '@/data/navig
         />
       </a>
       <p>Renovierung, Sanierung und Ausbau mit regionalem Schwerpunkt in Freilassing und Umgebung.</p>
+      <div class="footer-brandline" aria-hidden="true">
+        <span>Regional</span>
+        <span>Sauber</span>
+        <span>Direkt</span>
+      </div>
       <a class="footer-primary" href="/kontakt">Projekt anfragen</a>
     </div>
 
@@ -69,8 +74,25 @@ import { legalNavigation, mainNavigation, serviceNavigation } from '@/data/navig
     mask-image: linear-gradient(180deg, black, transparent 80%);
   }
 
+  .site-footer::after {
+    position: absolute;
+    right: -12rem;
+    bottom: -4.5rem;
+    width: min(58rem, 82vw);
+    height: 24rem;
+    pointer-events: none;
+    background-image: var(--brand-silhouette);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    opacity: 0.16;
+    mix-blend-mode: screen;
+  }
+
   .footer-grid {
     position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 1fr));
     gap: clamp(2rem, 5vw, 4rem);
@@ -101,6 +123,24 @@ import { legalNavigation, mainNavigation, serviceNavigation } from '@/data/navig
     line-height: 1.68;
   }
 
+  .footer-brandline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1rem;
+    color: rgb(255 250 244 / 0.58);
+    font-size: 0.78rem;
+    font-weight: 780;
+    text-transform: uppercase;
+  }
+
+  .footer-brandline span {
+    border: 1px solid rgb(255 250 244 / 0.14);
+    border-radius: 999px;
+    padding: 0.36rem 0.58rem;
+    background: rgb(255 250 244 / 0.055);
+  }
+
   .site-footer h2 {
     margin: 0 0 0.9rem;
     color: rgb(255 250 244 / 0.92);
@@ -120,12 +160,12 @@ import { legalNavigation, mainNavigation, serviceNavigation } from '@/data/navig
     width: fit-content;
     transition:
       color var(--motion-duration) var(--ease-vrebo),
-      transform var(--motion-duration) var(--ease-vrebo);
+      background-color var(--motion-duration) var(--ease-vrebo),
+      border-color var(--motion-duration) var(--ease-vrebo);
   }
 
   .site-footer a:hover {
     color: #ffffff;
-    transform: translateX(0.12rem);
   }
 
   .footer-logo:hover {
@@ -148,8 +188,14 @@ import { legalNavigation, mainNavigation, serviceNavigation } from '@/data/navig
     background: rgb(255 250 244 / 0.08);
   }
 
+  .footer-primary:hover {
+    border-color: rgb(255 250 244 / 0.32);
+    background: rgb(255 250 244 / 0.12);
+  }
+
   .footer-bottom {
     position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;

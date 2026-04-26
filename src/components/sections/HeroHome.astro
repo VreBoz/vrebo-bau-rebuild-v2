@@ -26,6 +26,11 @@ const {
         <Button href="/kontakt" variant="dark" size="lg">Projekt anfragen</Button>
         <Button href="/leistungen" variant="ghost" size="lg">Leistungen ansehen</Button>
       </div>
+      <div class="hero-home__signature" aria-hidden="true">
+        <span>Freilassing</span>
+        <span>Bad Reichenhall</span>
+        <span>Berchtesgadener Land</span>
+      </div>
       <ul class="hero-home__trust" aria-label="Vertrauenssignale">
         <li>Direkter Ansprechpartner</li>
         <li>Saubere Ausführung</li>
@@ -47,6 +52,18 @@ const {
       ) : (
         <span>Projektmotiv</span>
       )}
+      {image && (
+        <div class="hero-home__brand-badge" aria-hidden="true">
+          <img
+            src="/images/brand/vrebo-wordmark.png"
+            alt=""
+            width="720"
+            height="214"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      )}
     </div>
   </div>
 </section>
@@ -63,16 +80,30 @@ const {
     position: relative;
     display: grid;
     min-height: clamp(31rem, 50vw, 37rem);
-    grid-template-columns: minmax(0, 0.95fr) minmax(19rem, 0.82fr);
-    gap: clamp(1rem, 2.8vw, 2rem);
+    grid-template-columns: minmax(0, 0.88fr) minmax(20rem, 0.92fr);
+    gap: 0;
     overflow: hidden;
     border-radius: var(--radius-xl);
-    border: 1px solid rgb(255 250 244 / 0.1);
+    border: 1px solid rgb(255 250 244 / 0.13);
     background:
-      linear-gradient(135deg, #15110f 0%, #211b18 52%, #2b090b 100%),
+      linear-gradient(135deg, #15110f 0%, #211b18 48%, #2b090b 100%),
       #15110f;
     color: #fffaf4;
     box-shadow: var(--shadow-dark);
+  }
+
+  .hero-home__frame::after {
+    position: absolute;
+    inset: auto -6% -18% 40%;
+    height: 58%;
+    pointer-events: none;
+    background-image: var(--brand-silhouette);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    opacity: 0.12;
+    mix-blend-mode: screen;
   }
 
   .hero-home__frame::before {
@@ -80,11 +111,11 @@ const {
     inset: 0;
     pointer-events: none;
     background:
-      linear-gradient(90deg, rgb(255 250 244 / 0.055) 1px, transparent 1px),
-      linear-gradient(180deg, rgb(255 250 244 / 0.04) 1px, transparent 1px);
+      linear-gradient(90deg, rgb(255 250 244 / 0.045) 1px, transparent 1px),
+      linear-gradient(180deg, rgb(255 250 244 / 0.034) 1px, transparent 1px);
     background-size: 5.5rem 5.5rem;
     content: "";
-    mask-image: linear-gradient(90deg, black, transparent 62%);
+    mask-image: linear-gradient(90deg, black, transparent 58%);
   }
 
   .hero-home__copy {
@@ -93,7 +124,7 @@ const {
     display: grid;
     align-content: center;
     min-width: 0;
-    padding: clamp(1.65rem, 4.6vw, 4rem);
+    padding: clamp(1.7rem, 4.8vw, 4.4rem);
   }
 
   h1 {
@@ -119,6 +150,30 @@ const {
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: 2rem;
+  }
+
+  .hero-home__signature {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.58rem;
+    margin-top: 1.15rem;
+    color: rgb(255 250 244 / 0.54);
+    font-size: 0.78rem;
+    font-weight: 760;
+    text-transform: uppercase;
+  }
+
+  .hero-home__signature span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.58rem;
+  }
+
+  .hero-home__signature span:not(:last-child)::after {
+    width: 1.45rem;
+    height: 1px;
+    background: rgb(171 55 67 / 0.72);
+    content: "";
   }
 
   .hero-home__trust {
@@ -165,9 +220,9 @@ const {
     position: absolute;
     inset: 0 auto 0 0;
     z-index: 1;
-    width: 34%;
+    width: 42%;
     pointer-events: none;
-    background: linear-gradient(90deg, #15110f, rgb(21 17 15 / 0));
+    background: linear-gradient(90deg, #15110f 0%, rgb(21 17 15 / 0.78) 32%, rgb(21 17 15 / 0));
     content: "";
   }
 
@@ -178,8 +233,8 @@ const {
     pointer-events: none;
     content: "";
     background:
-      linear-gradient(180deg, rgb(21 17 15 / 0.02), rgb(21 17 15 / 0.28)),
-      linear-gradient(90deg, rgb(21 17 15 / 0.04), transparent 30%);
+      linear-gradient(180deg, rgb(21 17 15 / 0.08), rgb(21 17 15 / 0.38)),
+      linear-gradient(90deg, rgb(21 17 15 / 0.06), transparent 30%);
   }
 
   .hero-home__media img {
@@ -189,7 +244,32 @@ const {
     height: 100%;
     min-height: 100%;
     object-fit: cover;
-    object-position: 56% 52%;
+    object-position: 48% 54%;
+    filter: saturate(0.95) contrast(1.04);
+  }
+
+  .hero-home__brand-badge {
+    position: absolute;
+    right: clamp(0.85rem, 2vw, 1.3rem);
+    bottom: clamp(0.85rem, 2vw, 1.3rem);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: clamp(6.5rem, 10vw, 8.4rem);
+    border: 1px solid rgb(255 250 244 / 0.26);
+    border-radius: var(--radius-md);
+    background: rgb(255 250 244 / 0.92);
+    padding: 0.48rem 0.62rem;
+    box-shadow: 0 18px 36px rgb(0 0 0 / 0.22);
+  }
+
+  .hero-home__brand-badge img {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+    filter: none;
   }
 
   .hero-home__media--empty {
@@ -235,8 +315,14 @@ const {
       grid-template-columns: 1fr;
     }
 
+    .hero-home__frame::after {
+      inset: auto -14% 10rem 6%;
+      height: 28%;
+    }
+
     .hero-home__media {
       min-height: 16rem;
+      order: -1;
     }
 
     .hero-home__media img {
