@@ -9,8 +9,8 @@ import { servicesOverviewImage } from '@/data/assets';
 import { serviceNavigation } from '@/data/navigation';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
-const title = 'Leistungen';
-const description = 'Leistungen für Renovierung, Sanierung, Ausbau und objektnahe Arbeiten von Vrebo Bau in Freilassing und Umgebung.';
+const title = 'Leistungen für Renovierung & Sanierung in Freilassing';
+const description = 'Leistungen von Vrebo Bau für Renovierung, Sanierung, Innenausbau, Badsanierung und objektnahe Arbeiten in Freilassing und Umgebung.';
 const services = await getCollection('services');
 const servicesBySlug = new Map(services.map((service) => [service.data.slug, service]));
 const sortedServices = serviceNavigation
@@ -33,6 +33,8 @@ const pageActions = [
       { name: 'Leistungen', path: '/leistungen' },
     ]),
   ]}
+  image={servicesOverviewImage.src}
+  imageAlt={servicesOverviewImage.alt}
 >
   <PageHero
     eyebrow="Leistungen"

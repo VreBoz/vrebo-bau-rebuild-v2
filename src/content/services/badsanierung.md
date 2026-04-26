@@ -4,7 +4,7 @@ slug: "badsanierung"
 navLabel: "Badsanierung"
 description: "Badmodernisierung mit sauberer Vorbereitung, abgestimmten Anschlüssen und Blick auf Feuchtraumdetails."
 seoTitle: "Badsanierung in Freilassing"
-seoDescription: "Badsanierung mit Vrebo Bau: Badmodernisierung, Vorbereitung, Abdichtung und Innenausbau in Freilassing und Umgebung."
+seoDescription: "Badsanierung mit Vrebo Bau: Badmodernisierung, Vorbereitung, Abdichtung und Innenausbau in Freilassing und Bad Reichenhall."
 heroImage:
   src: "/images/services/badsanierung-badbereich.webp"
   alt: "Fertiggestellter Badbereich mit Dusche und Fliesen"

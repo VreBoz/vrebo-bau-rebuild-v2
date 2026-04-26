@@ -4,8 +4,8 @@ import PageHero from '@/components/sections/PageHero.astro';
 import { homeHeroImage } from '@/data/assets';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
-const title = 'Kontakt';
-const description = 'Kontakt zu Vrebo Bau für Renovierung, Sanierung und Ausbau in Freilassing und Umgebung.';
+const title = 'Kontakt zu Vrebo Bau in Freilassing';
+const description = 'Kontakt für Renovierung, Sanierung, Badsanierung und Ausbau mit Vrebo Bau in Freilassing, Bad Reichenhall und Umgebung.';
 const pageActions = [
   { label: 'Zum Formular', href: '#anfrage', variant: 'primary' },
   { label: 'Leistungen ansehen', href: '/leistungen', variant: 'secondary' },
@@ -22,6 +22,8 @@ const pageActions = [
       { name: 'Kontakt', path: '/kontakt' },
     ]),
   ]}
+  image={homeHeroImage.src}
+  imageAlt={homeHeroImage.alt}
 >
   <PageHero
     eyebrow="Kontakt"

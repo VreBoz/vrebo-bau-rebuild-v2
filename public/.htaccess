@@ -1,0 +1,7 @@
+# Legacy Webflow service redirects for Apache/IONOS-style hosting.
+Redirect 301 /service/innenausbau /leistungen/trockenbau-innenausbau
+Redirect 301 /service/tueren-und-fenster /leistungen/fenster-tueren
+Redirect 301 /service/entruempelung /leistungen/entruempelung-rueckbau
+Redirect 301 /service/hausmeisterservice /leistungen/hausmeisterservice-objektpflege
+Redirect 301 /service/boden-verlegen /leistungen/bodenverlegung
+Redirect 301 /service/badsanierung /leistungen/badsanierung

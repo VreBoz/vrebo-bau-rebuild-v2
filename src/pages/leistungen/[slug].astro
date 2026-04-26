@@ -29,6 +29,8 @@ const relatedLinks = service.data.relatedServices
 <BaseLayout
   title={service.data.seoTitle}
   description={service.data.seoDescription}
+  image={service.data.heroImage?.src}
+  imageAlt={service.data.heroImage?.alt}
   jsonLd={[
     webPageSchema({
       title: service.data.title,

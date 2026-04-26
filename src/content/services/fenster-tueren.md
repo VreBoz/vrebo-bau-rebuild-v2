@@ -4,7 +4,7 @@ slug: "fenster-tueren"
 navLabel: "Fenster & Türen"
 description: "Austausch und Einbau von Fenstern und Türen mit Blick auf Aufmaß, Anschlüsse und angrenzende Flächen."
 seoTitle: "Fenster und Türen in Freilassing"
-seoDescription: "Fenster und Türen mit Vrebo Bau: Austausch, Einbau und Anschlussarbeiten in Freilassing und Umgebung."
+seoDescription: "Fenster und Türen mit Vrebo Bau: Austausch, Einbau und Anschlussarbeiten in Freilassing, Bad Reichenhall und Umgebung."
 heroImage:
   src: "/images/services/fenster-tueren-haustuer.webp"
   alt: "Neue Haustür an einer Fassade"

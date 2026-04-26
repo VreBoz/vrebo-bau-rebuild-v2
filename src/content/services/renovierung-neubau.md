@@ -3,7 +3,7 @@ title: "Renovierung und Neubau"
 slug: "renovierung-neubau"
 navLabel: "Renovierung & Neubau"
 description: "Renovierung, Modernisierung und bauliche Anpassungen für Wohn- und Objektbereiche."
-seoTitle: "Renovierung und Neubau in Freilassing"
+seoTitle: "Renovierung & Neubau in Freilassing"
 seoDescription: "Vrebo Bau begleitet Renovierung, Modernisierung und bauliche Anpassungen in Freilassing, Bad Reichenhall und Umgebung."
 heroImage:
   src: "/images/services/renovierung-neubau-flur.webp"

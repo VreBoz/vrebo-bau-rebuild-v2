@@ -4,8 +4,8 @@ import Button from '@/components/ui/Button.astro';
 import { servicesOverviewImage } from '@/data/assets';
 import { breadcrumbSchema, webPageSchema } from '@/utils/structuredData';
 
-const title = 'Über uns';
-const description = 'Vrebo Bau steht für regionale Nähe, saubere Arbeitsweise und direkte Abstimmung bei Bau- und Sanierungsprojekten.';
+const title = 'Über Vrebo Bau in Freilassing';
+const description = 'Vrebo Bau steht für regionale Nähe, saubere Arbeitsweise und direkte Abstimmung bei Bau- und Sanierungsprojekten in Freilassing.';
 const values = [
   {
     title: 'Lokale Nähe',
@@ -36,6 +36,8 @@ const values = [
       { name: 'Über uns', path: '/ueber-uns' },
     ]),
   ]}
+  image={servicesOverviewImage.src}
+  imageAlt={servicesOverviewImage.alt}
 >
   <section class="section-shell">
     <div class="site-container page-grid">

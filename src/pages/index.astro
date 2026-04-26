@@ -10,9 +10,9 @@ import FinalCTA from '@/components/sections/FinalCTA.astro';
 import { homeHeroImage } from '@/data/assets';
 import { SITE } from '@/data/site';
 import { serviceNavigation } from '@/data/navigation';
-import { localBusinessSchema, organizationSchema, webPageSchema } from '@/utils/structuredData';
+import { localBusinessSchema, organizationSchema, webPageSchema, websiteSchema } from '@/utils/structuredData';
 
-const title = 'Startseite';
+const title = 'Bauunternehmen in Freilassing für Renovierung & Sanierung';
 const description = SITE.defaultDescription;
 const services = await getCollection('services');
 const servicesBySlug = new Map(services.map((service) => [service.data.slug, service]));
@@ -28,8 +28,11 @@ const sortedServices = serviceNavigation
   jsonLd={[
     organizationSchema(),
     localBusinessSchema(),
+    websiteSchema(),
     webPageSchema({ title, description, path: '/' }),
   ]}
+  image={homeHeroImage.src}
+  imageAlt={homeHeroImage.alt}
 >
   <HeroHome image={homeHeroImage} />
   <ServicesOverview
