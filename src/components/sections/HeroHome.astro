@@ -17,7 +17,7 @@ const {
 ---
 
 <section class="hero-home">
-  <div class="site-container--wide hero-home__stage">
+  <div class="hero-home__stage">
     <div class:list={['hero-home__media', { 'hero-home__media--empty': !image }]}>
       {image ? (
         <img
@@ -80,24 +80,26 @@ const {
 
 <style>
   .hero-home {
-    padding: clamp(0.25rem, 1.1vw, 0.72rem) 0 clamp(2.5rem, 6vw, 5rem);
+    overflow: hidden;
+    padding: 0;
     background:
-      linear-gradient(180deg, rgb(255 250 244 / 0.9), rgb(244 239 232 / 0.42) 72%, transparent),
-      #fffaf4;
+      linear-gradient(180deg, #15110f 0%, #211b18 72%, #fffaf4 100%),
+      #15110f;
   }
 
   .hero-home__stage {
     position: relative;
     isolation: isolate;
-    min-height: clamp(38rem, 72vh, 48rem);
+    width: 100%;
+    min-height: clamp(44rem, 100svh, 58rem);
     overflow: hidden;
-    border: 1px solid rgb(255 250 244 / 0.13);
-    border-radius: clamp(1rem, 1.8vw, 1.45rem);
+    border: 0;
+    border-radius: 0;
     background:
       linear-gradient(135deg, #15110f 0%, #211b18 48%, #2b090b 100%),
       #15110f;
     color: #fffaf4;
-    box-shadow: 0 28px 74px rgb(0 0 0 / 0.26);
+    box-shadow: none;
   }
 
   .hero-home__stage::before {
@@ -106,8 +108,8 @@ const {
     z-index: -1;
     pointer-events: none;
     background:
-      linear-gradient(90deg, rgb(21 17 15 / 0.94) 0%, rgb(21 17 15 / 0.86) 30%, rgb(21 17 15 / 0.52) 56%, rgb(21 17 15 / 0.15) 100%),
-      linear-gradient(180deg, rgb(21 17 15 / 0.18), rgb(21 17 15 / 0.72));
+      linear-gradient(90deg, rgb(21 17 15 / 0.95) 0%, rgb(21 17 15 / 0.86) 31%, rgb(21 17 15 / 0.56) 58%, rgb(21 17 15 / 0.18) 100%),
+      linear-gradient(180deg, rgb(21 17 15 / 0.12), rgb(21 17 15 / 0.78));
     content: "";
   }
 
@@ -138,9 +140,9 @@ const {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 61% 48%;
-    filter: saturate(0.9) contrast(1.06) brightness(0.94);
-    transform: scale(1.01);
+    object-position: 62% 48%;
+    filter: saturate(0.92) contrast(1.06) brightness(0.92);
+    transform: scale(1.005);
   }
 
   .hero-home__building {
@@ -160,10 +162,11 @@ const {
     display: grid;
     align-content: center;
     min-height: clamp(28.5rem, 56vh, 38rem);
-    width: 100%;
-    max-width: 53rem;
+    width: min(calc(100% - 2.25rem), var(--site-wide));
+    max-width: var(--site-wide);
     min-width: 0;
-    padding: clamp(1.6rem, 5.4vw, 5.1rem) clamp(1.35rem, 5.2vw, 4.6rem) clamp(9rem, 14vw, 11.25rem);
+    margin-inline: auto;
+    padding: clamp(8rem, 12vw, 10rem) 0 clamp(10rem, 14vw, 11.5rem);
   }
 
   .hero-home__label {
@@ -184,10 +187,10 @@ const {
 
   h1 {
     width: 100%;
-    max-width: 50rem;
+    max-width: 52rem;
     margin: 1.25rem 0 0;
     color: #fffaf4;
-    font-size: 2.6rem;
+    font-size: 2.75rem;
     font-weight: 790;
     letter-spacing: 0;
     line-height: 1.02;
@@ -223,9 +226,12 @@ const {
 
   .hero-home__trustbar {
     position: absolute;
-    right: clamp(0.8rem, 2vw, 1.25rem);
-    bottom: clamp(0.8rem, 2vw, 1.25rem);
-    left: clamp(0.8rem, 2vw, 1.25rem);
+    right: auto;
+    bottom: clamp(1rem, 2vw, 1.5rem);
+    left: 50%;
+    width: min(calc(100% - 2rem), var(--site-wide));
+    margin-inline: auto;
+    transform: translateX(-50%);
     z-index: 1;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -286,7 +292,7 @@ const {
 
   @media (min-width: 760px) {
     h1 {
-      font-size: 3.72rem;
+      font-size: 3.95rem;
     }
 
     p {
@@ -296,13 +302,13 @@ const {
 
   @media (min-width: 1180px) {
     h1 {
-      font-size: 5rem;
+      font-size: 5.28rem;
     }
   }
 
   @media (max-width: 900px) {
     .hero-home__stage {
-      min-height: auto;
+      min-height: clamp(42rem, 100svh, 54rem);
     }
 
     .hero-home__stage::before {
@@ -312,7 +318,10 @@ const {
     }
 
     .hero-home__content {
-      min-height: 32rem;
+      min-height: 35rem;
+      width: min(calc(100% - 1.25rem), var(--site-wide));
+      margin-inline: auto;
+      padding-top: clamp(7rem, 18vw, 8.6rem);
       padding-bottom: clamp(2rem, 6vw, 3rem);
     }
 
@@ -328,6 +337,8 @@ const {
     .hero-home__trustbar {
       position: relative;
       inset: auto;
+      width: auto;
+      transform: none;
       grid-template-columns: 1fr;
       margin: 0 clamp(0.8rem, 2vw, 1.25rem) clamp(0.8rem, 2vw, 1.25rem);
     }
@@ -340,6 +351,8 @@ const {
 
   @media (max-width: 640px) {
     .hero-home__content {
+      min-height: 34rem;
+      padding-top: clamp(6.25rem, 23vw, 7.4rem);
       padding-right: 1.35rem;
       padding-left: 1.35rem;
     }

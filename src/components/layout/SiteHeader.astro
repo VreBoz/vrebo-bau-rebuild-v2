@@ -9,6 +9,7 @@ interface Props {
 const { currentPath = '/' } = Astro.props;
 const normalizePath = (path: string) => path.replace(/\/$/, '') || '/';
 const normalizedCurrent = normalizePath(currentPath);
+const isHome = normalizedCurrent === '/';
 const isActive = (href: string) => {
   const normalizedHref = normalizePath(href);
   return normalizedHref === '/'
@@ -17,7 +18,7 @@ const isActive = (href: string) => {
 };
 ---
 
-<header class="site-header">
+<header class:list={['site-header', { 'site-header--home': isHome }]}>
   <div class="site-container header-inner">
     <a class="brand-link" href="/" aria-label={`${SITE.name} Startseite`}>
       <img
@@ -92,6 +93,15 @@ const isActive = (href: string) => {
     backdrop-filter: blur(16px);
   }
 
+  .site-header--home {
+    position: fixed;
+    right: 0;
+    left: 0;
+    padding-block: clamp(0.72rem, 1.6vw, 1.05rem);
+    background: linear-gradient(180deg, rgb(21 17 15 / 0.34), transparent);
+    backdrop-filter: none;
+  }
+
   .header-inner {
     position: relative;
     display: flex;
@@ -109,6 +119,17 @@ const isActive = (href: string) => {
       0 12px 34px rgb(21 17 15 / 0.055);
   }
 
+  .site-header--home .header-inner {
+    border-color: rgb(255 250 244 / 0.12);
+    background:
+      linear-gradient(180deg, rgb(255 250 244 / 0.055), transparent 70%),
+      rgb(21 17 15 / 0.82);
+    box-shadow:
+      0 1px 0 rgb(255 250 244 / 0.1) inset,
+      0 24px 60px rgb(0 0 0 / 0.28);
+    backdrop-filter: blur(16px);
+  }
+
   .brand-link {
     display: inline-flex;
     min-width: max-content;
@@ -124,6 +145,17 @@ const isActive = (href: string) => {
     height: auto;
   }
 
+  .site-header--home .brand-link {
+    border: 1px solid rgb(255 250 244 / 0.16);
+    background: rgb(255 250 244 / 0.92);
+    padding: 0.26rem 0.64rem 0.26rem 0.58rem;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.72) inset;
+  }
+
+  .site-header--home .brand-logo {
+    width: clamp(6.7rem, 10.4vw, 8.55rem);
+  }
+
   .brand-copy {
     display: grid;
     gap: 0.05rem;
@@ -136,6 +168,10 @@ const isActive = (href: string) => {
     font-weight: 760;
     letter-spacing: 0.01em;
     text-transform: uppercase;
+  }
+
+  .site-header--home .brand-copy small {
+    color: #651113;
   }
 
   .desktop-nav {
@@ -163,6 +199,11 @@ const isActive = (href: string) => {
       color var(--motion-duration) var(--ease-vrebo);
   }
 
+  .site-header--home .nav-link,
+  .site-header--home .nav-dropdown summary {
+    color: rgb(255 250 244 / 0.82);
+  }
+
   .nav-dropdown summary::-webkit-details-marker {
     display: none;
   }
@@ -183,6 +224,20 @@ const isActive = (href: string) => {
     box-shadow: 0 1px 0 rgb(255 255 255 / 0.72) inset;
   }
 
+  .site-header--home .nav-link:hover,
+  .site-header--home .nav-dropdown[open] summary,
+  .site-header--home .nav-dropdown summary:hover {
+    background: rgb(255 250 244 / 0.085);
+    color: #fffaf4;
+  }
+
+  .site-header--home .nav-link.is-active,
+  .site-header--home .nav-dropdown summary.is-active {
+    background: rgb(255 250 244 / 0.12);
+    color: #fffaf4;
+    box-shadow: 0 1px 0 rgb(255 250 244 / 0.12) inset;
+  }
+
   .nav-dropdown {
     position: relative;
   }
@@ -200,12 +255,25 @@ const isActive = (href: string) => {
     box-shadow: var(--shadow-lift);
   }
 
+  .site-header--home .dropdown-panel {
+    border-color: rgb(255 250 244 / 0.14);
+    background:
+      linear-gradient(180deg, rgb(255 250 244 / 0.06), transparent 58%),
+      rgb(21 17 15 / 0.94);
+    box-shadow: 0 26px 70px rgb(0 0 0 / 0.34);
+  }
+
   .dropdown-overview {
     display: block;
     border-bottom: 1px solid rgb(48 43 40 / 0.1);
     padding: 0.25rem 0.42rem 0.95rem;
     color: #651113;
     font-weight: 800;
+  }
+
+  .site-header--home .dropdown-overview {
+    border-bottom-color: rgb(255 250 244 / 0.12);
+    color: #fffaf4;
   }
 
   .dropdown-grid {
@@ -226,10 +294,19 @@ const isActive = (href: string) => {
       color var(--motion-duration) var(--ease-vrebo);
   }
 
+  .site-header--home .dropdown-grid a {
+    color: rgb(255 250 244 / 0.78);
+  }
+
   .dropdown-grid a:hover,
   .mobile-services a:hover {
     background: rgb(233 223 210 / 0.6);
     color: #651113;
+  }
+
+  .site-header--home .dropdown-grid a:hover {
+    background: rgb(255 250 244 / 0.08);
+    color: #fffaf4;
   }
 
   .header-cta {
@@ -238,6 +315,18 @@ const isActive = (href: string) => {
     padding-inline: 1.04rem;
     font-size: 0.93rem;
     box-shadow: 0 1px 0 rgb(255 255 255 / 0.16) inset, 0 11px 24px rgb(101 17 19 / 0.17);
+  }
+
+  .site-header--home .header-cta {
+    border-color: rgb(255 250 244 / 0.18);
+    background: #fffaf4;
+    color: #2b090b;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.52) inset, 0 16px 34px rgb(0 0 0 / 0.2);
+  }
+
+  .site-header--home .header-cta:hover {
+    background: #ffffff;
+    color: #2b090b;
   }
 
   .mobile-nav {
@@ -259,6 +348,16 @@ const isActive = (href: string) => {
     box-shadow: 0 10px 24px rgb(101 17 19 / 0.1);
     list-style: none;
     cursor: pointer;
+  }
+
+  .site-header--home .mobile-nav summary {
+    border-color: rgb(255 250 244 / 0.18);
+    background: rgb(255 250 244 / 0.1);
+    box-shadow: none;
+  }
+
+  .site-header--home .mobile-nav summary span {
+    background: #fffaf4;
   }
 
   .mobile-nav summary::-webkit-details-marker {
@@ -293,6 +392,14 @@ const isActive = (href: string) => {
     box-shadow: var(--shadow-lift);
   }
 
+  .site-header--home .mobile-panel {
+    border-color: rgb(255 250 244 / 0.14);
+    background:
+      linear-gradient(180deg, rgb(255 250 244 / 0.07), transparent 56%),
+      rgb(21 17 15 / 0.96);
+    box-shadow: 0 26px 70px rgb(0 0 0 / 0.34);
+  }
+
   .mobile-panel > a:not(.button) {
     display: block;
     border-radius: var(--radius-sm);
@@ -300,14 +407,35 @@ const isActive = (href: string) => {
     font-weight: 760;
   }
 
+  .site-header--home .mobile-panel > a:not(.button),
+  .site-header--home .mobile-services a {
+    color: rgb(255 250 244 / 0.82);
+  }
+
   .mobile-panel > a:not(.button):hover {
     background: rgb(233 223 210 / 0.52);
     color: #651113;
   }
 
+  .site-header--home .mobile-panel > a:not(.button):hover,
+  .site-header--home .mobile-services a:hover {
+    background: rgb(255 250 244 / 0.08);
+    color: #fffaf4;
+  }
+
   .mobile-panel > a.is-active {
     background: rgb(101 17 19 / 0.08);
     color: #651113;
+  }
+
+  .site-header--home .mobile-panel > a.is-active {
+    background: rgb(255 250 244 / 0.12);
+    color: #fffaf4;
+  }
+
+  .site-header--home .mobile-panel .button {
+    background: #fffaf4;
+    color: #2b090b;
   }
 
   .mobile-services {
@@ -316,6 +444,10 @@ const isActive = (href: string) => {
     margin: 0.5rem 0 1rem;
     border-block: 1px solid rgb(48 43 40 / 0.1);
     padding-block: 0.6rem;
+  }
+
+  .site-header--home .mobile-services {
+    border-block-color: rgb(255 250 244 / 0.12);
   }
 
   @media (max-width: 920px) {
@@ -334,6 +466,10 @@ const isActive = (href: string) => {
       padding-block: 0.32rem;
     }
 
+    .site-header--home {
+      padding-block: 0.55rem;
+    }
+
     .header-inner {
       min-height: calc(var(--header-height) - 1.25rem);
       padding: 0.3rem 0.36rem 0.3rem 0.58rem;
@@ -345,6 +481,14 @@ const isActive = (href: string) => {
 
     .brand-logo {
       width: clamp(6.55rem, 32vw, 7.5rem);
+    }
+
+    .site-header--home .brand-link {
+      padding: 0.18rem 0.48rem;
+    }
+
+    .site-header--home .brand-logo {
+      width: clamp(6.2rem, 31vw, 7.1rem);
     }
 
     .mobile-panel {
